@@ -145,7 +145,7 @@ You can also use containers on Lambda, implementing the Lambda Runtime API.
 
 Lambda integrates with numerous AWS services. Here are a few examples:
 
-![AWS Lambda Integrations](/doc/img/AWS_Lambda_Integrations.png)
+![AWS Lambda Integrations](./img/AWS_Lambda_Integrations.png)
 
 *   **API Gateway:** Create REST APIs that invoke Lambda functions.
 *   **Kinesis:** Perform data transformations on the fly.
@@ -169,7 +169,7 @@ Here are a couple of common use cases for AWS Lambda:
     4.  Thumbnail uploaded to another (or the same) S3 bucket.
     5.  Lambda function inserts metadata into DynamoDB (image name, size, creation date, etc.).
 
-![AWS Lambda Use Cases - Serverless Thumbnail Creation](/doc/img/aws_lambda_use_cases-serverless_thumbnail_creation.png)
+![AWS Lambda Use Cases - Serverless Thumbnail Creation](./img/aws_lambda_use_cases-serverless_thumbnail_creation.png)
 
 *   📌 **Example-2:** **Serverless CRON Job**
     1.  CloudWatch Event/EventBridge rule triggered every hour.
@@ -178,7 +178,7 @@ Here are a couple of common use cases for AWS Lambda:
 
 ### Lambda Pricing
 
-![AWS Lambda Pricing](/doc/img/aws_lambda_pricing.png)
+![AWS Lambda Pricing](./img/aws_lambda_pricing.png)
 
 *   Pay per call: First 1 million requests are free, then $0.20 per 1 million requests.
 *   Pay per duration: First 400,000 GB-seconds of compute time per month are free, then \$1.00 per 600,000 GB-seconds.
@@ -400,7 +400,7 @@ The behavior of throttling depends on the invocation type:
 
 ### The Importance of Careful Concurrency Management ⚠️
 
-![Lambda Concurrency Management](/doc/img/Lambda_concurrency_management.png)
+![Lambda Concurrency Management](./img/Lambda_concurrency_management.png)
 
 Failing to set reserved concurrency limits can lead to unexpected throttling issues. Consider this scenario:
 
@@ -417,7 +417,7 @@ Failing to set reserved concurrency limits can lead to unexpected throttling iss
 
 ### Concurrency and Asynchronous Invocations
 
-![Lambda Concurrency and Asynchronous Invocations](/doc/img/Lambda_concurrency_and_asynchronous_invocations.png)
+![Lambda Concurrency and Asynchronous Invocations](./img/Lambda_concurrency_and_asynchronous_invocations.png)
 
 Let's consider S3 event notifications as an example of asynchronous invocations.
 
@@ -451,7 +451,7 @@ To mitigate cold starts, you can use **provisioned concurrency**. This involves 
 For a deeper understanding of reserved concurrency and provisioned concurrency, refer to the diagrams provided in the slides. These diagrams visually illustrate how these concepts work:- [https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html
 ](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html)
 
-![AWS Lambda Concurrency and Provisioned Concurrency](/doc/img/AWS_Lambda_Concurrency_and_Provisioned_Concurrency.png)
+![AWS Lambda Concurrency and Provisioned Concurrency](./img/AWS_Lambda_Concurrency_and_Provisioned_Concurrency.png)
 
 ### Hands-on Exploration
 
@@ -530,7 +530,7 @@ The **Initialize** phase can often be time-consuming, especially for languages l
 
 With SnapStart *enabled*, a key optimization is introduced: **pre-initialization**.
 
-![Lambda SnapStart](/doc/img/Lambda_SnapStart.png)
+![Lambda SnapStart](./img/Lambda_SnapStart.png)
 
 The lifecycle changes to:
 
@@ -579,7 +579,7 @@ Edge Functions can be used for a variety of customizations, including:
 
 Let's examine CloudFront Functions and how they operate.
 
-![CloudFront Functions](/doc/img/CloudFront_Functions.png)
+![CloudFront Functions](./img/CloudFront_Functions.png)
 
 A typical request flow in CloudFront looks like this:
 
@@ -602,7 +602,7 @@ CloudFront Functions are a native feature of CloudFront, and the code is managed
 
 Lambda@Edge provides more flexibility.
 
-![Lambda@Edge](/doc/img/Lambda@Edge.png)
+![Lambda@Edge](./img/Lambda@Edge.png)
 
 These functions are written in NodeJS or Python and scale to thousands of requests per second. They can modify all CloudFront requests and responses:
 
@@ -660,7 +660,7 @@ By default, Lambda functions are launched outside of your VPC, specifically in a
 *   This default deployment works if your Lambda function needs to access public APIs on the internet or services like DynamoDB, which are public AWS resources.
 *   However, if you need to access a private RDS database, the connection will fail.
 
-![Default Lambda Deployment](/doc/img/default-lambda-deployment.png)
+![Default Lambda Deployment](./img/default-lambda-deployment.png)
 
 To enable access to resources within your VPC, you need to launch your Lambda function within your VPC. Here's how:
 
@@ -670,7 +670,7 @@ To enable access to resources within your VPC, you need to launch your Lambda fu
 
 This will create an Elastic Network Interface (ENI) for your Lambda function within your chosen subnets, allowing it to access resources like your Amazon RDS database running in your VPC. This provides private connectivity to anything within your VPC.
 
-![Lambda in VPC](/doc/img/lambda-in-vpc.png)
+![Lambda in VPC](./img/lambda-in-vpc.png)
 
 A major use case for Lambda in a VPC is integrating it with the RDS Proxy.
 
@@ -679,7 +679,7 @@ A major use case for Lambda in a VPC is integrating it with the RDS Proxy.
 
 To solve this, launch an RDS Proxy. The RDS Proxy pools connections and connects to your RDS database instance with fewer connections. Your Lambda functions then connect to the RDS Proxy, which in turn connects to the RDS database instance.
 
-![Lambda RDS Proxy](/doc/img/lambda-rds-proxy.png)
+![Lambda RDS Proxy](./img/lambda-rds-proxy.png)
 
 The RDS Proxy offers several benefits:
 
@@ -711,7 +711,7 @@ Here's how it works:
 
 📝 **Note:** You must set up this integration from within the database by connecting to it, not from the AWS console.
 
-![RDS Lambda Integration](/doc/img/rds-lambda-integration.png)
+![RDS Lambda Integration](./img/rds-lambda-integration.png)
 
 When the RDS instance invokes the Lambda function, ensure the following:
 
@@ -725,7 +725,7 @@ When the RDS instance invokes the Lambda function, ensure the following:
 
 ⚠️ **Warning:** This is different from using RDS event notifications. RDS event notifications provide information about the database instance itself (e.g., creation time, start time), not the data within the database. Don't confuse the two!
 
-![RDS Event Notifications](/doc/img/rds-event-notifications.png)
+![RDS Event Notifications](./img/rds-event-notifications.png)
 
 RDS event notifications can provide information about:
 
@@ -801,7 +801,7 @@ A DynamoDB table's primary key can consist of:
 
 📌 **Example:** A table might have `UserID` as the partition key and `Timestamp` as the sort key.
 
-![DynamoDB Primary Key](/doc/img/DynamoDB_primary_key.png)
+![DynamoDB Primary Key](./img/DynamoDB_primary_key.png)
 
 ### Capacity Modes
 
@@ -892,7 +892,7 @@ After creating the table, you can insert items:
 5.  Add attributes to the item. 📌 **Example:** `name: Stephane Maarek`, `favorite_movie: Memento`, `favorite_number: 42`.
 6.  Click "Create item" to insert the data.
 
-![DynamoDB Insert Table Data - Sample](/doc/img/DynamoDB_Insert_Table_Sample_Data.png)
+![DynamoDB Insert Table Data - Sample](./img/DynamoDB_Insert_Table_Sample_Data.png)
 
 📌 **Example:**
 ```json
@@ -924,7 +924,7 @@ Let's explore some advanced features of DynamoDB that are important to understan
 
 ### a. DynamoDB Accelerator (DAX) 🚀
 
-![DAX](/doc/img/DAX.png)
+![DAX](./img/DAX.png)
 
 DAX is a fully-managed, highly available, and seamless **in-memory cache for DynamoDB**. It helps solve read congestion by caching data, providing **microseconds** (look for this keyword in exam) latency for cached data.
 
@@ -932,7 +932,7 @@ DAX is a fully-managed, highly available, and seamless **in-memory cache for Dyn
 *   You create a DAX cluster made of cache nodes and connect to it. The DAX cluster then connects to your DynamoDB table behind the scenes.
 *   The cache has a default TTL of five minutes, but this can be changed.
 
-![DAX vs ElastiCache](/doc/img/DAX_vs_ElastiCache.png)
+![DAX vs ElastiCache](./img/DAX_vs_ElastiCache.png)
 
 Why use DAX instead of ElastiCache?
 
@@ -964,11 +964,11 @@ Two main approaches to stream processing:
     *   Higher number of consumers.
     *   More ways to process data (Lambda, Kinesis Data Analytics, Kinesis Data Firehose, Glue Streaming ETLs, etc.).
 
-![DynamoDB Streams vs Kinesis Data Streams](/doc/img/DynamoDB_Streams_vs_Kinesis_Data_Streams.png)
+![DynamoDB Streams vs Kinesis Data Streams](./img/DynamoDB_Streams_vs_Kinesis_Data_Streams.png)
 
 ### c. Global Tables 🌍
 
-![DynamoDB Global Tables](/doc/img/DynamoDB_Global_Tables.png)
+![DynamoDB Global Tables](./img/DynamoDB_Global_Tables.png)
 
 A global table is replicated across multiple regions (e.g., US-East-1 and AP-Southeast-2).
 
@@ -979,7 +979,7 @@ A global table is replicated across multiple regions (e.g., US-East-1 and AP-Sou
 
 ### d. Time To Live (TTL) ⏳
 
-![DynamoDB TTL](/doc/img/DynamoDB_TTL.png)
+![DynamoDB TTL](./img/DynamoDB_TTL.png)
 
 TTL automatically deletes items after an expiry timestamp.
 
@@ -1014,7 +1014,7 @@ Backup options:
 
 ### f. DynamoDB and S3 Integration 🗄️
 
-![DynamoDB and S3 Integration](/doc/img/DynamoDB_and_S3_Integration.png)
+![DynamoDB and S3 Integration](./img/DynamoDB_and_S3_Integration.png)
 
 *   **Export to S3 (Must enable PITR [Point-in-Time Recovery]):**
     *   Requires enabling point-in-time recovery.
@@ -1066,7 +1066,7 @@ Now, we need a way for clients to **invoke our Lambda functions**. There are mul
      * Caching
      * Monitoring & logging
 
-![API Gateway](/doc/img/API_Gateway_Serverless.png)
+![API Gateway](./img/API_Gateway_Serverless.png)
 
 In short, while direct invocation and ALB are possible, **API Gateway** is the most powerful and flexible option for exposing Lambda functions to clients.
 
@@ -1116,7 +1116,7 @@ API Gateway can integrate with different backends:
 Clients send HTTP requests → API Gateway → Kinesis Data Streams → Firehose → Amazon S3 (JSON format).
 This flow provides a **secure, fully managed, serverless pipeline** for data ingestion.
 
-![API Gateway Integrations example with Kinesis Data Streams](/doc/img/API_Gateway_Integrations_example_with_Kinesis_Data_Streams.png)
+![API Gateway Integrations example with Kinesis Data Streams](./img/API_Gateway_Integrations_example_with_Kinesis_Data_Streams.png)
 
 ### 🌍 Deployment Models (Endpoint Types)
 
@@ -1309,7 +1309,7 @@ Congratulations! You've deployed your API to API Gateway with two Lambda functio
 
 AWS Step Functions allow you to build serverless visual workflows for orchestration, primarily of your Lambda functions. You design a graph specifying what happens at each step based on success or failure. This enables complex workflows within AWS.
 
-![AWS Step Functions](/doc/img/AWS_step_functions.png)
+![AWS Step Functions](./img/AWS_step_functions.png)
 
 Step Functions offer internal features such as:
 
@@ -1359,7 +1359,7 @@ Cognito User Pools provide sign-in functionality for app users and integrate wel
 *   Supports multi-factor authentication (MFA).
 *   Integrates with social identity providers like Facebook and Google.
 
-![Cognito User Pools](/doc/img/AWS_Cognito_user_pools.png)
+![Cognito User Pools](./img/AWS_Cognito_user_pools.png)
 
 **Integration with API Gateway:**
 
@@ -1392,7 +1392,7 @@ Cognito Identity Pools provide temporary AWS credentials to users registered wit
 
 **How Identity Pools Work:**
 
-![How Cognito Identity Pools Works](/doc/img/how-cognito-identity-pools-work.png)
+![How Cognito Identity Pools Works](./img/how-cognito-identity-pools-work.png)
 
 Let's say you have a web and mobile application and you want to allow users to access AWS resources (e.g., private S3 buckets. and DynamoDB tables) directly. Flow:-
 1.  Web and mobile applications log in and get a token (e.g., from Cognito User Pools, social identity providers, SAML, or OpenID Connect).

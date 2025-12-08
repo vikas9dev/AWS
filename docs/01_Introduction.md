@@ -9,7 +9,7 @@ Sections:-
 
 Welcome to the [AWS Certified Solutions Architect Associate](https://aws.amazon.com/certification/certified-solutions-architect-associate/) course! This course will cover everything you need to know to pass the certification. It's approximately 25 hours long. It is expect you to have some basic IT knowledge, but we'll teach you everything you need to know about AWS. If you're new to AWS, you're welcome! Take your time, and don't hesitate to revisit videos.
 
-![AWS Certified Solutions Architect Associate Badge](/doc/img/saa-badge.png)
+![AWS Certified Solutions Architect Associate Badge](./img/saa-badge.png)
 
 ## 1. What is AWS?
 

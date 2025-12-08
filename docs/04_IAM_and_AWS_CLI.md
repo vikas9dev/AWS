@@ -47,7 +47,7 @@ IAM, or Identity and Access Management, is a global service in AWS that allows y
 - A user can belong to multiple groups. Or user can exist without any group at all (not best practice).
   - 📌 **Example:** Charles and David might also be part of an "Audit" group.
 
-![users-and-groups](/doc//img/IAM_Users_and_Groups.png)
+![users-and-groups](/docs//img/IAM_Users_and_Groups.png)
 
 ### Permissions and Policies 🛡️
 
@@ -230,7 +230,7 @@ Let's explore IAM policies and how they apply to users and groups.
 
 ### IAM Policy Inheritance
 
-![iam-policy-inheritance](/doc/img/IAM_Policy_Inheritance.png)
+![iam-policy-inheritance](./img/IAM_Policy_Inheritance.png)
 
 - Imagine a group of developers: Alice, Bob, and Charles.
 - If you attach a policy at the group level, that policy applies to every member.

@@ -167,7 +167,7 @@ This blocks the application thread, leading to slower response times and reduced
 
 Instead of doing everything in one place, we separate the concerns using **Amazon SQS** for message queuing and asynchronous processing.
 
-![Decoupled Architecture with Amazon SQS](/doc/img/Decoupled_Architecture_with_Amazon_SQS.png)
+![Decoupled Architecture with Amazon SQS](./img/Decoupled_Architecture_with_Amazon_SQS.png)
 
 **Architecture Flow:**
 

@@ -43,7 +43,7 @@ The pricing is straightforward: you pay a fixed amount per terabyte of data scan
 
 Athena is commonly used with Amazon QuickSight to create reports and dashboards. QuickSight connects to Athena, which in turn connects to your S3 buckets.
 
-![AWS Athena](/doc/img/AWS_Athena.png)
+![AWS Athena](./img/AWS_Athena.png)
 
 ### Use Cases 🚀
 
@@ -642,7 +642,7 @@ Amazon **[QuickSight](https://aws.amazon.com/quicksight/)** is a **serverless**,
 
 ### 🔌AWS QuickSight Integrations
 
-![AWS QuickSight Integrations](/doc/img/AWS-QuickSight-Integrations.png)
+![AWS QuickSight Integrations](./img/AWS-QuickSight-Integrations.png)
 
 #### ✅ AWS Data Sources
 - **RDS**, **Aurora** – Relational databases
@@ -727,7 +727,7 @@ Here's how it works:
 2.  **Transform:** You can transform the data by filtering, adding columns, and more.
 3.  **Load:** Glue loads the transformed data into a target data warehouse.
 
-![AWS Glue Workflow](/doc/img/AWS-Glue-Workflow.png)
+![AWS Glue Workflow](./img/AWS-Glue-Workflow.png)
 
 📌 **Example:** You can extract data from an S3 bucket or an Amazon RDS database, transform it, and load it into a Redshift data warehouse.
 
@@ -737,7 +737,7 @@ Another common use case is converting data into the Parquet format.
 
 The Parquet format is a columnar data format that's optimized for analytics. It works very well with services like Athena.
 
-![AWS Glue Convert data into Parquet Format](/doc/img/AWS-Glue-Convert-data-into-Parquet-Format.png)
+![AWS Glue Convert data into Parquet Format](./img/AWS-Glue-Convert-data-into-Parquet-Format.png)
 
 Here's how you can use Glue to convert CSV files to Parquet:
 
@@ -755,7 +755,7 @@ You can automate this process by using S3 event notifications.
 
 ### Glue Data Catalog: Catalog of Datasets
 
-![Glue Data Catalog](/doc/img/Glue-Data-Catalog.png)
+![Glue Data Catalog](./img/Glue-Data-Catalog.png)
 
 The Glue Data Catalog is used to catalog datasets. It uses Glue data crawlers to connect to various data sources, including:
 
@@ -801,7 +801,7 @@ Lake Formation functions as a layer on top of AWS Glue, but direct interaction w
 
 ### AWS Lake Formation
 
-![AWS Lake Formation](/doc/img/AWS-Lake-Formation.png)
+![AWS Lake Formation](./img/AWS-Lake-Formation.png)
 
 Lake Formation allows you to create a data lake stored in Amazon S3. Data sources can include Amazon S3, RDS, Aurora, and on-premises databases (SQL, NoSQL). Data ingestion is facilitated by the blueprints available in Lake Formation.
 
@@ -822,7 +822,7 @@ A key aspect, often highlighted in exams, is **centralized permissions**. 🔑
 
 Without Lake Formation, you might try to set up security in Athena, QuickSight, S3 bucket policies, RDS, or Aurora, leading to a complex and unmanageable security landscape.
 
-![AWS Lake Formation - Centralized Permissions Example](/doc/img/AWS-Lake-Formation-Centralized-Permissions-Example.png)
+![AWS Lake Formation - Centralized Permissions Example](./img/AWS-Lake-Formation-Centralized-Permissions-Example.png)
 
 Lake Formation solves this by providing access control with column and row-level security.
 
@@ -840,7 +840,7 @@ If you use Athena, QuickSight, or other tools and connect them to Lake Formation
 
 Let's explore the Amazon Managed Service for Apache Flink. This service was formerly known as Kinesis Data Analytics for Apache Flink, but has since been renamed.
 
-![Amazon Managed Service for Apache Flink](/doc/img/Amazon-Managed-Service-for-Apache-Flink.png)
+![Amazon Managed Service for Apache Flink](./img/Amazon-Managed-Service-for-Apache-Flink.png)
 
 So, what exactly is Flink? 🤔
 
@@ -927,7 +927,7 @@ A **Kafka cluster** is made up of:
 * **Producers** ✍️ → Ingest data from sources like IoT, RDS, or Kinesis and push it into Kafka topics.
 * **Consumers** 📥 → Read data from Kafka topics in real time and process it or forward it to destinations like **EMR, S3, SageMaker, Kinesis, or RDS**.
 
-![MKS Architecture](/doc/img/MSK-Architecture.png)
+![MKS Architecture](./img/MSK-Architecture.png)
 
 ### What is Amazon MSK?
 
@@ -961,7 +961,7 @@ And also for Amazon MSK, you can keep data for as long as you want, you can go o
 
 ### Producing and Consuming Data in MSK
 
-![MSK Flow](/doc/img/MSK-Flow.png)
+![MSK Flow](./img/MSK-Flow.png)
 
 * **Producers** → Write to Kafka topics.
 * **Consumers** → Multiple options:
@@ -1021,7 +1021,7 @@ Here's a breakdown of the pipeline:
     *   **QuickSight:** 📊 Directly visualize the data in the reporting bucket using **QuickSight**.
     *   **Amazon Redshift:** 🏢 Load the data into a data warehouse like **Amazon Redshift** for more in-depth analytics. Redshift can also serve as an endpoint for QuickSight.
 
-![Big Data Ingestion Pipeline Architecture](/doc/img/big-data-ingestion-pipeline-architecture.png)
+![Big Data Ingestion Pipeline Architecture](./img/big-data-ingestion-pipeline-architecture.png)
 
 **Pipeline Summary:**
 

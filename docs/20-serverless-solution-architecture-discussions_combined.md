@@ -24,7 +24,7 @@ Our goal is to meet the following requirements:
 
 Here's how we can achieve this:
 
-![MyTodoList Architecture](/doc/img/MyTodoListArchitecture.png)
+![MyTodoList Architecture](./img/MyTodoListArchitecture.png)
 
 1.  **API Gateway:** 🚀 We'll start with mobile clients and the need for a REST HTTPS interface. Amazon API Gateway is an excellent choice for this.
 
@@ -38,7 +38,7 @@ This setup creates a classic serverless API.
 
 ### Accessing Amazon S3
 
-![MyTodoList S3 Access](/doc/img/MyTodoListS3Access.png)
+![MyTodoList S3 Access](./img/MyTodoListS3Access.png)
 
 To grant users access to their own Amazon S3 bucket:
 
@@ -65,7 +65,7 @@ As our app scales and we observe high read throughput (many RCUs) with infrequen
 
 2.  **API Gateway Caching:** 🌐 Consider caching responses at the Amazon API Gateway level. This is effective if the API responses are relatively static.
 
-![MyTodoList Caching Architecture](/doc/img/MyTodoListCachingArchitecture.png)
+![MyTodoList Caching Architecture](./img/MyTodoListCachingArchitecture.png)
 
 ### Key Takeaways
 
@@ -96,7 +96,7 @@ Let's explore how to build a serverless hosted website, `MyBlog.com`, with globa
 
 ### Architecture
 
-![MyBlog Architecture - User Welcome Email Flow](/doc/img/MyBlogArchitecture-UserWelcomeEmailFlow.png)
+![MyBlog Architecture - User Welcome Email Flow](./img/MyBlogArchitecture-UserWelcomeEmailFlow.png)
 
 Here's a breakdown of the architecture to meet these requirements:
 
@@ -131,7 +131,7 @@ Here's a breakdown of the architecture to meet these requirements:
 
     📝 **Note:** Amazon SES is a cost-effective email sending service.
 
-![MyBlog Architecture - Thumbnail Generation](/doc/img/MyBlogArchitecture-ThumbnailGeneration.png)
+![MyBlog Architecture - Thumbnail Generation](./img/MyBlogArchitecture-ThumbnailGeneration.png)
 
 #### 5. Thumbnail Generation
 
@@ -194,7 +194,7 @@ Let's consider an example setup:
 
 📝 **Note:** ECS is used for running Docker containers on AWS.
 
-![Microservices Architecture - Example](/doc/img/MicroservicesArchitecture-Example.png)
+![Microservices Architecture - Example](./img/MicroservicesArchitecture-Example.png)
 
 The first microservice might have a DNS name like `service1.example.com`. A DNS query to Route 53 retrieves an alias record, enabling interaction with the service.
 
@@ -256,7 +256,7 @@ Let's examine the current application state:
 
 The solution: 💡 **Tip:** Introduce CloudFront to cache the software update files at the edge.
 
-![Software Updates Offloading - Solution](/doc/img/SoftwareUpdatesOffloading-Solution.png)
+![Software Updates Offloading - Solution](./img/SoftwareUpdatesOffloading-Solution.png)
 
 Why CloudFront?
 

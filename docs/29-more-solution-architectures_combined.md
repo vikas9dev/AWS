@@ -23,7 +23,7 @@ Let's explore event processing in AWS, covering different possibilities and asso
 *   ⚠️ **Warning:** This can lead to an infinite loop if a message consistently fails.
 *   💡 **Tip:** To prevent infinite loops, configure SQS to send problematic messages to a dead-letter queue (DLQ) after a certain number of retries (e.g., five).
 
-![AWS SQS, SQS FIFO and Lambda](/doc/img/AWS_SQS_SQS_FIFO_and_Lambda.png)
+![AWS SQS, SQS FIFO and Lambda](./img/AWS_SQS_SQS_FIFO_and_Lambda.png)
 
 ### SQS FIFO and Lambda
 
@@ -34,7 +34,7 @@ Let's explore event processing in AWS, covering different possibilities and asso
 
 ### SNS and Lambda
 
-![AWS SNS and Lambda](/doc/img/AWS_SNS_and_Lambda.png)
+![AWS SNS and Lambda](./img/AWS_SNS_and_Lambda.png)
 
 *   SNS (Simple Notification Service) sends messages asynchronously to Lambda.
 *   The Lambda function has its own internal retry behavior.
@@ -45,7 +45,7 @@ Let's explore event processing in AWS, covering different possibilities and asso
 
 ### Fan-Out Pattern
 
-![AWS Fan-Out Pattern](/doc/img/AWS_Fan-Out_Pattern.png)
+![AWS Fan-Out Pattern](./img/AWS_Fan-Out_Pattern.png)
 
 **How to deliver data to multiple SQS queues?**
 
@@ -62,7 +62,7 @@ Let's explore event processing in AWS, covering different possibilities and asso
 
 ### S3 Event Notifications
 
-![AWS S3 Event Notifications](/doc/img/AWS_S3_Event_Notifications.png)
+![AWS S3 Event Notifications](./img/AWS_S3_Event_Notifications.png)
 
 *   React to specific events in Amazon S3 buckets:
     *   Object creation
@@ -80,7 +80,7 @@ Let's explore event processing in AWS, covering different possibilities and asso
 
 ### Amazon EventBridge
 
-![AWS EventBridge](/doc/img/AWS_EventBridge.png)
+![AWS EventBridge](./img/AWS_EventBridge.png)
 
 *   Events in Amazon S3 buckets are sent to Amazon EventBridge.
 *   Use rules to route events to over 18 AWS services as destinations.
@@ -91,7 +91,7 @@ Let's explore event processing in AWS, covering different possibilities and asso
 
 ### EventBridge and CloudTrail Integration (Intercept API Calls)
 
-![AWS EventBridge and CloudTrail Integration](/doc/img/AWS_EventBridge_and_CloudTrail_Integration.png)
+![AWS EventBridge and CloudTrail Integration](./img/AWS_EventBridge_and_CloudTrail_Integration.png)
 
 *   Intercept any API call with Amazon EventBridge using CloudTrail integration.
 *   📌 **Example:** React to a user deleting a table from DynamoDB.
@@ -101,7 +101,7 @@ Let's explore event processing in AWS, covering different possibilities and asso
 
 ### External Events onto AWS
 
-![AWS External Events onto AWS](/doc/img/AWS_External_Events_onto_AWS.png)
+![AWS External Events onto AWS](./img/AWS_External_Events_onto_AWS.png)
 
 *   Use API Gateway to ingest external events.
 *   Clients send requests to API Gateway.
@@ -126,7 +126,7 @@ The architecture includes:
 
 Here's a breakdown of caching at each layer:
 
-![AWS Caching Strategies](/doc/img/AWS_Caching_Strategies.png)
+![AWS Caching Strategies](./img/AWS_Caching_Strategies.png)
 
 ### CloudFront 🌐
 
@@ -178,7 +178,7 @@ Let's explore how to block IP addresses in AWS, focusing on different architectu
 
 ### EC2 Instance in a Public Subnet
 
-![Blocking IP Addresses in AWS - EC2 Instance in a Public Subnet](/doc/img/Blocking_IP_Addresses_in_AWS_EC2_Instance_in_a_Public_Subnet.png)
+![Blocking IP Addresses in AWS - EC2 Instance in a Public Subnet](./img/Blocking_IP_Addresses_in_AWS_EC2_Instance_in_a_Public_Subnet.png)
 
 Consider an EC2 instance in a public subnet that a client wants to access. Here's how to implement security:
 
@@ -194,7 +194,7 @@ Consider an EC2 instance in a public subnet that a client wants to access. Here'
 
 ### Application Load Balancer (ALB) and EC2 Instance
 
-![Blocking IP Addresses in AWS - ALB and EC2 Instance](/doc/img/Blocking_IP_Addresses_in_AWS_ALB_and_EC2_Instance.png)
+![Blocking IP Addresses in AWS - ALB and EC2 Instance](./img/Blocking_IP_Addresses_in_AWS_ALB_and_EC2_Instance.png)
 
 Now, let's examine a scenario with an ALB and an EC2 instance.
 
@@ -215,7 +215,7 @@ You can enhance security further by integrating AWS WAF with your ALB or CloudFr
     *   ⚠️ **Warning:** WAF incurs additional costs.
     *   WAF provides comprehensive defenses for your infrastructure.
 
-![Blocking IP Addresses in AWS - ALB and WAF](/doc/img/Blocking_IP_Addresses_in_AWS_ALB_and_WAF.png)
+![Blocking IP Addresses in AWS - ALB and WAF](./img/Blocking_IP_Addresses_in_AWS_ALB_and_WAF.png)
 
 2.  **CloudFront + WAF:** ☁️ AWS WAF can also be applied to CloudFront distributions.
     *   If using an ALB in public mode with CloudFront, CloudFront sends traffic from its edge locations (using CloudFront's public IPs) to your ALB.
@@ -225,7 +225,7 @@ You can enhance security further by integrating AWS WAF with your ALB or CloudFr
         *   📌 **Example:** If you detect attacks originating from a particular country, you can block traffic from that country using Geo Restriction.
     * **WAF at CloudFront Level:** 🔥 You can also implement IP address filtering and other security measures using WAF at the CloudFront level.
 
-![Blocking IP Addresses in AWS - CloudFront and WAF](/doc/img/Blocking_IP_Addresses_in_AWS_CloudFront_and_WAF.png)
+![Blocking IP Addresses in AWS - CloudFront and WAF](./img/Blocking_IP_Addresses_in_AWS_CloudFront_and_WAF.png)
 
 ### General 💡 **Tip** for Network Security
 
@@ -279,7 +279,7 @@ These are critical components for HPC.
 *   **Auto Scaling**: Automatically scale your compute resources based on workload demands. ⬆️⬇️
 *   **EC2 Placement Group (Cluster)**: For distributed computations requiring low latency, use a cluster placement group. This provides low latency (e.g., 10 Gbps) networking, with all instances on the same rack and within the same Availability Zone (AZ). 📍
 
-![Compute and Networking - EC2 Placement Group](/doc/img/Compute_and_Networking_EC2_Placement_Group.png)
+![Compute and Networking - EC2 Placement Group](./img/Compute_and_Networking_EC2_Placement_Group.png)
 
 ### Enhancing EC2 Instance Performance
 
@@ -332,7 +332,7 @@ EC2 instances, by default, are launched in a single Availability Zone (AZ) and a
 
 This approach involves having a primary EC2 instance and a standby instance ready to take over in case of failure.
 
-![Making EC2 Instances Highly Available - Using a Standby EC2 Instance with Elastic IP](/doc/img/Making_EC2_Instances_Highly_Available_Using_a_Standby_EC2_Instance_with_Elastic_IP.png)
+![Making EC2 Instances Highly Available - Using a Standby EC2 Instance with Elastic IP](./img/Making_EC2_Instances_Highly_Available_Using_a_Standby_EC2_Instance_with_Elastic_IP.png)
 
 1.  **Initial Setup:**
     *   A Public EC2 instance runs a web server.
@@ -360,7 +360,7 @@ This approach involves having a primary EC2 instance and a standby instance read
 
 ### 2. Using Auto Scaling Group (ASG) with Elastic IP ⚙️
 
-![Making EC2 Instances Highly Available - Using Auto Scaling Group with Elastic IP](/doc/img/Making_EC2_Instances_Highly_Available_Using_Auto_Scaling_Group_with_Elastic_IP.png)
+![Making EC2 Instances Highly Available - Using Auto Scaling Group with Elastic IP](./img/Making_EC2_Instances_Highly_Available_Using_Auto_Scaling_Group_with_Elastic_IP.png)
 
 This method leverages an Auto Scaling Group across multiple Availability Zones to ensure automatic recovery.
 
@@ -392,7 +392,7 @@ This method leverages an Auto Scaling Group across multiple Availability Zones t
 
 ### 3. Handling Stateful EC2 Instances with EBS Volumes and ASG 💾
 
-![Handling Stateful EC2 Instances with EBS Volumes and ASG](/doc/img/Handling_Stateful_EC2_Instances_with_EBS_Volumes_and_ASG.png)
+![Handling Stateful EC2 Instances with EBS Volumes and ASG](./img/Handling_Stateful_EC2_Instances_with_EBS_Volumes_and_ASG.png)
 
 This approach extends the ASG method to handle stateful EC2 instances with attached EBS volumes. This is useful for databases or applications requiring persistent storage.
 

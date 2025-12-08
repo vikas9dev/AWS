@@ -83,7 +83,7 @@ Why is encryption in flight important?
 *   It prevents "man-in-the-middle" attacks, where malicious actors intercept and observe data packets.
 *   With HTTPS/TLS/SSL, only the intended target server can decrypt the encrypted data.
 
-![Secure Login](/doc/img/SecureLogin.png)
+![Secure Login](./img/SecureLogin.png)
 
 📌 **Example:** Secure Login
 
@@ -95,7 +95,7 @@ Why is encryption in flight important?
 
 ### Server-Side Encryption at Rest 💾
 
-![Server-Side Encryption at Rest](/doc/img/ServerSideEncryptionAtRest.png)
+![Server-Side Encryption at Rest](./img/ServerSideEncryptionAtRest.png)
 
 Server-side encryption at rest focuses on encrypting data after it has been received by the server, ensuring secure storage.
 
@@ -116,7 +116,7 @@ Server-side encryption at rest focuses on encrypting data after it has been rece
 
 ### Client-Side Encryption 🔒
 
-![Client-Side Encryption](/doc/img/ClientSideEncryption.png)
+![Client-Side Encryption](./img/ClientSideEncryption.png)
 
 Client-side encryption involves encrypting and decrypting data on the client's side, ensuring the server never has access to the unencrypted data.
 
@@ -157,7 +157,7 @@ You can also use KMS directly via API calls, AWS CLI, or SDKs to encrypt your ow
 *   Never store secrets in plain text, especially in code.
 *   Encrypt secrets with a KMS key and store the encrypted secrets in code or environment variables. This is a much more secure pattern.
 
-![symmetrical-vs-asymmetrical-min.webp](/doc/img/symmetrical-vs-asymmetrical-min.webp)
+![symmetrical-vs-asymmetrical-min.webp](./img/symmetrical-vs-asymmetrical-min.webp)
 
 ### KMS Key Types
 
@@ -173,7 +173,7 @@ There are two main types of KMS keys:
     *   You can download the public key, but you can only access the private key through API calls.
     *   📌 **Example:** Use case: Encryption done outside of AWS by users without KMS API access. They encrypt with the public key, and you decrypt within your account using the private key.
 
-![symmetric-encryption-vs-asymmetric-encryption.jpg](/doc/img/symmetric-encryption-vs-asymmetric-encryption.jpg)
+![symmetric-encryption-vs-asymmetric-encryption.jpg](./img/symmetric-encryption-vs-asymmetric-encryption.jpg)
 
 ### Types of KMS Keys within AWS
 
@@ -208,7 +208,7 @@ There are two main types of KMS keys:
     2.  Copy the snapshot to another region, re-encrypting it with a different KMS key in that region.
     3.  Restore the snapshot into a new EBS volume in the target region, encrypted with the new KMS key.
 
-![Copy EBS Volume to Different Region via KMS](/doc/img/CopyEBSVolumeToDifferentRegionViaKMS.png)
+![Copy EBS Volume to Different Region via KMS](./img/CopyEBSVolumeToDifferentRegionViaKMS.png)
 
 When you **copy a snapshot across regions**, AWS does this behind the scenes:
 
@@ -305,7 +305,7 @@ First, let's examine AWS managed keys. If you've been using KMS encryption, thes
 
 📌 **Example:** The AWS EBS key is an AWS managed key because it belongs to the EBS service.
 
-![AWS Managed KMS Keys](/doc/img/AWSManagedKMSKeys.png)
+![AWS Managed KMS Keys](./img/AWSManagedKMSKeys.png)
 
 We can inspect how the key is being used.
 
@@ -466,7 +466,7 @@ Let's explore KMS Multi-Region keys and their use cases.
 
 🔑 With KMS, you can create a Multi-Region key, meaning you have a primary key in one AWS Region (📌 **Example:** `us-east-1`) and it's replicated to other Regions (📌 **Example:** `us-west-2`, `eu-west-1`, `ap-southeast-2`).
 
-![KMS Multi-Region Key](/doc/img/KMS-Multi-Region-Key.png)
+![KMS Multi-Region Key](./img/KMS-Multi-Region-Key.png)
 
 *   The key material is replicated across Regions.
 *   The same key exists in multiple Regions.
@@ -514,7 +514,7 @@ A client application in `ap-southeast-2` can retrieve the row, detect that the a
 
 This is why Multi-Region keys are useful here: client applications in `ap-southeast-2` can make local API calls to KMS for decryption.
 
-![KMS Multi-Region Key With DynamoDB](/doc/img/KMS-Multi-Region-Key-With-DynamoDB.png)
+![KMS Multi-Region Key With DynamoDB](./img/KMS-Multi-Region-Key-With-DynamoDB.png)
 
 Using client-side encryption, you can protect specific fields or attributes and ensure decryption only when the client has access to the API key. Global Tables ensure that data and encryption keys are replicated together.
 
@@ -639,7 +639,7 @@ Here's a breakdown of its key features:
 *   📜 **Version Tracking:** Keeps track of parameter updates. If you update your parameters then you have version tracking of them.
 *   🤝 **CloudFormation Integration:** Use parameters as inputs for CloudFormation stacks.
 
-![SSM Parameter Store](/doc/img/SSM_Parameter_Store.png)
+![SSM Parameter Store](./img/SSM_Parameter_Store.png)
 
 📌 **Example:**
 
@@ -678,7 +678,7 @@ This structure allows you to:
 
 A Dev Lambda function can have an IAM role to access `/my-app/dev/db_url` and `/my-app/dev/db_password`. A Prod Lambda function, with a different IAM policy and environment variables, can access `/my-app/prod/db_url` and `/my-app/prod/db_password`.
 
-![SSM Parameter Store Hierarchy](/doc/img/SSM_Parameter_Store_Hierarchy.png)
+![SSM Parameter Store Hierarchy](./img/SSM_Parameter_Store_Hierarchy.png)
 
 ### Parameter Tiers
 
@@ -698,7 +698,7 @@ Parameter policies allow you to manage the lifecycle of your parameters.
 
 *   **Time to Live (TTL):** Set an expiration date for a parameter. This forces users to update or delete sensitive data like passwords. You can assign multiple policies at a time.
 
-![SSM Parameter Store TTL](/doc/img/SSM_Parameter_Store_TTL.png)
+![SSM Parameter Store TTL](./img/SSM_Parameter_Store_TTL.png)
 
 📌 **Example:** Expiration policy to delete a parameter:
 
@@ -1019,7 +1019,7 @@ Secrets Manager supports replicating secrets across multiple AWS regions.
 *   **Replication:** Secrets are replicated from a primary region to secondary regions.
 *   **Synchronization:** The Secrets Manager service keeps the replica secrets synchronized with the primary secret.
 
-![Multi-Region Secrets](/doc/img/Multi-Region-Secrets.png)
+![Multi-Region Secrets](./img/Multi-Region-Secrets.png)
 
 Why use multi-region secrets?
 
@@ -1165,7 +1165,7 @@ If you import a certificate generated outside of ACM, automatic renewal is **not
 
 ### Expiration Notifications
 
-![ACM Expiration Notifications](/doc/img/ACM_Expiration_Notifications.png)
+![ACM Expiration Notifications](./img/ACM_Expiration_Notifications.png)
 
 ACM provides two methods for receiving expiration notifications:
 
@@ -1250,7 +1250,7 @@ Problem: How to get a fixed IP for your application while using WAF with an Appl
 
 Solution: Use a Global Accelerator to get a fixed IP for the application and then enable WAF on the ALB.
 
-![AWS WAF And ALB](/doc/img/AWS_WAF_and_ALB.png)
+![AWS WAF And ALB](./img/AWS_WAF_and_ALB.png)
 
 Architecture:
 
@@ -1431,7 +1431,7 @@ Common architectural patterns include:
 
 The key is understanding how these components contribute to DDoS resilience.
 
-![DDoS Protection and Best Practices Architecture](/doc/img/DDoS_Protection_and_Best_Practices_Architecture.png)
+![DDoS Protection and Best Practices Architecture](./img/DDoS_Protection_and_Best_Practices_Architecture.png)
 
 ### Edge Location Mitigation
 
@@ -1545,7 +1545,7 @@ EventBridge Rule -> SNS Topic (Notification)
 
 ⚠️ **Warning:** **GuardDuty is particularly effective at protecting against cryptocurrency attacks, as it has a dedicated finding for this type of threat.** (Important for Exam)
 
-![AWS GuardDuty](/doc/img/AWS_GuardDuty.png)
+![AWS GuardDuty](./img/AWS_GuardDuty.png)
 
 In summary, GuardDuty utilizes several input data sources:
 
@@ -1605,7 +1605,7 @@ Once Amazon Inspector completes its assessment, it can report its findings to:
 *   AWS Security Hub: This gives you a central view of vulnerabilities in your infrastructure.
 *   Amazon EventBridge: You can send findings and events to EventBridge to run automations.
 
-![AWS Inspector](/doc/img/AWS_Inspector.png)
+![AWS Inspector](./img/AWS_Inspector.png)
 
 ### What Amazon Inspector Evaluates 🤔
 
@@ -1634,7 +1634,7 @@ AWS Macie is a fully managed data security and data privacy service. It leverage
 
 Macie's primary function is to alert you to the presence of sensitive data, specifically **personally identifiable information (PII)**.
 
-![AWS Macie](/doc/img/AWS_Macie.png)
+![AWS Macie](./img/AWS_Macie.png)
 
 Here's a breakdown of how Macie works:
 

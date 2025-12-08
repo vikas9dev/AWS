@@ -54,7 +54,7 @@ Welcome to the **VPC (Virtual Private Cloud)** section — one of the most criti
 
 ### 📌 Before You Begin...
 
-![AWS VPC Diagram](/doc/img/AWS_VPC_Diagram.png)
+![AWS VPC Diagram](./img/AWS_VPC_Diagram.png)
 
 Take a look at the following VPC diagram (if provided).  
 - If **everything in the diagram makes sense** to you — great! You may **skip this section**.
@@ -134,7 +134,7 @@ Subnet masks determine which values can change from the base IP.
 | `/16`         | 65,536 (2^16)          | `192.168.0.0` - `192.168.255.255`|
 | `/0`          | All IPs                | All IPv4 addresses (`0.0.0.0` - `244.178.44.111`)   |
 
-![Octets](/doc/img/Octets.png)
+![Octets](./img/Octets.png)
 
 📝 **Note:** An IP address is made of 4 octets.
 
@@ -506,7 +506,7 @@ Here's what you need to know about Internet Gateways:
 *   One **VPC** can only be attached to one Internet Gateway, and vice versa. 🔗
 *   Internet Gateways alone do not grant internet access. 🚫 We must also edit the **Route Tables**. ✍️
 
-![IGW for Subnets](/doc/img/IGW_for_Subnets.png)
+![IGW for Subnets](./img/IGW_for_Subnets.png)
 
 Here's the process:
 
@@ -611,7 +611,7 @@ Our users often need to access EC2 instances located in private subnets, but the
 
 A bastion host is an EC2 instance specifically placed in a public subnet. It acts as a secure gateway.
 
-![Bastion Host](/doc/img/bastion-host.png)
+![Bastion Host](./img/bastion-host.png)
 
 Here's how it works:
 
@@ -770,7 +770,7 @@ Here's a breakdown of the process:
 
 This process allows instances in private subnets to initiate outbound connections to the internet without being directly exposed.
 
-![NAT Instance](/doc/img/nat-instance.png)
+![NAT Instance](./img/nat-instance.png)
 
 📌 **Example:**
 
@@ -786,7 +786,7 @@ The public server only sees traffic originating from the NAT instance's public I
 
 ⚠️ **Warning:** Because the NAT instance rewrites IP addresses, the **source/destination check** must be disabled on the NAT instance.
 
-![NAT Instance Flow](/doc/img/nat-instance-flow.png)
+![NAT Instance Flow](./img/nat-instance-flow.png)
 
 ### Steps to Configure a NAT Instance:
 
@@ -891,7 +891,7 @@ NAT Gateways offer a significant improvement over NAT Instances. They are manage
 *   🚀 **Bandwidth:** 5 Gbps, automatically scaling up to 100 Gbps.
 *   🛡️ **Security:** No need to manage security groups.
 
-![NAT Gateway Architecture](/doc/img/nat_gateway_architecture.png)
+![NAT Gateway Architecture](./img/nat_gateway_architecture.png)
 
 ### How it Works
 
@@ -904,7 +904,7 @@ NAT Gateways offer a significant improvement over NAT Instances. They are manage
 
 ### High Availability
 
-![NAT Gateway High Availability](/doc/img/nat_gateway_high_availability.png)
+![NAT Gateway High Availability](./img/nat_gateway_high_availability.png)
 
 *   NAT Gateways are resilient within a single AZ.
 *   For fault tolerance across AZs, you need multiple NAT Gateways in multiple AZs.
@@ -1018,7 +1018,7 @@ To understand the role of a NACL, let's examine incoming and outgoing requests.
 
 ⚠️ **Warning:** NACLs are **stateless**, while Security Groups are **stateful**.
 
-![NACLs Incoming Request Flow](/doc/img/NACLs_Incoming_Request_Flow.png)
+![NACLs Incoming Request Flow](./img/NACLs_Incoming_Request_Flow.png)
 
 What does this mean?
 
@@ -1029,7 +1029,7 @@ What does this mean?
 
 Let's consider an EC2 instance making an outbound request (e.g., connecting to `www.google.com`).
 
-![NACLs Outgoing Request Flow](/doc/img/NACLs_Outgoing_Request_Flow.png)
+![NACLs Outgoing Request Flow](./img/NACLs_Outgoing_Request_Flow.png)
 
 1.  The EC2 instance initiates the request (e.g., `curl google.com`).
 2.  **Security Group Outbound Rules** are evaluated first. Is the traffic allowed to leave the instance?
@@ -1076,7 +1076,7 @@ The default NACL is configured to allow all inbound and outbound traffic.
 
 If the exam mentions a default NACL associated with subnets, remember that it allows all traffic in and out by default.
 
-![Default NACL](/doc/img/Default_NACL.png)
+![Default NACL](./img/Default_NACL.png)
 
 ### Ephemeral Ports 🔌
 
@@ -1107,7 +1107,7 @@ The web server responds:
 *   Destination IP: 11.22.33.44
 *   Destination Port (Ephemeral): 50105
 
-![NACLS Ephemeral Ports](/doc/img/NACLs_Ephemeral_Ports.png)
+![NACLS Ephemeral Ports](./img/NACLs_Ephemeral_Ports.png)
 
 #### Ephemeral Ports and NACLs 🤝
 
@@ -1123,11 +1123,11 @@ For the database to send a response back to the client:
 *   **DB NACL (Outbound):** Allow outbound TCP on ephemeral port range (e.g., 1024-65535) to the web subnet CIDR.
 *   **Web NACL (Inbound):** Allow inbound TCP on the same ephemeral port range from the DB subnet CIDR.
 
-![NACLS Ephemeral Ports and NACLs](/doc/img/NACLs_Ephemeral_Ports_and_NACLs.png)
+![NACLS Ephemeral Ports and NACLs](./img/NACLs_Ephemeral_Ports_and_NACLs.png)
 
 If you have multiple NACLs and subnets, ensure that all necessary combinations of connections are allowed within the NACL rules, considering the CIDR ranges of each subnet.
 
-![Multiple NACLs and Subnets](/doc/img/Multiple_NACLs_and_Subnets.png)
+![Multiple NACLs and Subnets](./img/Multiple_NACLs_and_Subnets.png)
 
 ### Security Groups vs. NACLs: Key Differences 🆚
 
@@ -1259,7 +1259,7 @@ Consider three VPCs: A, B, and C.
 3.  A and B can communicate, and B and C can communicate.
 4.  However, A and C **cannot** communicate unless you explicitly create a VPC peering connection between them. ❌
 
-![vpc-peering](/doc/img/vpc-peering.png)
+![vpc-peering](./img/vpc-peering.png)
 
 Even with peered VPCs, you **must update the route tables in each VPC's subnets**. 📝 **Note:** This ensures that instances in different VPCs can communicate with each other. We'll explore this in a hands-on demonstration.
 
@@ -1274,7 +1274,7 @@ Security Groups and VPC Peering:
 *   You can reference security groups from peered VPCs across accounts within the same region. 🛡️
 *   This allows you to reference a security group instead of specifying a CIDR IP range as the source.
 
-![security-group-and-vpc-peering](/doc/img/security-group-and-vpc-peering.png)
+![security-group-and-vpc-peering](./img/security-group-and-vpc-peering.png)
 
 📌 **Example:** Instead of allowing traffic from `10.0.0.0/16`, you can allow traffic from the security group `sg-xxxxxxxx`.
 
@@ -1282,7 +1282,7 @@ This is a very powerful feature for managing security across peered VPCs. 💪
 
 We are now adding VPC peering connections to our networking diagram to connect our VPC to other VPCs. 🤝
 
-![vpc-peering-connections](/doc/img/vpc-peering-connections.png)
+![vpc-peering-connections](./img/vpc-peering-connections.png)
 
 ---
 
@@ -1375,7 +1375,7 @@ Every AWS service has a public URL. VPC endpoints leverage **AWS PrivateLink** t
 
 VPC endpoints are redundant, scale horizontally, and eliminate the need for internet gateways or NAT gateways for accessing AWS services. This simplifies your network infrastructure.
 
-![vpc-endpoints](/doc/img/vpc-endpoints.png)
+![vpc-endpoints](./img/vpc-endpoints.png)
 
 📝 **Note:** When troubleshooting, check DNS settings resolution in your VPC and your route tables.
 
@@ -1386,7 +1386,7 @@ There are two types of VPC endpoints:
 
 ### Interface Endpoints
 
-![vpc-interface-endpoints](/doc/img/vpc-interface-endpoints.png)
+![vpc-interface-endpoints](./img/vpc-interface-endpoints.png)
 
 *   Powered by **PrivateLink**.
 *   Provision an Elastic Network Interface (ENI) with a private IP address in your VPC.
@@ -1399,7 +1399,7 @@ There are two types of VPC endpoints:
 
 ### Gateway Endpoints
 
-![vpc-gateway-endpoints](/doc/img/vpc-gateway-endpoints.png)
+![vpc-gateway-endpoints](./img/vpc-gateway-endpoints.png)
 
 *   Provision a gateway that must be used as a target in a route table.
 *   Do not use IP addresses or security groups.
@@ -1412,7 +1412,7 @@ There are two types of VPC endpoints:
 
 If both Interface Endpoints and Gateway Endpoints can access Amazon S3 and DynamoDB, which should you use?
 
-![vpc-gateway-vs-interface-endpoints](/doc/img/vpc-gateway-vs-interface-endpoints.png)
+![vpc-gateway-vs-interface-endpoints](./img/vpc-gateway-vs-interface-endpoints.png)
 
 For the AWS Certified Cloud Practitioner exam, the Gateway Endpoint is generally the preferred solution. Why?
 
@@ -1558,7 +1558,7 @@ and so on.
 
 ### VPC Flow Logs Syntax
 
-![vpc-flow-logs-syntax](/doc/img/vpc-flow-logs-syntax.png)
+![vpc-flow-logs-syntax](./img/vpc-flow-logs-syntax.png)
 
 This is what a VPC Flow Log looks like. There is a specific format associated with it, including:
 
@@ -1598,7 +1598,7 @@ To query these Flow Logs, you have two main options:
 
 We can use the "Action" field in Flow Logs to troubleshoot Security Group and NACL issues.
 
-![security-group-and-nacl-flow-logs](/doc/img/security-group-and-nacl-flow-logs.png)
+![security-group-and-nacl-flow-logs](./img/security-group-and-nacl-flow-logs.png)
 
 Let's consider a typical incoming request for your NACL and subnet. Remember that NACLs are stateless, and Security Groups are stateful.
 
@@ -1614,7 +1614,7 @@ For outgoing requests:
 
 Here are a few common architectures for using VPC Flow Logs:
 
-![vpc-flow-log-architectures](/doc/img/vpc-flow-log-architectures.png)
+![vpc-flow-log-architectures](./img/vpc-flow-log-architectures.png)
 
 1.  **CloudWatch Logs for Real-time Analysis:**
 
@@ -1808,7 +1808,7 @@ Let’s explore how to connect your **AWS VPC** with an **on-premises corporate 
   - A **NAT device’s public IP** if it's behind NAT
 - Establish the **Site-to-Site VPN connection** over the public internet
 
-![VPN Setup Process](/doc/img/vpn_setup_process.png)
+![VPN Setup Process](./img/vpn_setup_process.png)
 
 ### ⚠️ Important Exam Tips
 
@@ -1828,7 +1828,7 @@ The idea is simple:
 * You also have **multiple customer networks** or **data centers**, each with its own **Customer Gateway (CGW)**.
 * **CloudHub** allows these customer networks to communicate securely with one another using multiple VPN connections.
 
-![AWS VPN CloudHub](/doc/img/aws_vpn_cloudhub.png)
+![AWS VPN CloudHub](./img/aws_vpn_cloudhub.png)
 
 #### How AWS VPN CloudHub Works ⚙️
 
@@ -1931,7 +1931,7 @@ The same connection can access both:
 
 ### Direct Connect Diagram
 
-![Direct Connect](/doc/img/direct-connect-dx.png)
+![Direct Connect](./img/direct-connect-dx.png)
 
 To connect a region to your corporate data center:
 
@@ -1963,7 +1963,7 @@ To connect to one or more VPCs in different regions, use a Direct Connect gatewa
 
 This setup allows you to connect to multiple VPCs across multiple regions.
 
-![Connect Multiple VPCs in Different Regions](/doc/img/connect-multiple-vpcs-in-different-regions.png)
+![Connect Multiple VPCs in Different Regions](./img/connect-multiple-vpcs-in-different-regions.png)
 
 ### Connection Types
 
@@ -1983,7 +1983,7 @@ This setup allows you to connect to multiple VPCs across multiple regions.
 
 ### Encryption
 
-![Direct Connect Encryption](/doc/img/direct-connect-encryption.png)
+![Direct Connect Encryption](./img/direct-connect-encryption.png)
 
 By default, Direct Connect does not encrypt data. It is a private connection, but not encrypted.
 
@@ -2001,7 +2001,7 @@ This encrypts all traffic between your corporate data center and AWS.
 
 ### Resiliency
 
-![Direct Connect Resiliency](/doc/img/direct-connect-resiliency.png)
+![Direct Connect Resiliency](./img/direct-connect-resiliency.png)
 
 Two modes of resiliency for Direct Connect:
 
@@ -2034,7 +2034,7 @@ To ensure continuous connectivity, consider these options:
 1.  **Secondary Direct Connect:** Using a second Direct Connect connection as a backup. This is costly. 💸
 2.  **Site-to-Site VPN:** Implementing a Site-to-Site VPN connection over the public internet as a backup. This is a more cost-effective solution. 🌐
 
-![Direct Connect with VPN Backup](/doc/img/direct-connect-with-vpn-backup.png)
+![Direct Connect with VPN Backup](./img/direct-connect-with-vpn-backup.png)
 
 The recommended approach is to use a **Site-to-Site VPN** as a backup connection.
 
@@ -2055,7 +2055,7 @@ This architecture provides redundancy and ensures continuous connectivity to you
 
 **Network Topologies Can become Complicated**
 
-![Network Topologies Can become Complicated](/doc/img/network-topologies-can-become-complicated.png)
+![Network Topologies Can become Complicated](./img/network-topologies-can-become-complicated.png)
 
 AWS network topologies can become complex, especially when dealing with multiple VPCs, VPN connections, and Direct Connect. The **Transit Gateway** 💡 was introduced to simplify this. It provides transitive peering between thousands of VPCs, on-premises data centers, site-to-site VPNs, and Direct Connect connections in a hub-and-spoke (star) configuration.
 
@@ -2073,7 +2073,7 @@ You can also connect:
 
 This setup simplifies network management and provides a centralized point for connectivity.
 
-![Common Network Topologies in AWS: Transit Gateway](/doc/img/common-network-topologies-in-aws-transit-gateway.png)
+![Common Network Topologies in AWS: Transit Gateway](./img/common-network-topologies-in-aws-transit-gateway.png)
 
 The Transit Gateway is:
 
@@ -2098,7 +2098,7 @@ Another key use case for Transit Gateway is increasing the bandwidth of site-to-
 
 📌 **Example:**
 
-![Increasing Bandwidth with ECMP](/doc/img/increasing-bandwidth-with-ecmp.png)
+![Increasing Bandwidth with ECMP](./img/increasing-bandwidth-with-ecmp.png)
 
 
 Consider a Transit Gateway with four attached VPCs and a corporate data center connected via site-to-site VPN.
@@ -2109,7 +2109,7 @@ You can create a second site-to-site VPN attachment to the Transit Gateway, resu
 
 ### Transit Gateway: Throughput and ECMP
 
-![Transit Gateway: Throughput and ECMP](/doc/img/transit-gateway-throughput-and-ecmp.png)
+![Transit Gateway: Throughput and ECMP](./img/transit-gateway-throughput-and-ecmp.png)
 
 VPN to VGW vs. VPN to Transit Gateway:
 
@@ -2122,7 +2122,7 @@ Keep in mind that using Transit Gateway incurs costs for each GB of data process
 
 ### Sharing Direct Connect Connections
 
-![Sharing Direct Connect Connections](/doc/img/sharing-direct-connect-connections.png)
+![Sharing Direct Connect Connections](./img/sharing-direct-connect-connections.png)
 
 Finally, Transit Gateway enables sharing Direct Connect connections between multiple accounts.
 
@@ -2148,7 +2148,7 @@ Here's how it works:
 1.  **Capture Traffic**: Define the source Elastic Network Interfaces (ENIs) from which you want to capture traffic.
 2.  **Define Targets**: Specify where you want to send the captured traffic. This could be your own ENIs or a Network Load Balancer (NLB).
 
-![VPC Traffic Mirroring](/doc/img/vpc-traffic-mirroring.png)
+![VPC Traffic Mirroring](./img/vpc-traffic-mirroring.png)
 
 📌 **Example:**
 
@@ -2202,7 +2202,7 @@ Examples:
 
 ### IPv6 Support in VPC
 
-![IPv6 Support in VPC](/doc/img/ipv6-support-in-vpc.png)
+![IPv6 Support in VPC](./img/ipv6-support-in-vpc.png)
 
 **IPv4 can never be disabled for your VPC and subnets.**
 
@@ -2220,7 +2220,7 @@ The problem is likely that there are no available IPv4 addresses left in your su
 
 The solution is to create an IPv4 CIDR in your subnet.
 
-![IPv6 Troubleshooting Exam Scenario](/doc/img/ipv6-troubleshooting-exam-scenario.png)
+![IPv6 Troubleshooting Exam Scenario](./img/ipv6-troubleshooting-exam-scenario.png)
 
 📌 **Example:**
 
@@ -2336,7 +2336,7 @@ They allow instances within your VPC to initiate outbound connections over IPv6.
 
 To implement this, you need to update your route tables. 🔄
 
-![IPv6 Egress-Only Internet Gateway](/doc/img/ipv6-egress-only-internet-gateway.png)
+![IPv6 Egress-Only Internet Gateway](./img/ipv6-egress-only-internet-gateway.png)
 
 ### 📌 Example Scenario
 
@@ -2376,7 +2376,7 @@ Let's consider a VPC with IPv6 enabled, containing both public and private subne
 
     This setup enables bidirectional IPv4 and IPv6 communication in a public subnet. ↔️
 
-![IPv6 Routing Diagram](/doc/img/ipv6-routing-diagram.png)
+![IPv6 Routing Diagram](./img/ipv6-routing-diagram.png)
 
 #### Private Subnet
 
@@ -2658,7 +2658,7 @@ We'll start by examining costs within a single AWS region.
 
 ### Key Takeaways for Cost Optimization
 
-![Networking Costs in AWS Per GB](/doc/img/NetworkingCostsInAWSPerGB.png)
+![Networking Costs in AWS Per GB](./img/NetworkingCostsInAWSPerGB.png)
 
 *   💡 **Tip:** Use private IPs instead of public IPs for better savings and network performance. Avoid using public IPs for communication between instances in the same region and AZ.
 *   If you have a cluster requiring significant communication between EC2 instances, consider placing them in the same AZ for maximum cost savings. 💰
@@ -2667,7 +2667,7 @@ We'll start by examining costs within a single AWS region.
 
 ### Optimizing Networking Costs Through Architecture
 
-![Optimizing Networking Costs Through Architecture](/doc/img/OptimizingNetworkingCostsThroughArchitecture.png)
+![Optimizing Networking Costs Through Architecture](./img/OptimizingNetworkingCostsThroughArchitecture.png)
 
 *   **Egress Traffic:** Outbound traffic (from AWS to the outside).
 *   **Ingress Traffic:** Inbound traffic (from the outside to AWS), which is typically free.
@@ -2690,7 +2690,7 @@ We'll start by examining costs within a single AWS region.
 
 ### S3 Data Transfer Pricing (USA Example)
 
-![S3 Data Transfer Pricing (USA Example)](/doc/img/S3DataTransferPricingUSAExample.png)
+![S3 Data Transfer Pricing (USA Example)](./img/S3DataTransferPricingUSAExample.png)
 
 *   Data going *into* an S3 bucket (ingress) is free. 💰
 *   Downloading data from S3 to your computer over the internet incurs an egress traffic cost of $0.09 per gigabyte. 💸
@@ -2713,7 +2713,7 @@ We'll start by examining costs within a single AWS region.
 
 ### NAT Gateway vs. Gateway VPC Endpoint
 
-![NAT Gateway vs. Gateway VPC Endpoint](/doc/img/NATGatewayvsGatewayVPCEndpoint.png)
+![NAT Gateway vs. Gateway VPC Endpoint](./img/NATGatewayvsGatewayVPCEndpoint.png)
 
 *   **Scenario:** EC2 instances in private subnets need to access data in an S3 bucket.
 
@@ -2752,7 +2752,7 @@ Previously, we discussed several ways to protect your network on AWS:
 
 But what if you need more sophisticated protection for your entire VPC? 🤔
 
-![AWS Network Firewall](/doc/img/AWSNetworkFirewall.png)
+![AWS Network Firewall](./img/AWSNetworkFirewall.png)
 
 The AWS Network Firewall provides layer 3 to layer 7 protection, allowing you to inspect traffic in any direction:
 

@@ -77,7 +77,7 @@ You can stream CloudWatch Metrics to external destinations in near real-time wit
 
 ### Destinations for Kinesis Data Firehose
 
-![Destinations for Kinesis Data Firehose](/doc/img/destinations-for-kinesis-data-firehose.png)
+![Destinations for Kinesis Data Firehose](./img/destinations-for-kinesis-data-firehose.png)
 
 From Kinesis Data Firehose, you can send your metrics to:
 
@@ -92,7 +92,7 @@ You can stream all metrics for all namespaces or filter to include only a subset
 
 ### Console Walkthrough
 
-![CloudWatch Console Walkthrough](/doc/img/cloudwatch-console-walkthrough.png)
+![CloudWatch Console Walkthrough](./img/cloudwatch-console-walkthrough.png)
 
 In the CloudWatch console, you can find all available metrics under the "Metrics" section on the left-hand side.
 
@@ -215,7 +215,7 @@ CloudWatch Logs can be exported to various destinations:
 
 2.  **CloudWatch Logs Subscriptions (Real-time Streaming):**
 
-![CloudWatch Logs Subscriptions](/doc/img/cloudwatch-logs-subscriptions.png)
+![CloudWatch Logs Subscriptions](./img/cloudwatch-logs-subscriptions.png)
 
 *   Provides a real-time stream of log events for processing and analysis.
 * We can create up to two subscription filters per log group.
@@ -238,13 +238,13 @@ Example of a subscription filter
 
 ### Log Aggregation Across Accounts and Regions
 
-![Log Aggregation](/doc/img/log-aggregation.png)
+![Log Aggregation](./img/log-aggregation.png)
 
 Subscription filters enable aggregating data from different CloudWatch Logs across accounts and regions into a common destination, such as a Kinesis Data Stream in a specific account, and then to Kinesis Data Firehose and Amazon S3 in near real-time.
 
 ### Cross-Account Log Delivery Details - CloudWatch Logs Subscriptions
 
-![Cross-Account Log Delivery](/doc/img/cross-account-log-delivery.png)
+![Cross-Account Log Delivery](./img/cross-account-log-delivery.png)
 
 To send logs from CloudWatch Logs in one account to a destination in another account, you must use destinations:
 
@@ -466,7 +466,7 @@ Composite Alarms are helpful for reducing alarm noise. You can create complex co
 
 📌 **Example:**
 
-![Composite Alarms](/doc/img/Composite-Alarms.png)
+![Composite Alarms](./img/Composite-Alarms.png)
 
 Consider an EC2 instance.
 
@@ -478,7 +478,7 @@ If Alarm A is in the ALARM state AND Alarm B is in the ALARM state, the Composit
 
 ### EC2 Instance Recovery
 
-![EC2 Instance Recovery](/doc/img/EC2-Instance-Recovery.png)
+![EC2 Instance Recovery](./img/EC2-Instance-Recovery.png)
 
 Status checks are used to monitor the health of EC2 instances:
 
@@ -499,7 +499,7 @@ You can also send an alert to an SNS topic to notify you when an EC2 instance is
 
 ### Additional Considerations
 
-![CloudWatch Logs Metric Filter Alarms](/doc/img/CloudWatch-Logs-Metric-Filter-Alarms.png)
+![CloudWatch Logs Metric Filter Alarms](./img/CloudWatch-Logs-Metric-Filter-Alarms.png)
 
 *   You can create alarms based on CloudWatch Logs metric filters. 📝
     *   For example, trigger an alarm when the word "error" appears too many times in the logs. ❗
@@ -538,7 +538,7 @@ This note explains how to create a CloudWatch Alarm that automatically terminate
         *   Set the threshold value (e.g., greater than 70%).
         *   Specify the evaluation period (e.g., three out of three periods, meaning 15 minutes at 95% CPU).
 
-![CloudWatch Alarms Define the Evaluation Criteria](/doc/img/CloudWatch-Alarms-Define-the-Evaluation-Criteria.png)
+![CloudWatch Alarms Define the Evaluation Criteria](./img/CloudWatch-Alarms-Define-the-Evaluation-Criteria.png)
 
 3.  **Define the Action:**
     *   Select an **EC2 action**.
@@ -587,14 +587,14 @@ Amazon EventBridge, formerly known as CloudWatch Events, allows you to react to 
 
 With EventBridge, you can:
 
-![Amazon EventBridge Usage](/doc/img/Amazon-EventBridge-Usage.png)
+![Amazon EventBridge Usage](./img/Amazon-EventBridge-Usage.png)
 
 *   ⏰ Schedule cron jobs in the cloud. For instance, trigger a Lambda function every hour to run a script.
 *   🔄 React to event patterns. Event rules can respond to actions performed by AWS services.
 
 📌 **Example:** React to an IAM root user sign-in in the console by sending a message to an SNS topic, providing email notification. This enhances security.
 
-![Amazon EventBridge Source and Destinations](/doc/img/Amazon-EventBridge-Source-and-Destinations.png)
+![Amazon EventBridge Source and Destinations](./img/Amazon-EventBridge-Source-and-Destinations.png)
 
 EventBridge acts as a central hub, receiving events from various sources. These sources include:
 
@@ -634,7 +634,7 @@ EventBridge offers three types of event buses:
 2.  **Partner Event Bus:** Receives events from integrated partners (typically SaaS providers like Zendesk, Datadog, and Auth0). Check the partner list for supported integrations.
 3.  **Custom Event Bus:** Allows your own applications to send events, enabling the same destination capabilities as other event buses.
 
-![Amazon EventBridge Event Bus Types](/doc/img/Amazon-EventBridge-Event-Bus-Types.png)
+![Amazon EventBridge Event Bus Types](./img/Amazon-EventBridge-Event-Bus-Types.png)
 
 Event buses can be accessed cross-account using resource-based policies.
 
@@ -659,7 +659,7 @@ EventBridge uses resource-based policies to manage permissions for event buses.
 
 *   You can allow or deny events from other regions or accounts.
 
-![Amazon EventBridge Resource-Based Policies](/doc/img/Amazon-EventBridge-Resource-Based-Policies.png)
+![Amazon EventBridge Resource-Based Policies](./img/Amazon-EventBridge-Resource-Based-Policies.png)
 
 📌 **Example:** Create a central event bus within your AWS organization. Add a resource-based policy allowing other accounts to send events to it using the `PutEvents` API.
 
@@ -712,7 +712,7 @@ Rules allow you to respond to specific AWS events.
 * The rule listens for events like an EC2 instance being **terminated** or **shutting down**.
 * This is useful for monitoring unexpected behavior or ensuring visibility into changes.
 
-![EventBridge - Event Pattern](/doc/img/Amazon-EventBridge-Event-Pattern.png)
+![EventBridge - Event Pattern](./img/Amazon-EventBridge-Event-Pattern.png)
 
 Steps:
 
@@ -725,7 +725,7 @@ Steps:
     - Event Type: **EC2 Instance State Change Notification**
     - Event Type Specification 1: Specific state(s) => shutting-down or terminated
 
-![EventBridge - Target Selection](/doc/img/Amazon-EventBridge-Target-Selection.png)
+![EventBridge - Target Selection](./img/Amazon-EventBridge-Target-Selection.png)
 
 4. Choose a target action.
 
@@ -748,7 +748,7 @@ EventBridge also provides a **Scheduler** to invoke actions at defined intervals
 * Rule type: `Schedule`.
 * Click on "Continue in EventBridge Scheduler". It will take you to the Scheduler page (different UI).
 
-![EventBridge - Scheduler](/doc/img/Amazon-EventBridge-Scheduler.png)
+![EventBridge - Scheduler](./img/Amazon-EventBridge-Scheduler.png)
 
 * Occurrence: Recurring Schedule.
 * Schedule Type: Rate-based.
@@ -829,7 +829,7 @@ This feature helps you collect, aggregate, and summarize metrics and logs from y
 
 CloudWatch Container Insights allows you to extract metrics and logs from your containers and visualize them in detailed dashboards within CloudWatch.
 
-![CloudWatch Container Insights](/doc/img/CloudWatch-Container-Insights.png)
+![CloudWatch Container Insights](./img/CloudWatch-Container-Insights.png)
 
 📝 **Note:** When using CloudWatch Container Insights with Kubernetes (Amazon EKS or Kubernetes on EC2), it uses a containerized version of the CloudWatch agent to discover containers.
 
@@ -864,7 +864,7 @@ You can run it on any logs generated by AWS services, such as VPC Flow Logs or D
 
 This allows you to find the top 10 IP addresses generating traffic on your VPC and determine if they are legitimate or malicious.
 
-![CloudWatch Contributor Insights](/doc/img/CloudWatch-Contributor-Insights.png)
+![CloudWatch Contributor Insights](./img/CloudWatch-Contributor-Insights.png)
 
 You can build rules from scratch or use pre-built rules provided by AWS. It leverages CloudWatch Logs behind the scenes. Built-in rules can also analyze metrics from other AWS services.
 
@@ -919,7 +919,7 @@ In summary, CloudTrail acts as a central repository for actions performed via th
 
 If you need to retain events for longer than 90 days, you can send them to CloudWatch Logs or an S3 bucket.
 
-![AWS CloudTrail](/doc/img/AWS_CloudTrail.png)
+![AWS CloudTrail](./img/AWS_CloudTrail.png)
 
 ### 🔍 CloudTrail Event Types
 
@@ -961,7 +961,7 @@ It works by establishing a baseline of normal management activities and then **c
 
 Management Events are continuously analyzed by CloudTrail Insights, which generates Insight Events when anomalies are detected.
 
-![CloudTrail Insights](/doc/img/CloudTrail_Insights.png)
+![CloudTrail Insights](./img/CloudTrail_Insights.png)
 
 These Insight Events are visible in the CloudTrail console and can also be sent to Amazon CloudWatch and EventBridge for automated responses (e.g., sending an email notification).
 
@@ -973,7 +973,7 @@ To retain events for longer periods (e.g., for auditing purposes), you need to l
 
 To analyze these long-term logs in S3, you can use Amazon Athena, a serverless service that allows you to query data directly in S3.
 
-![CloudTrail Event Retention](/doc/img/CloudTrail_Event_Retention.png)
+![CloudTrail Event Retention](./img/CloudTrail_Event_Retention.png)
 
 In summary:
 
@@ -1041,14 +1041,14 @@ Imagine you want to receive an SNS notification whenever a user deletes a table 
 4.  This rule can then have a destination, such as Amazon SNS.
 5.  Finally, this setup allows you to create alerts based on specific API calls. 🔔
 
-![Integrating Amazon EventBridge with CloudTrail](/doc/img/Integrating_Amazon_EventBridge_with_CloudTrail.png)
+![Integrating Amazon EventBridge with CloudTrail](./img/Integrating_Amazon_EventBridge_with_CloudTrail.png)
 
 Let's look at some more 📌 **Examples** of how you can integrate Amazon EventBridge and CloudTrail:
 
 *   **Role Assumption:** Get notified whenever a user assumes a role in your accounts. The `AssumeRole` API in IAM is logged by CloudTrail. Using EventBridge, you can trigger a message to an SNS topic. 👤
 *   **Security Group Changes:** Intercept API calls that modify Security Group inbound rules. The `AuthorizeSecurityGroupIngress` call (an EC2 API call) is logged by CloudTrail, appears in EventBridge, and can trigger an SNS notification. 🛡️
 
-![Integrating Amazon EventBridge with CloudTrail - Examples](/doc/img/Integrating_Amazon_EventBridge_with_CloudTrail_Examples.png)
+![Integrating Amazon EventBridge with CloudTrail - Examples](./img/Integrating_Amazon_EventBridge_with_CloudTrail_Examples.png)
 
 As you can see, the possibilities are vast. You now have some initial ideas on how this integration can be used. 🚀
 
@@ -1104,7 +1104,7 @@ Config can become expensive quickly. 💰
 
 ### Resource Compliance
 
-![AWS Config Resource Compliance](/doc/img/AWS_Config_Resource_Compliance.png)
+![AWS Config Resource Compliance](./img/AWS_Config_Resource_Compliance.png)
 
 You can view the compliance of a resource over time.
 
@@ -1116,7 +1116,7 @@ You can also view the resource configuration over time, including when the chang
 
 Although Config cannot deny actions, you can remediate non-compliant resources using SSM Automation Documents. 🛠️
 
-![AWS Config Remediation](/doc/img/AWS_Config_Remediation.png)
+![AWS Config Remediation](./img/AWS_Config_Remediation.png)
 
 📌 **Example:**
 
@@ -1133,7 +1133,7 @@ Remediations may have retries in case the resource is still non-compliant after 
 
 You can use EventBridge to trigger notifications when resources are non-compliant. 📢
 
-![AWS Config Notifications](/doc/img/AWS_Config_Notifications.png)
+![AWS Config Notifications](./img/AWS_Config_Notifications.png)
 
 📌 **Example:**
 
@@ -1143,7 +1143,7 @@ You can use EventBridge to trigger notifications when resources are non-complian
 
 Alternatively, you can send all changes and compliance notifications to SNS from Config. Filter SNS topics to send specific events to admin emails, Slack channels, etc. 📧
 
-![AWS Config SNS Notifications - Filter](/doc/img/AWS_Config_SNS_Notifications_Filter.png)
+![AWS Config SNS Notifications - Filter](./img/AWS_Config_SNS_Notifications_Filter.png)
 
 ```text
 # SNS Filtering Example
