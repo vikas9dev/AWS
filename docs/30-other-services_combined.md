@@ -98,7 +98,7 @@ CloudFormation is the foundation of infrastructure as code on AWS.
 
 You can visualize CloudFormation templates using the Infrastructure Composer service.
 
-![Visualizing CloudFormation Templates](/doc/img/Visualizing-CloudFormation-Templates.png)
+![Visualizing CloudFormation Templates](./img/Visualizing-CloudFormation-Templates.png)
 
 📌 **Example:** Visualizing a WordPress CloudFormation stack allows you to see:
 
@@ -193,7 +193,7 @@ This note provides a quick introduction to CloudFormation and an overview of how
     *   An Elastic IP (EIP) attached to the instance.
     *   Security group definitions for SSH (port 22) and server (port 80) access.
 
-![CloudFormation Updating a Stack](/doc/img/CloudFormation_updating-a-Stack.png)
+![CloudFormation Updating a Stack](./img/CloudFormation_updating-a-Stack.png)
 
 4.  **Parameter Input**: Provide the required parameter value (e.g., "demo description" for the security group description).
 
@@ -264,7 +264,7 @@ Let's say a user wants to create an S3 bucket using CloudFormation.
 *   The user creates a CloudFormation stack and specifies the service role.
 *   CloudFormation assumes the service role and creates the S3 bucket.
 
-![CloudFormation Using a Service Role](/doc/img/CloudFormation_using-a-Service-Role.png)
+![CloudFormation Using a Service Role](./img/CloudFormation_using-a-Service-Role.png)
 
 ### Least Privilege Principle 🔑
 
@@ -314,7 +314,7 @@ Your application interacts with Amazon SES through:
 
 Amazon SES then handles sending bulk emails to your users.
 
-![Amazon SES](/doc/img/amazon-ses.png)
+![Amazon SES](./img/amazon-ses.png)
 
 Key features include:
 
@@ -364,7 +364,7 @@ Amazon Pinpoint is a scalable inbound and outbound marketing communication servi
 
 One of the primary use cases is sending SMS messages. Customers receive SMS messages sent through Amazon Pinpoint.
 
-![Amazon Pinpoint](/doc/img/amazon-pinpoint.png)
+![Amazon Pinpoint](./img/amazon-pinpoint.png)
 
 You can segment and personalize messages to deliver the right content to the right customers. This involves creating groups and segments. You also have the ability to receive replies. Pinpoint scales to billions of messages per day.
 
@@ -405,7 +405,7 @@ SSM Session Manager allows you to start a secure shell on your EC2 instances and
 * **No SSH access, bastion hosts, or SSH keys required**
 * **No port 22 needed (better security)**
 
-![SSM Session Manager](/doc/img/ssm-session-manager.png)
+![SSM Session Manager](./img/ssm-session-manager.png)
 
 ### How it Works
 *   The EC2 instance has an SSM Agent.
@@ -500,7 +500,7 @@ Let's explore some key services within Systems Manager. 📝 **Note:** These are
 
 ### Run Command
 
-![System Manager Run Command](/doc/img/ssm-run-command.png)
+![System Manager Run Command](./img/ssm-run-command.png)
 
 The Run Command is used to execute a document (script or single command) on multiple instances using resource groups.
 
@@ -517,7 +517,7 @@ The Run Command is used to execute a document (script or single command) on mult
 
 ### Patch Manager
 
-![Systems Manager Patch Manager](/doc/img/ssm-patch-manager.png)
+![Systems Manager Patch Manager](./img/ssm-patch-manager.png)
 
 Patch Manager automates the process of patching managed instances.
 
@@ -538,7 +538,7 @@ The process involves invoking Patch Manager (using the `AWS-RunPatchBaseline` Ru
 
 ### Maintenance Windows
 
-![Systems Manager Maintenance Windows](/doc/img/ssm-maintenance-windows.png)
+![Systems Manager Maintenance Windows](./img/ssm-maintenance-windows.png)
 
 Maintenance Windows define a schedule for performing actions on your instances.
 
@@ -556,7 +556,7 @@ Maintenance Windows define a schedule for performing actions on your instances.
 
 ### Automation
 
-![Systems Manager Automation](/doc/img/ssm-automation.png)
+![Systems Manager Automation](./img/ssm-automation.png)
 
 Automation simplifies common maintenance and deployment tasks on EC2 instances or other AWS resources.
 
@@ -645,7 +645,7 @@ It monitors:
 
 You'll receive an anomaly detection report with root cause analysis, helping you understand what's happening in your account. 🕵️‍♀️
 
-![AWS Cost Anomaly Detection](/doc/img/aws-cost-anomaly-detection.png)
+![AWS Cost Anomaly Detection](./img/aws-cost-anomaly-detection.png)
 
 Notifications can be configured via:
 
@@ -714,7 +714,7 @@ Essentially, AWS extends its services directly into your corporate data center. 
 
 ### Available Services on Outposts ☁️
 
-![Available Services on AWS Outposts](/doc/img/Available-Services-on-AWS-Outposts.png)
+![Available Services on AWS Outposts](./img/Available-Services-on-AWS-Outposts.png)
 
 With Outposts, you can launch a variety of AWS services, including:
 
@@ -754,7 +754,7 @@ Using Batch to run batch jobs is beneficial because it automatically scales the 
 
 📌 **Example:** Processing images submitted by users to Amazon S3 in a batch manner.
 
-![Batch Job Workflow - Processing images submitted by users to Amazon S3 in a batch manner](/doc/img/Batch-Job-Workflow---Processing-images-submitted-by-users-to-Amazon-S3-in-a-batch-manner.png)
+![Batch Job Workflow - Processing images submitted by users to Amazon S3 in a batch manner](./img/Batch-Job-Workflow---Processing-images-submitted-by-users-to-Amazon-S3-in-a-batch-manner.png)
 
 1.  An image is uploaded to Amazon S3.
 2.  This upload triggers a batch job.
@@ -839,7 +839,7 @@ AppFlow provides built-in data transformation capabilities, including:
 
 The core benefit of AppFlow is that you can immediately leverage APIs without spending time writing custom integrations. This allows you to quickly access and utilize your data within your AWS accounts. ⚡
 
-![Amazon AppFlow](/doc/img/Amazon-AppFlow.png)
+![Amazon AppFlow](./img/Amazon-AppFlow.png)
 
 **Using the AppFlow Interface:**
 
@@ -854,7 +854,7 @@ That concludes this introduction to Amazon AppFlow! 🎉
 
 AWS Amplify is a powerful web and mobile application development tool. 🚀 Think of it as a central hub for integrating various AWS services to streamline your development process. It allows developers to build and deploy applications more efficiently.
 
-![AWS Amplify Overview](/doc/img/AWS-Amplify-Overview.png)
+![AWS Amplify Overview](./img/AWS-Amplify-Overview.png)
 
 Here's a breakdown of how Amplify works:
 
@@ -925,7 +925,7 @@ Amplify can be thought of as the Elastic Beanstalk for web and mobile applicatio
 
 💡 **Tip:** The exam may ask you about the core idea behind this solution: stopping and starting resources to save on costs.
 
-![Instance Scheduler AWS](/doc/img/Instance-Scheduler-AWS.png)
+![Instance Scheduler AWS](./img/Instance-Scheduler-AWS.png)
 
 See More:- [Instance Scheduler on AWS](https://aws.amazon.com/solutions/implementations/instance-scheduler-on-aws/)
 

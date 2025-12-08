@@ -31,7 +31,7 @@ To effectively manage your AWS costs and avoid unexpected charges, it's crucial 
 
 ### Enabling IAM User Access to Billing Information
 
-![IAM User Billing Access](/doc/img/iam_user_billing_access.png)
+![IAM User Billing Access](./img/iam_user_billing_access.png)
 
 To grant IAM users access to billing information, follow these steps:
 

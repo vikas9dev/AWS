@@ -92,31 +92,6 @@ Practical code examples and scripts for:
 - **SQS**: Queue examples
 - **SSM**: Parameter store scripts
 
-### 📋 Topic-Based Notes (`td/topic-based/`)
-
-Focused notes on key AWS services:
-
-- EC2
-- Auto Scaling
-- DynamoDB
-- EBS
-- EFS
-- ELB
-- IAM
-- Lambda
-- RDS
-- S3
-- SQS
-- VPC
-- CloudFront
-
-### 🏗️ Section-Based Notes (`td/section-based/`)
-
-Exam domain-focused content:
-
-- Design Resilient Architectures
-- Design High-Performing Architectures
-
 ### 🎯 AWS Well-Architected Framework (`skill-builder/`)
 
 Comprehensive coverage of the AWS Well-Architected Framework:

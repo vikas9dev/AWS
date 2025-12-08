@@ -588,7 +588,7 @@ In a social network:
 - Accessed via **HTTP REST API**
 - **Real-time applications** can consume the stream
 
-![AWS Neptune Streams](/doc/img/AWS_Neptune_Streams.png)
+![AWS Neptune Streams](./img/AWS_Neptune_Streams.png)
 
 #### 🔄 Use Cases
 

@@ -10,7 +10,7 @@ Sections:-
 
 Amazon Web Services (AWS) started as an internal project at Amazon.com in 2002. The company realized its IT infrastructure could be externalized and offered as a service.
 
-![AWS History](/doc/img/AWS_History.png)
+![AWS History](./img/AWS_History.png)
 
 - The first public offering was Simple Queue Service (SQS) in 2004.
 - In 2006, AWS expanded its offerings with SQS, Simple Storage Service (S3), and Elastic Compute Cloud (EC2). These are core services we'll explore in this course.
@@ -77,7 +77,7 @@ AWS allows you to leverage its global infrastructure to make your applications g
 
 Regions are located around the world. Each region has a name, such as `us-east-1` or `eu-west-3`. You can find the mapping of region names to their codes in the AWS console.
 
-![AWS Regions](/doc/img/AWS_Regions.webp)
+![AWS Regions](./img/AWS_Regions.webp)
 
 A region is a cluster of data centers located near each other, for example, in Ohio, Singapore, Sydney, or Tokyo.
 
@@ -104,7 +104,7 @@ Availability Zones reside within regions. Each region has multiple AZs, typicall
 - **Africa (Cape Town)**: 3 AZs
 - **Newer or smaller regions** may start with **2 AZs**, but AWS often expands them later.
 
-![AWS AZs](/doc/img/AWS_availability_zones.webp)
+![AWS AZs](./img/AWS_availability_zones.webp)
 
 You can view the current number of AZs per region on the [official AWS Regional Services List](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/).
 

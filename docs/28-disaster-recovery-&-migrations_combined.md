@@ -32,7 +32,7 @@ There are several disaster recovery approaches:
 
 ### Key Terminology: RPO and RTO 📝
 
-![Disaster Recovery - RTO and RPO](/doc/img/disaster-recovery-rto-and-rpo.png)
+![Disaster Recovery - RTO and RPO](./img/disaster-recovery-rto-and-rpo.png)
 
 Before implementing a disaster recovery plan, it's essential to understand two key terms:
 
@@ -55,13 +55,13 @@ There are four main disaster recovery strategies, each with different RTOs and c
 3.  Warm Standby
 4.  Hot Site/Multi-Site
 
-![Disaster Recovery Strategies vs RTO](/doc/img/disaster-recovery-strategies-vs-rto.png)
+![Disaster Recovery Strategies vs RTO](./img/disaster-recovery-strategies-vs-rto.png)
 
 The strategies are listed from highest RTO (longest downtime) to lowest RTO (shortest downtime) and also from lowest cost to highest cost.
 
 #### 1. Backup and Restore 💾
 
-![DR - Backup and Restore](/doc/img/DR-Backup-and-Restore.png)
+![DR - Backup and Restore](./img/DR-Backup-and-Restore.png)
 
 *   **Description:** Backing up data and restoring it when needed.
 *   **RPO:** High (can be hours or days depending on backup frequency).
@@ -77,7 +77,7 @@ The strategies are listed from highest RTO (longest downtime) to lowest RTO (sho
 
 #### 2. Pilot Light 💡
 
-![DR - Pilot Light](/doc/img/DR-Pilot-Light.png)
+![DR - Pilot Light](./img/DR-Pilot-Light.png)
 
 *   **Description:** A small version of the app is always running in the cloud. Used for critical core (pilot light).
 *   **RPO:** Lower than Backup and Restore (depends on data replication frequency).
@@ -94,7 +94,7 @@ The strategies are listed from highest RTO (longest downtime) to lowest RTO (sho
 
 #### 3. Warm Standby 🔥
 
-![DR - Warm Standby](/doc/img/DR-Warm-Standby.png)
+![DR - Warm Standby](./img/DR-Warm-Standby.png)
 
 *   **Description:** Running a scaled-down version (minimum size) of the full system in the cloud. Upon Disaster Recovery, scale the application using Auto Scaling to production load.
 *   **RPO:** Lower than Pilot Light (data replication is continuous).
@@ -114,7 +114,7 @@ The strategies are listed from highest RTO (longest downtime) to lowest RTO (sho
 
 #### 4. Hot Site/Multi-Site 🚀
 
-![DR - Hot Site/Multi-Site](/doc/img/DR-Hot-Site-Multi-Site.png)
+![DR - Hot Site/Multi-Site](./img/DR-Hot-Site-Multi-Site.png)
 
 *   **Description:** Running two full production environments, one on-premise and one in the cloud.
 *   **RPO:** Very Low (near zero data loss).
@@ -130,7 +130,7 @@ The strategies are listed from highest RTO (longest downtime) to lowest RTO (sho
 
 For a full cloud approach, you can use a multi-region setup with services like Aurora Global Databases for seamless replication and failover.
 
-![DR - AWS Full Cloud](/doc/img/DR-AWS-Full-Cloud.png)
+![DR - AWS Full Cloud](./img/DR-AWS-Full-Cloud.png)
 
 ### Disaster Recovery Tips 💡
 
@@ -176,7 +176,7 @@ Key features of DMS:
     *   Heterogeneous migrations (e.g., Microsoft SQL Server to Aurora).
 *   Supports continuous data replication using CDC (Change Data Capture). ⏱️
 
-![DR - DMS](/doc/img/DR-DMS.png)
+![DR - DMS](./img/DR-DMS.png)
 
 To use DMS, you need to create an EC2 instance. This EC2 instance performs the replication tasks. The DMS software on the EC2 instance pulls data from the source database and puts it into the target database continuously.
 
@@ -296,7 +296,7 @@ You need to use AWS SCT (Schema Conversion Tool). SCT converts the database sche
 - OLTP: (SQL Server or Oracle) ➝ (MySQL, PostgreSQL, Aurora)
 - OLAP: (Teradata or Oracle) ➝ Amazon Redshift
 
-![DR - SCT](/doc/img/DR-SCT.png)
+![DR - SCT](./img/DR-SCT.png)
 
 In this scenario, DMS runs alongside SCT.
 
@@ -307,7 +307,7 @@ In this scenario, DMS runs alongside SCT.
 
 ### Setting up Continuous Replication for DMS
 
-![DMS Continuous Replication](/doc/img/DR-DMS-Continuous-Replication.png)
+![DMS Continuous Replication](./img/DR-DMS-Continuous-Replication.png)
 
 Here's how to set up continuous replication for DMS:
 
@@ -320,7 +320,7 @@ Here's how to set up continuous replication for DMS:
 
 ### Multi-AZ Deployment for DMS
 
-![DMS Multi-AZ Deployment](/doc/img/DR-DMS-Multi-AZ-Deployment.png)
+![DMS Multi-AZ Deployment](./img/DR-DMS-Multi-AZ-Deployment.png)
 
 DMS offers a Multi-AZ deployment option.
 
@@ -615,7 +615,7 @@ You can create backup policies known as **Backup Plans**. These plans allow you 
 
 ### How it Works
 
-![AWS Backup - How it Works](/doc/img/AWS_Backup_How_it_Works.png)
+![AWS Backup - How it Works](./img/AWS_Backup_How_it_Works.png)
 
 1.  Create a Backup Plan. 📝
 2.  Assign specific AWS resources to the plan. ➕
@@ -760,7 +760,7 @@ Once you've mapped your migration, you need to execute the move. The simplest wa
 
 With MGN, you can perform rehosting, also known as a "lift-and-shift" migration. This involves converting your physical, virtual, or other cloud-based resources to run natively on AWS.
 
-![AWS Application Migration Service](/doc/img/AWS_Application_Migration_Service.png)
+![AWS Application Migration Service](./img/AWS_Application_Migration_Service.png)
 
 Here's how it works:
 
@@ -861,7 +861,7 @@ Consumers with VMware-based data centers often want to:
 
 VMware Cloud on AWS allows you to extend your VMware Cloud infrastructure to AWS. You can run vSphere, vSAN, NSX, and other VMware services directly on AWS.
 
-![VMware Cloud on AWS](/doc/img/VMware_Cloud_on_AWS.png)
+![VMware Cloud on AWS](./img/VMware_Cloud_on_AWS.png)
 
 ### Use Cases 🚀
 

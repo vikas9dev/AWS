@@ -40,7 +40,7 @@ You can automate account creation using the AWS Organizations API.
 
 ### Organizational Units (OUs) 🌳
 
-![Organizational Units](/doc/img/Organizational-Units.png)
+![Organizational Units](./img/Organizational-Units.png)
 
 *   **Root OU:** The outermost OU containing all accounts. The management account resides within the root OU.
 *   **Sub-OUs:** Create nested OUs for different purposes.
@@ -68,7 +68,7 @@ You can organize OUs by:
 
 You can mix and match these approaches.
 
-![Organizational Unit Example](/doc/img/Organizational-Unit-Example.png)
+![Organizational Unit Example](./img/Organizational-Unit-Example.png)
 
 ### Advantages of Using Organizations ✅
 
@@ -86,7 +86,7 @@ SCPs are IAM policies applied to specific OUs or accounts. They restrict what us
 
 📌 **Example:** SCP Behavior
 
-![AWS Organizations - SCPs Example](/doc/img/AWS-Organizations-SCPs-Example.png)
+![AWS Organizations - SCPs Example](./img/AWS-Organizations-SCPs-Example.png)
 
 Consider a root OU with full AWS access. Underneath, there are Sandbox, Workloads, Test, and Prod OUs.
 
@@ -204,7 +204,7 @@ This hierarchy allows you to:
 * Reflect business units or environments.
 * Apply fine-grained policies.
 
-![AWS Organizations - OUs Example](/doc/img/AWS-Organizations-OU-Example.png)
+![AWS Organizations - OUs Example](./img/AWS-Organizations-OU-Example.png)
 
 ### ✅ Moving Accounts into OUs
 
@@ -481,7 +481,7 @@ This condition restricts resource policies to accounts within an AWS Organizatio
 
 This policy allows `PutObject` and `GetObject` actions only if the API call originates from an account within the specified AWS Organization. This ensures that only member accounts can access the S3 bucket. 🏢
 
-![AWS IAM Advance Policies](/doc/img/iam-advanced-policies.png)
+![AWS IAM Advance Policies](./img/iam-advanced-policies.png)
 
 By using these conditions, you can create highly specific and secure IAM policies tailored to your organization's needs. 🛡️
 
@@ -494,7 +494,7 @@ By using these conditions, you can create highly specific and secure IAM policie
 *   Resource-based policies (e.g., S3 bucket policies).
 *   IAM roles.
 
-![IAM Roles vs. Resource-Based Policies](/doc/img/iam-roles-vs-resource-based-policies.png)
+![IAM Roles vs. Resource-Based Policies](./img/iam-roles-vs-resource-based-policies.png)
 
 Let's illustrate with an example: A user in Account A needs to access an S3 bucket in Account B. This can be achieved in two ways:
 
@@ -539,7 +539,7 @@ The choice between IAM roles and resource-based policies becomes particularly re
 *   If the target supports resource-based policies (e.g., Lambda functions, SNS topics, SQS queues, S3 buckets, API Gateway), EventBridge can directly add a resource-based policy to the target, allowing invocation from the EventBridge rule.
 *   If the resource does not support resource-based policies, EventBridge will use an IAM role to invoke the target service (e.g., Kinesis Data Streams, EC2 Auto Scaling, System Manager Run Command, ECS task).
 
-![Amazon EventBridge Integration](/doc/img/amazon-eventbridge-integration.png)
+![Amazon EventBridge Integration](./img/amazon-eventbridge-integration.png)
 
 📝 **Note:** Even if a service supports resource-based policies, EventBridge might still opt to use an IAM role.
 
@@ -572,7 +572,7 @@ To grant specific permissions, you need to attach an IAM policy in addition to t
 
 If you attach a policy allowing `iam:CreateUser` with resource `*` to the same user, the user will **NOT** be able to create other IAM users. This is because the `iam:CreateUser` action is outside the scope of the S3, CloudWatch, and EC2 permission boundary.
 
-![IAM Permission Boundaries](/doc/img/iam-permission-boundaries.png)
+![IAM Permission Boundaries](./img/iam-permission-boundaries.png)
 
 Let's see how to create an IAM permission boundary in the AWS console:
 
@@ -585,7 +585,7 @@ Let's see how to create an IAM permission boundary in the AWS console:
     *   📌 **Example:** Limit the user to `AmazonS3FullAccess`.
 6.  Now, even though the user has `AdministratorAccess` attached, the permission boundary restricts them to only accessing S3.
 
-![IAM Permission Boundaries in the AWS Console](/doc/img/iam-permission-boundaries-console.png)
+![IAM Permission Boundaries in the AWS Console](./img/iam-permission-boundaries-console.png)
 
 💡 **Tip:** The permission boundary is more restrictive than the attached policies.
 
@@ -597,7 +597,7 @@ The effective permissions are determined by the intersection of:
 *   IAM permission boundaries (for users and roles only - not for groups)
 *   Organization SCPs (applied to all IAM entities in an account)
 
-![IAM Permission Boundaries Conjunction](/doc/img/iam-permission-boundaries-conjunction.png)
+![IAM Permission Boundaries Conjunction](./img/iam-permission-boundaries-conjunction.png)
 
 Use Cases for Permission Boundaries:
 
@@ -609,7 +609,7 @@ Use Cases for Permission Boundaries:
 
 The IAM Policy Evaluation Logic determines whether an action is allowed or denied. You don't need to memorize it, but understanding the flow is crucial.
 
-![IAM Policy Evaluation Logic](/doc/img/iam-policy-evaluation-logic.png)
+![IAM Policy Evaluation Logic](./img/iam-policy-evaluation-logic.png)
 
 The evaluation process involves several steps:
 
@@ -666,7 +666,7 @@ The identity provider (where user credentials are stored) can be:
 *   A built-in identity store within IAM Identity Center.
 *   A third-party identity provider such as Active Directory (AD), OneLogin, or Okta.
 
-![AWS IAM Identity Center](/doc/img/aws-iam-identity-center.png)
+![AWS IAM Identity Center](./img/aws-iam-identity-center.png)
 
 Here's a simplified login flow:
 
@@ -685,7 +685,7 @@ The browser interface connects to the login page of your AWS IAM Identity Center
 *   Active Directory (cloud or on-premises) for managing users and groups.
 *   IAM Identity Center's built-in identity store for defining users and groups, similar to IAM.
 
-![Identity Center Integration](/doc/img/identity-center-integration.png)
+![Identity Center Integration](./img/identity-center-integration.png)
 
 Identity Center integrates with SSO for:
 
@@ -708,7 +708,7 @@ Let's illustrate how permissions, users, and groups relate within IAM Identity C
 2.  You have two Organizational Units (OUs): Development and Production, each with its own accounts.
 3.  You have two developers: Bob and Alice.
 
-![Permissions, Users, and Groups](/doc/img/permissions-users-and-groups.png)
+![Permissions, Users, and Groups](./img/permissions-users-and-groups.png)
 
 Here's how you would manage their access:
 
@@ -729,7 +729,7 @@ IAM Identity Center offers fine-grained permissions and assignments:
 *   **Multi-Account Permissions:** Manage access across multiple accounts within your organization.
 *   **Permission Sets:** Define one or more IAM Policies assigned to users and groups, determining their access within AWS.
 
-![Fine-Grained Permissions and Assignments](/doc/img/fine-grained-permissions-and-assignments.png)
+![Fine-Grained Permissions and Assignments](./img/fine-grained-permissions-and-assignments.png)
 
 📌 **Example:**
 
@@ -765,7 +765,7 @@ All users within a Microsoft ecosystem on-premise are managed by Microsoft Activ
 - Objects are organized into a **trees**. 
 - A group of trees is called a **forest**.
 
-![Microsoft Active Directory](/doc/img/microsoft-active-directory.png)
+![Microsoft Active Directory](./img/microsoft-active-directory.png)
 
 📌 **Example:** Creating a user account "John" with password "Password" on a domain controller. All other Windows machines within the network connected to this domain controller can then authenticate using these credentials. This allows users to access any machine within the domain.
 
@@ -777,7 +777,7 @@ AWS Directory Services provides a way to create an Active Directory on AWS. Ther
 
 It's important to understand the differences between these.
 
-![AWS Directory Services](/doc/img/aws-directory-services.png)
+![AWS Directory Services](./img/aws-directory-services.png)
 
 ### 1. AWS Managed Microsoft AD
 
@@ -819,13 +819,13 @@ If you don't have an on-premise AD and need an Active Directory for your AWS Clo
 
 #### Connect to an AWS Managed Microsoft AD (Directory Service)
 
-![Integrating IAM Identity Center with Active Directory](/doc/img/integrating-iam-identity-center-with-active-directory.png)
+![Integrating IAM Identity Center with Active Directory](./img/integrating-iam-identity-center-with-active-directory.png)
 
 If you connect to an Active Directory managed on AWS using Directory Service, the integration with IAM Identity Center is out-of-the-box. You simply tell IAM Identity Center to integrate and connect to your AWS Managed Microsoft AD.
 
 #### Connect to a self-managed directory (on-premises)
 
-![Integrating IAM Identity Center with a self-managed directory](/doc/img/integrating-iam-identity-center-with-a-self-managed-directory.png)
+![Integrating IAM Identity Center with a self-managed directory](./img/integrating-iam-identity-center-with-a-self-managed-directory.png)
 
 However, if you have a self-managed directory (e.g., on-premises), you have two options:
 
@@ -914,7 +914,7 @@ Guardrails are **governance rules** that help ensure your accounts stay secure a
   - Triggers an **SNS topic** to alert admins.
   - SNS can invoke a **Lambda function** for **auto-remediation** (e.g., auto-tagging).
 
-![AWS Control Tower Guardrails](/doc/img/aws-control-tower-guardrails.png)
+![AWS Control Tower Guardrails](./img/aws-control-tower-guardrails.png)
 
 ### ✅ Summary
 

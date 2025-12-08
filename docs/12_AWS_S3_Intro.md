@@ -227,19 +227,19 @@ You can use S3 Bucket policies to:
 
 *   **Public Access - Use Bucket Policy**: Attach an S3 Bucket policy that allows public access to allow website visitors to access files within your S3 Bucket.
 
-![Public Access - Use Bucket Policy](/doc/img/public_access_bucket_policy.png)
+![Public Access - Use Bucket Policy](./img/public_access_bucket_policy.png)
 
 *   **User Access to S3 - IAM Permissions**: Assign IAM permissions to a user through a policy to allow that user to access S3 Buckets.
 
-![User Access to S3 - IAM Permissions](/doc/img/user_access_s3_iam_permissions.png)
+![User Access to S3 - IAM Permissions](./img/user_access_s3_iam_permissions.png)
 
 *   **EC2 Instance Access - Use IAM Roles**: Use an IAM role with the correct IAM permissions to allow an EC2 instance to access S3 Buckets. IAM users are not appropriate for EC2 instances.
 
-![EC2 Instance Access - Use IAM Roles](/doc/img/ec2_instance_access_iam_roles.png)
+![EC2 Instance Access - Use IAM Roles](./img/ec2_instance_access_iam_roles.png)
 
 *   **Cross-Account Access - Use Bucket Policy**: Use a Bucket Policy to allow an IAM user in another AWS account to make API calls to your S3 Buckets.
 
-![Cross-Account Access - Use Bucket Policy](/doc/img/cross_account_access_bucket_policy.png)
+![Cross-Account Access - Use Bucket Policy](./img/cross_account_access_bucket_policy.png)
 
 ### Block Public Access
 

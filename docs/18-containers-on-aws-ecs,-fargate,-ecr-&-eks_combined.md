@@ -972,7 +972,7 @@ A2C also supports prebuilt CI/CD pipelines for automated deployments. ⚙️
 
 The Docker container image is stored in Amazon ECR and can be deployed to ECS, EKS, or App Runner.
 
-![AWS App2Container](/doc/img/AWS-App2Container.png)
+![AWS App2Container](./img/AWS-App2Container.png)
 
 📌 **Example:** You have a legacy .NET web application running on a Windows server on-premises. Using A2C, you can containerize this application and deploy it to ECS on AWS without modifying the application's code.
 

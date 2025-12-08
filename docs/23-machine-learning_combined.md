@@ -54,7 +54,7 @@ Rekognition's use cases include:
 
 ### Content Moderation
 
-![Amazon Rekognition Content Moderation](/doc/img/Amazon-Rekognition-Content-Moderation.png)
+![Amazon Rekognition Content Moderation](./img/Amazon-Rekognition-Content-Moderation.png)
 
 One key feature to understand for the exam is content moderation. ⚠️
 
@@ -252,7 +252,7 @@ Here's the typical flow for building a smart contact center:
 
 Someone says, "Schedule a meeting tomorrow with Tom at 3:00 PM." The Lambda function will update the CRM accordingly.
 
-![Amazon Lex and Amazon Connect](/doc/img/Amazon_Lex_and_Amazon_Connect.png)
+![Amazon Lex and Amazon Connect](./img/Amazon_Lex_and_Amazon_Connect.png)
 
 In summary:
 
@@ -412,7 +412,7 @@ From an end-user perspective, Kendra provides natural language search capabiliti
 
 Kendra also supports normal search queries and learns from user interactions and feedback to improve search results through incremental learning. 📈
 
-![Amazon Kendra](/doc/img/AWS_Kendra.png)
+![Amazon Kendra](./img/AWS_Kendra.png)
 
 You can fine-tune search results based on factors like:
 
@@ -447,7 +447,7 @@ Here's how it works:
 
 With Amazon Personalize, you can build a recommendation model in days, not months. 🚀 You don't need to build, train, and deploy ML solutions from scratch. It's all bundled and ready to use.
 
-![Amazon Personalize](/doc/img/AWS_Personalize.png)
+![Amazon Personalize](./img/AWS_Personalize.png)
 
 Use cases include:
 
@@ -463,7 +463,7 @@ Use cases include:
 
 Amazon Textract is a service used to extract text, handwriting, and data from scanned documents. 📄 It leverages AI and machine learning behind the scenes to analyze and process these documents.
 
-![Amazon Textract](/doc/img/AWS_Textract.png)
+![Amazon Textract](./img/AWS_Textract.png)
 
 Here's how it works:
 
