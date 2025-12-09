@@ -191,6 +191,11 @@ It's a fully managed Windows File Server share drive.
 - **You can mount them on Linux EC2 instances.**
 - If you have an existing Windows File Server on-premises, you can use the Microsoft Distributed File System (DFS) feature to group your file systems together and join your FSx for Windows File Server to your on-premises Windows File Server.
 
+
+> **SMB** stands for **Server Message Block**. It’s a network file-sharing protocol used mainly in Windows systems to allow computers to share files, printers, and other resources over a network.
+
+> **NTFS** stands for **New Technology File System**. It is the default file system used by Windows operating systems for storing and organizing files on hard drives.
+
 **Performance:**
 
 - Scales up to 10s of GB/s.
@@ -204,7 +209,7 @@ It's a fully managed Windows File Server share drive.
 
 **Access & Availability:**
 
-- Access from your on-premises infrastructure with a private connection.
+- Access from your on-premises infrastructure with a private connection (VPN or Direct Connect).
 - Can be configured to be Multi-AZ for high availability.
 - Data is backed up daily to Amazon S3 for disaster recovery.
 
@@ -405,7 +410,7 @@ Any buckets configured with the S3 File Gateway are accessible via NFS and SMB. 
 
 To access your bucket, you need to create IAM roles for each file gateway. If using SMB protocol (which is native to Windows), there's integration with Active Directory (AD) for user authentication.
 
-### 3. Volume Gateway 💾
+### 2. Volume Gateway 💾
 
 The Volume Gateway provides block storage using the iSCSI protocol, backed by Amazon S3. Volumes are backed up by EBS snapshots, which can be used to restore on-premises volumes.
 
@@ -418,7 +423,7 @@ There are two types of Volume Gateway:
 
 The primary goal of the Volume Gateway is to back up volumes from your on-premises servers. The Volume Gateway creates Amazon EBS snapshots backed by Amazon S3.
 
-### 4. Tape Gateway 📼
+### 3. Tape Gateway 📼
 
 ![Tape Gateway](img/tape-gateway.png)
 
