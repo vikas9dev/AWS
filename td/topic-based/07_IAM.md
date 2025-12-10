@@ -24,8 +24,6 @@ Which step is needed to meet the requirements?
 **Amazon GuardDuty** is a **threat detection service** that continuously monitors your AWS environment for **malicious activity**, **unauthorized behavior**, and **potential security threats**.
 It helps identify compromised resources and suspicious patterns by analyzing **AWS CloudTrail events**, **VPC Flow Logs**, and **DNS logs**.
 
----
-
 ### 🟢 **GuardDuty and Amazon S3 Monitoring**
 
 With its **S3 protection feature**, **GuardDuty** can detect a variety of suspicious activities related to **Amazon S3 buckets**, such as:
@@ -43,16 +41,12 @@ GuardDuty uses a combination of:
 
 These allow it to **detect potential threats in real-time**, helping you **prevent data leaks and compromise**.
 
----
-
 ### ✅ **Correct Answer**
 
 🟢 **Use Amazon GuardDuty to monitor malicious activity on S3.**
 
 📌 **Why this is correct:**
 GuardDuty is purpose-built for **continuous monitoring** and **threat detection** on AWS accounts, including **Amazon S3 buckets**, making it the most suitable and automated solution for identifying malicious access and configuration changes.
-
----
 
 ### 🔴 **Incorrect Options**
 
@@ -61,14 +55,10 @@ GuardDuty is purpose-built for **continuous monitoring** and **threat detection*
 **Amazon Rekognition** is a **computer vision service** used for analyzing **images and videos** — it detects objects, people, text, and inappropriate content.
 It **cannot monitor access patterns or detect threats** on S3.
 
----
-
 🚫 **Option:** _Use AWS CloudTrail to monitor and detect access patterns on S3._
 ❌ **Reason:**
 While **CloudTrail** logs **API calls and account activity**, it is designed for **auditing and compliance**, not real-time **threat detection**.
 GuardDuty actually **analyzes CloudTrail data** under the hood to detect suspicious activity.
-
----
 
 🚫 **Option:** _Use Amazon Inspector to alert whenever a security violation is detected on S3._
 ❌ **Reason:**
@@ -77,7 +67,7 @@ It does not monitor for **malicious activity or behavioral anomalies**.
 
 ---
 
-### 🧠 **Summary**
+#### 🧠 **Summary**
 
 | AWS Service               | Primary Purpose                                                | Detects S3 Threats?      |
 | ------------------------- | -------------------------------------------------------------- | ------------------------ |
@@ -85,8 +75,6 @@ It does not monitor for **malicious activity or behavioral anomalies**.
 | 🔵 **AWS CloudTrail**     | Audit API calls and account activity                           | ⚠️ Indirectly (via logs) |
 | 🔵 **Amazon Inspector**   | Automated vulnerability assessment                             | ❌ No                    |
 | 🔵 **Amazon Rekognition** | Image and video analysis                                       | ❌ No                    |
-
----
 
 ✅ **Final Answer:**
 **Use Amazon GuardDuty to monitor malicious activity on S3.**
@@ -128,9 +116,7 @@ Which of the following will you need to consider so you can set up a solution th
 
 This scenario specifically requires **enterprise identity federation** with **Single Sign-On (SSO)**, where users authenticate using their **existing corporate directory credentials (AD / LDAP)** and then access AWS resources **without** creating separate IAM users.
 
----
-
-## 🟢 **Correct Answers**
+### 🟢 **Correct Answers**
 
 ### ✅ **1. Set up a federation proxy or an identity provider (IdP), and use AWS STS to generate temporary tokens**
 
@@ -150,9 +136,7 @@ This scenario specifically requires **enterprise identity federation** with **Si
 - Attach a policy allowing required S3 permissions (e.g., `s3:GetObject`).
 - Federated users **assume this role**, gaining temporary permissions.
 
----
-
-## 🟢 **Why This Is the Right Solution**
+### 🟢 **Why This Is the Right Solution**
 
 ✔ Users authenticate via **existing corporate credentials**
 ✔ No need to create separate IAM users for 1,200 employees
@@ -161,16 +145,12 @@ This scenario specifically requires **enterprise identity federation** with **Si
 ✔ Simplifies permission management using IAM roles
 ✔ No external systems required—AWS has native support for SAML federation
 
----
-
-## 🔴 **Incorrect Options Explained**
+### 🔴 **Incorrect Options Explained**
 
 ### ❌ **Using 3rd-party SSO solutions such as OKTA, OneLogin, Atlassian Crowd**
 
 - Unnecessary, because **AWS already supports SAML 2.0** natively.
-- The scenario doesn’t mention any requirement to use external IdPs.
-
----
+- The scenario doesn't mention any requirement to use external IdPs.
 
 ### ❌ **Mapping each user to a folder via Amazon WorkDocs**
 
@@ -187,9 +167,7 @@ This scenario specifically requires **enterprise identity federation** with **Si
 
 ![https://media.tutorialsdojo.com/saml-based-federation.diagram.png](https://media.tutorialsdojo.com/saml-based-federation.diagram.png)
 
----
-
-## 🧠 **Summary**
+### 🧠 **Summary**
 
 | Requirement                           | Correct AWS Solution              |
 | ------------------------------------- | --------------------------------- |
@@ -198,9 +176,7 @@ This scenario specifically requires **enterprise identity federation** with **Si
 | Secure access to S3                   | 🟢 IAM Role + IAM Policy          |
 | Avoid 3rd-party tools                 | 🟢 Use AWS-native SAML support    |
 
----
-
-## ✅ **Final Answer:**
+### ✅ **Final Answer**
 
 **Set up a Federation proxy or Identity Provider and use STS to generate temporary tokens. Configure an IAM role and IAM policy for S3 access.**
 

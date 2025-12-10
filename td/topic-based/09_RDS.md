@@ -33,7 +33,7 @@ To protect customers’ confidential data, it must be ensured that the **Amazon 
 
 ![Learn more about IAM DB Authentication](https://media.tutorialsdojo.com/2019-01-13_07-04-06-a2157247b0fa129795001208504fcb51.png)
 
-#### ❌ Why the Other Options Are Incorrect
+### ❌ **Incorrect Options**
 
 | Option                                                         | Why It's Incorrect                                                                                           |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -41,7 +41,7 @@ To protect customers’ confidential data, it must be ensured that the **Amazon 
 | **Use IAM + STS temporary tokens**                             | STS provides temp credentials for AWS API calls, but RDS requires **IAM DB Authentication**, not STS tokens. |
 | **Create an IAM Role for EC2 to access RDS**                   | IAM roles alone **cannot authenticate** directly to RDS. You still must enable **IAM DB Authentication**.    |
 
-#### 📝 Summary
+### 📝 **Summary**
 
 To ensure RDS access is controlled via **EC2 instance IAM role + short-lived authentication tokens**, you must **enable IAM DB Authentication** on the RDS instance.
 
@@ -82,14 +82,14 @@ To ensure this:
 
 These two steps together ensure that **all DB traffic is encrypted and trusted end-to-end**.
 
-#### ✅ **Correct Answers**
+### ✅ **Correct Answers**
 
 - ✔ **Option 3:** Force SSL for all DB connections using `rds.force_ssl = true` and reboot the DB instance
 - ✔ **Option 5:** Download the RDS Root CA certificate and configure the application to use SSL
 
 ![https://media.tutorialsdojo.com/public/rds_sql_ssl_cert.png](https://media.tutorialsdojo.com/public/rds_sql_ssl_cert.png)
 
-#### ❌ Why the Other Options Are Incorrect
+### ❌ **Incorrect Options**
 
 | Option                                       | Why It's Wrong                                                                                    |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -97,7 +97,7 @@ These two steps together ensure that **all DB traffic is encrypted and trusted e
 | **2. Enable IAM DB Authentication**          | IAM DB Auth is only supported for **MySQL and PostgreSQL**, not SQL Server.                       |
 | **4. Use TDE (Transparent Data Encryption)** | TDE encrypts data **at rest**, not in transit, so it doesn't meet the requirement.                |
 
-#### 📝 Summary
+### 📝 **Summary**
 
 To secure **in-flight data for SQL Server on RDS**, you must:
 
@@ -142,14 +142,14 @@ To meet both:
 | **RDS Oracle Multi-AZ** | Provides automatic failover to a standby DB in another AZ → ensures high availability and zero data loss.          |
 | **AWS DMS**             | Allows minimal-downtime migration of Oracle from on-prem to AWS. Supports Oracle-to-Oracle homogeneous migrations. |
 
-#### ✅ **Correct Answers**
+### ✅ **Correct Answers**
 
 - ✔ **Create an Oracle database in Amazon RDS with Multi-AZ deployments.**
 - ✔ **Migrate the Oracle database to AWS using the AWS Database Migration Service (DMS).**
 
 ![https://media.tutorialsdojo.com/con-multi-AZ.png](https://media.tutorialsdojo.com/con-multi-AZ.png)
 
-#### ❌ Why the Other Options Are Incorrect
+### ❌ **Incorrect Options**
 
 | Option                                        | Reason                                                                                                                                                 |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -157,7 +157,7 @@ To meet both:
 | Migrate to non-cluster Aurora single instance | Not suitable for critical workloads that require **high availability**; a single instance has a single point of failure.                               |
 | Launch RDS Oracle with RMAN enabled           | RMAN is **not supported** in RDS. RDS uses automated backups, snapshots, and Multi-AZ instead.                                                         |
 
-#### 📝 Summary
+### 📝 **Summary**
 
 For migrating Oracle to AWS while ensuring **high availability + minimal downtime**:
 
@@ -201,14 +201,14 @@ The Solutions Architect wants to convince the client to use **Amazon RDS Read Re
 
 This improves the performance of the **primary database** since it no longer handles heavy read queries.
 
-#### ✅ **Correct Answers**
+### ✅ **Correct Answers**
 
 - ✔ **Option 2:** It elastically scales out beyond the capacity constraints of a single DB instance for read-heavy workloads.
 - ✔ **Option 4:** Provides asynchronous replication and offloads read-heavy workloads from the primary DB.
 
 ![https://media.tutorialsdojo.com/2020-02-28_01-52-40-4fa2635076a98c44c28464d31d793a21.png](https://media.tutorialsdojo.com/2020-02-28_01-52-40-4fa2635076a98c44c28464d31d793a21.png)
 
-#### ❌ Why the Other Options Are Incorrect
+### ❌ **Incorrect Options**
 
 | Option                                              | Reason                                                                                                                            |
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -216,7 +216,7 @@ This improves the performance of the **primary database** since it no longer han
 | **3. Synchronous replication & automatic failover** | That is a **Multi-AZ** feature, not Read Replica. Read Replicas use **asynchronous** replication and are for performance, not HA. |
 | **5. Allows both read & write operations**          | Read Replicas are **read-only** and cannot process writes unless promoted to standalone DB.                                       |
 
-#### 📝 Summary
+### 📝 **Summary**
 
 | Feature      | Multi-AZ                     | Read Replica               |
 | ------------ | ---------------------------- | -------------------------- |

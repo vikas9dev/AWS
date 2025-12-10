@@ -26,7 +26,7 @@ In **Auto Scaling**, the following statements are **correct** regarding the **co
 ✅ **Its default value is 300 seconds.**
 ✅ **It is a configurable setting for your Auto Scaling group.**
 
-#### ❌ The following options are incorrect
+### ❌ **Incorrect Options**
 
 🔴 **– It ensures that before the Auto Scaling group scales out, the EC2 instances have ample time to cooldown.**
 
@@ -67,11 +67,11 @@ You can specify your **launch template** with multiple Auto Scaling groups. Howe
 
 For this scenario, you have to **create a new launch template**. Remember that you **can't modify a launch template** after you've created it.
 
-#### ✅ Hence, the correct answer is
+### ✅ **Correct Answer**
 
 🟢 **Create a new launch template.**
 
-#### ❌ Incorrect Options (with reasons)
+### ❌ **Incorrect Options (with reasons)**
 
 🔴 **The option that says: Do nothing. You can start directly launching EC2 instances in the Auto Scaling group with the same launch template is incorrect** because what you are trying to achieve is to **change the AMI** being used by your fleet of EC2 instances. Therefore, you need to change the launch template to update what your instances are using.
 
@@ -104,11 +104,11 @@ Which of the following is the **MOST operationally efficient** solution to ensur
 
 To configure your Auto Scaling group to scale based on a schedule, you create a **scheduled action**. The scheduled action tells **Amazon EC2 Auto Scaling** to perform a scaling action at specified times. To create a scheduled scaling action, you specify the **start time** when the scaling action should take effect and the **new minimum, maximum, and desired sizes** for the scaling action. At the specified time, Amazon EC2 Auto Scaling updates the group with the values for minimum, maximum, and desired size specified by the scaling action. You can create scheduled actions for scaling **one time only** or for scaling on a **recurring schedule**.
 
-#### ✅ **Correct**
+### ✅ **Correct Answer**
 
 🟢 **Hence, configuring a Scheduled scaling policy for the Auto Scaling group to launch new instances before the start of the day is the correct answer.** You need to configure a Scheduled scaling policy. This will ensure that the instances are already scaled up and ready before the start of the day since this is when the application is used the most.
 
-#### ❌ **Incorrect**
+### ❌ **Incorrect Options**
 
 🔴 The following options are both incorrect. Although these are valid solutions, it is still better to configure a Scheduled scaling policy as you already know the exact peak hours of your application. By the time either the CPU or Memory hits a peak, the application already has performance issues, so you need to ensure the scaling is done beforehand using a Scheduled scaling policy:
 

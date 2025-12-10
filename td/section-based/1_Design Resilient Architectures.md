@@ -20,8 +20,6 @@ Use **AWS Database Migration Service (AWS DMS)** to migrate data from the existi
 
 This option ensures **minimal downtime** ⏱️ and a **smooth migration** 🔄.
 
----
-
 ### ❌ **Incorrect Options (with reasons)**
 
 #### 🔴 Change the Aurora Instance class to Serverless
@@ -35,8 +33,6 @@ Although functional, this method causes **long downtime** 😴 because the appli
 #### 🔴 Add an Aurora Replica, set it to Serverless, then fail over
 
 While technically doable, this approach still results in a **write downtime** ✍️🚫 for a short period during the failover process.
-
----
 
 ### 🟢 Summary
 
@@ -64,8 +60,6 @@ AWS DMS provides the **most efficient**, **least disruptive**, and **recommended
 
 Configure **Amazon Redshift Cross-Region Snapshot Copy** to automatically copy **all new automated and manual snapshots** to another AWS Region. This ensures that your data is **protected** and can be **restored** even if an entire region experiences an outage 🌩️.
 
----
-
 ### ❌ **Incorrect Options (with reasons)**
 
 #### 🔴 Create a scheduled job to take snapshots and store them in S3
@@ -81,8 +75,6 @@ You **must** configure **cross-region snapshot copy** to ensure disaster recover
 
 Automated snapshots are stored **within the same region** 📍.  
 If the region goes down, these snapshots become **unavailable**. Therefore, they are **not sufficient** for cross-region disaster recovery.
-
----
 
 ### 🟢 Summary
 
@@ -251,8 +243,6 @@ Set the value of the **DeleteOnTermination** attribute of the EBS volumes to **F
 This ensures that **EBS volumes (including the root volume)** are **preserved** even after the EC2 instance terminates.  
 You can modify this attribute during instance launch or later through the **Console**, **CLI**, or **API**.
 
----
-
 ### ❌ **Incorrect Options (with reasons)**
 
 #### 🔴 Use AWS DataSync to replicate root volume data to Amazon S3
@@ -279,8 +269,6 @@ It does **not** affect EBS volume termination behavior.
 
 Termination Protection only prevents **accidental manual termination** from the console.  
 It does **not** preserve EBS volumes nor affect **DeleteOnTermination** behavior.
-
----
 
 ### 🟢 **Summary**
 

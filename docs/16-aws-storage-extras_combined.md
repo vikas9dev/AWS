@@ -11,7 +11,8 @@ Sections:-
 - [8. AWS Transfer Family](#8-aws-transfer-family)
 - [9. AWS DataSync](#9-aws-datasync)
 - [10. AWS Storage Options: A Comprehensive Overview 🗄️](#10-aws-storage-options-a-comprehensive-overview-️)
-- [11. Q & A](#11-q--a)
+- [11. AWS Snow Family — Differences](#11-aws-snow-family--differences)
+- [12. Q & A](#12-q--a)
 
 ---
 
@@ -685,7 +686,86 @@ AWS offers a wide array of storage options, each tailored for specific use cases
 
 ---
 
-## 11. Q & A
+## 11. **AWS Snow Family — Differences**
+
+### **1. AWS Snowcone**
+
+<table><tr>
+<td><img src="https://media.amazonwebservices.com/blog/2020/snowcone_jb_sticker_1.jpg" width="400"/></td>
+<td><img src="https://imageio.forbes.com/specials-images/imageserve/5ef057f675ca7300065f5999/0x0.jpg" width="400"/></td>
+</tr></table>
+
+**Smallest & Lightest** device in the Snow family.
+Best for **edge computing**, **small-scale data transfer**, and **remote/harsh environments**.
+
+#### **Key Points**
+
+* **8 TB** or **14 TB** usable storage
+* **Portable** (about 2 kg)
+* Can run edge compute apps using **AWS IoT Greengrass** / **EC2** (ARM/Intel model)
+* Ideal for **IoT**, **remote sites**, **field data collection**
+* Data transfer:
+
+  * Offline via device
+  * **Online** via **AWS DataSync agent** inside Snowcone
+
+### **2. AWS Snowball (Snowball Edge)**
+
+<table><tr>
+<td><img src="https://docs.aws.amazon.com/images/snowball/latest/developer-guide/images/SnowballEdgeAppliance.png" width="400"/></td>
+<td><img src="https://www.lastweekinaws.com/wp-content/uploads/2023/02/snowball2.jpg" width="400"/></td>
+</tr></table>
+
+**Medium-size rugged appliance** designed for **large-scale data transfer** and **powerful edge computing**.
+
+#### **Key Points**
+
+* Comes in two variants:
+
+  * **Snowball Edge Storage Optimized** (~80 TB storage)
+  * **Snowball Edge Compute Optimized** (~42 TB + more vCPUs / GPU option)
+* Rugged, suitcase-sized, used for:
+
+  * **Massive data migration** into AWS
+  * **Edge processing** (machine learning, analytics)
+* Supports running **EC2 instances**, **EBS volumes**, and **Lambda**
+
+### **3. AWS Snowmobile**
+
+<table><tr>
+<td><img src="https://media.datacenterdynamics.com/media/images/Snowmobile-AWS-truck-data-delivery.original.jpg" width="400"/></td>
+<td><img src="https://image.cnbcfm.com/api/v1/image/106027651-1563487579148awsthumbnailoption4.jpg" width="400"/></td>
+<td><img src="https://cdn.geekwire.com/wp-content/uploads/2016/11/IMG_0669-1.jpg" width="400"/></td>
+<td><img src="https://cdn.geekwire.com/wp-content/uploads/2016/11/IMG_0681-e1480549141188-827x1240.jpg" width="400"/></td>
+</tr></table>
+
+**Extreme-scale** data transfer service using a **truck-sized container**.
+
+#### **Key Points**
+
+* **45-foot shipping container**
+* Capacity = **100 PB per Snowmobile**
+* Designed for **ultra-large data center migrations**
+* Physically moved using a **semi-truck**
+* Highly secure:
+
+  * GPS tracking
+  * 24/7 video surveillance
+  * Dedicated escort security
+
+### **Summary Table**
+
+| Feature       | **Snowcone**                     | **Snowball Edge**                   | **Snowmobile**               |
+| ------------- | -------------------------------- | ----------------------------------- | ---------------------------- |
+| Size          | Very small device                | Rugged suitcase                     | 45-foot container            |
+| Capacity      | 8–14 TB                          | 40–80 TB                            | 100 PB                       |
+| Use Case      | IoT / edge / remote data capture | Large data migration + edge compute | Entire data center migration |
+| Compute       | Yes (light)                      | Yes (heavy)                         | No                           |
+| Transfer Type | Offline + Online (DataSync)      | Offline                             | Offline (truck)              |
+
+---
+
+## 12. Q & A
 
 ### ❓ Question-1
 
@@ -737,6 +817,8 @@ You need to move hundreds of terabytes into Amazon S3, then process the data usi
 
 </details>
 
+---
+
 ### ❓ Question-4
 
 You have **hundreds of terabytes** that you want to migrate to **AWS S3** as soon as possible. You tried to use your **network bandwidth**, and it will take around **3 weeks** to complete the upload process.
@@ -781,6 +863,8 @@ This method **bypasses network bottlenecks** and significantly **reduces transfe
 * ✅ **Solution:** Use **AWS Snowball Edge** for fast, secure offline transfer to AWS
 
 </details>
+
+---
 
 ### ❓ Question-7
 
@@ -834,6 +918,8 @@ You would like to have a distributed **POSIX-compliant file system** that will a
 
 </details>
 
+---
+
 ### ❓ Question-10
 
 A **Solutions Architect** is planning the migration of a **startup company’s on-premises infrastructure** to AWS.
@@ -884,6 +970,8 @@ DataSync can **transfer terabytes to petabytes** of data **up to 10x faster** th
 > Use **AWS DataSync** for migrating large amounts of structured file data (like NFS) from on-premises to S3 efficiently and securely.
 
 </details>
+
+---
 
 ### ❓ Question 11
 
@@ -937,6 +1025,7 @@ You can simply:
 
 </details>
 
+---
 
 ### ❓ Question-12
 
@@ -984,6 +1073,8 @@ The company should use **AWS Transfer Family** since it directly exposes **S3 da
 
 </details>
 
+---
+
 ### ❓ Question 13
 
 Amazon FSx for **NetApp ONTAP** is compatible with the following protocols, **EXCEPT** …
@@ -1028,6 +1119,8 @@ Amazon FSx for NetApp ONTAP supports **NFS, SMB, and iSCSI**, but **not FTP**.
 
 </details>
 
+---
+
 ### ❓ Question 17
 
 AWS DataSync supports the following locations, **EXCEPT** …
@@ -1063,5 +1156,7 @@ Supported locations include:
 ⚡ **Key Point to Remember:** AWS DataSync works with **file- and object-based services** (S3, EFS, FSx, NFS, SMB, HDFS), **not block storage (EBS)**.
 
 </details>
+
+---
 
 ---

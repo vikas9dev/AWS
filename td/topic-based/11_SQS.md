@@ -32,8 +32,6 @@ In AWS, the primary services used to build a **decoupled architecture**—where 
 
 Both services help ensure components can work independently without waiting on each other, which is the foundation of decoupled design.
 
----
-
 ### 🔴 **Incorrect Options**
 
 #### ❌ **Using Amazon RDS**
@@ -51,8 +49,6 @@ Both services help ensure components can work independently without waiting on e
 * **VPC Peering** only works between **AWS VPCs**.
 * You cannot peer a VPC directly with an **on-premises network**.
 * For hybrid connectivity, AWS requires **Direct Connect** or **Site-to-Site VPN**, but these still do not provide decoupled messaging.
-
----
 
 ### 🧠 **Summary**
 

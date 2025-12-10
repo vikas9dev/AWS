@@ -107,11 +107,11 @@ You can modify the **volume type**, **volume size**, and **IOPS capacity** **wit
 ✅ **7. SLA**
 **EBS Volumes offer 99.999% SLA**, providing high durability and reliability.
 
-#### 🟢 **Hence, the correct understanding is**
+### ✅ **Correct Answer**
 
 When you create an EBS volume in an **Availability Zone**, it is **automatically replicated within that same zone**, ensuring durability and fault tolerance against single-hardware failures.
 
-#### 🔴 **Incorrect Options**
+### ❌ **Incorrect Options**
 
 🚫 **Option:**
 "When you create an EBS volume in an Availability Zone, it is automatically replicated on a separate AWS region to prevent data loss..."
@@ -265,7 +265,7 @@ The **latest low-cost storage options** are:
 - 🟢 **– Provisioned IOPS (SSD)** volumes offer storage with **consistent and low-latency performance**, and are designed for **I/O-intensive applications** such as **large relational or NoSQL databases.**
 - 🟢 **– Magnetic volumes** provide the **lowest cost per gigabyte** of all EBS volume types and are ideal for **workloads where data is accessed infrequently** and **cost efficiency is a priority.**
 
-#### 🔴 **Incorrect Options**
+### ❌ **Incorrect Options**
 
 - 🚫 **Option:** *Spot volumes provide the lowest cost per gigabyte of all EBS volume types...*
 **Incorrect** ❌ — There is **no EBS type** called a **"Spot volume."**

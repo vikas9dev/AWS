@@ -37,8 +37,6 @@ If you attach a transit gateway peering connection, the transit gateway must be 
 Set up an **AWS Transit Gateway in each region** to interconnect all networks within it. Then, **route traffic between Transit Gateways using a TGW peering connection**.
 This meets the requirement of connecting **hundreds of VPCs**, **multiple regions**, and **on-premises networks**, all through a **single, scalable, highly available architecture**. 🟢
 
----
-
 ### ❌ **Why the Other Options Are Wrong**
 
 #### 🔴 **Incorrect Option:**
@@ -49,8 +47,6 @@ This meets the requirement of connecting **hundreds of VPCs**, **multiple region
 * ❌ **LAG** (Link Aggregation Group) is irrelevant here — it only aggregates DX connections.
 * ❌ Does **not** solve the requirement of inter-region VPC-to-VPC connectivity.
 
----
-
 #### 🔴 **Incorrect Option:**
 
 “Enable inter-region VPC peering for all VPCs…”
@@ -58,9 +54,7 @@ This meets the requirement of connecting **hundreds of VPCs**, **multiple region
 * ❌ Would require **very high operational overhead** (hundreds of peering links).
 * ❌ Peering is **non-transitive**, making large-scale meshing complex.
 * ❌ Does **not support on-premises networks** as required.
-* ⚠️ While it uses the AWS backbone, it doesn’t match the scale or simplicity of Transit Gateway.
-
----
+* ⚠️ While it uses the AWS backbone, it doesn't match the scale or simplicity of Transit Gateway.
 
 #### 🔴 **Incorrect Option:**
 
@@ -69,8 +63,6 @@ This meets the requirement of connecting **hundreds of VPCs**, **multiple region
 * ❌ **VPN CloudHub is only for VPN-to-VPN communication**, not for VPC-to-VPC.
 * ❌ Cannot manage **hundreds of VPCs** spanning multiple regions.
 * ❌ Does not meet the requirement of **a unified, scalable, multi-region gateway**.
-
----
 
 ### 🎯 **Final Summary**
 
@@ -118,8 +110,6 @@ This meets the requirement of connecting **hundreds of VPCs**, **multiple region
 
 Together, IAM + AWS Organizations provide **governance + cost visibility + autonomy**. 💯
 
----
-
 ### 🔴 **Why the Other Options Are Incorrect**
 
 #### ❌ **Using AWS Trusted Advisor + AWS Resource Groups Tag Editor**
@@ -130,8 +120,6 @@ Together, IAM + AWS Organizations provide **governance + cost visibility + auton
 * Tag Editor: Helps manage tags only.
 
   * ❌ Cannot provide centralized control or autonomy structure.
-
----
 
 #### ❌ **Creating separate VPCs in the same AWS account + using AWS Transit Gateway**
 
@@ -148,8 +136,6 @@ Together, IAM + AWS Organizations provide **governance + cost visibility + auton
 * AZs are predefined by AWS — you cannot create them.
 * AZs do not provide organizational separation.
 * Global Accelerator improves external user routing, not inter-AZ or inter-division communication.
-
----
 
 ### 🎯 **Final Summary**
 
@@ -196,8 +182,6 @@ Hot storage refers to the storage that keeps frequently accessed data (hot data)
 High-performance, parallel hot storage to process the training datasets concurrently.
 Cost-effective cold storage to keep the archived datasets that are accessed infrequently.
 
----
-
 ### 🟢 **Correct Answer**
 
 Use **Amazon FSx for Lustre** for hot data and **Amazon S3** for cold data storage.
@@ -205,8 +189,6 @@ Use **Amazon FSx for Lustre** for hot data and **Amazon S3** for cold data stora
 * **FSx for Lustre** ➝ High-performance, parallel file system ideal for ML/AI, HPC, and frequently accessed (hot) data.
 * **Amazon S3 + Glacier/Deep Archive** ➝ Cost-effective cold storage for long-term retention.
   🟢 Best fit for both performance and cost.
-
----
 
 ### 🔴 **Incorrect Options Explained**
 
@@ -219,8 +201,6 @@ Use **Amazon FSx for Lustre** for hot data and **Amazon S3** for cold data stora
   * 🔴 Not intended for large-scale archival
 * Fails the cost-optimization requirement.
 
----
-
 #### ❌ **Amazon EFS + Amazon S3**
 
 * **EFS** supports shared access but lacks:
@@ -230,14 +210,10 @@ Use **Amazon FSx for Lustre** for hot data and **Amazon S3** for cold data stora
     required by ML/HPC workloads.
 * Therefore, not suitable for hot data with heavy compute requirements.
 
----
-
 #### ❌ **FSx for Windows File Server + S3**
 
 * **FSx for Windows File Server** does not use a **parallel file system**.
 * 🔴 Not optimized for large-scale ML, simulation, or high-performance computing workloads.
-
----
 
 ### 🎯 **Final Summary**
 
@@ -286,8 +262,6 @@ Amazon **Data Firehose** is the correct service because it can:
 * Load it directly into **S3**, **Amazon OpenSearch Service**, **Splunk**, and other analytics destinations
   Perfect for real-time analytics pipelines. 🟢
 
----
-
 ### 🔴 **Why the Other Options Are Incorrect**
 
 #### ❌ **Amazon DynamoDB Streams**
@@ -296,23 +270,17 @@ Amazon **Data Firehose** is the correct service because it can:
 * 🔴 Cannot directly transform and load data into S3 or OpenSearch.
 * Useful for triggers—not for full streaming ETL pipelines.
 
----
-
 #### ❌ **Amazon Redshift**
 
 * A **data warehouse**, not a streaming ingestion service.
 * 🔴 Cannot ingest and deliver real-time streaming data to analytics stores.
 * Needs Data Firehose or other ingestion tools to get data into it.
 
----
-
 #### ❌ **Amazon SQS**
 
 * A **message queuing service** designed for decoupling applications.
 * 🔴 Does not transform, batch, or load streaming data into S3/OpenSearch/Splunk.
 * Not suitable for analytics ingestion workflows.
-
----
 
 ### 🎯 **Final Summary**
 
@@ -351,8 +319,6 @@ In the scenario, you are asked to configure private endpoints to send data to Am
 Use a **DynamoDB VPC endpoint** and an **S3 VPC endpoint** to ensure that all access to Amazon DynamoDB and Amazon S3 happens **privately within the AWS network**—without traversing the public Internet.
 This fulfills the requirement of routing all traffic through **private endpoints**. 🟢
 
----
-
 ### 🔴 **Incorrect Options Explained**
 
 #### ❌ **Enable DynamoDB Encryption at Rest + S3 SSE**
@@ -361,23 +327,17 @@ This fulfills the requirement of routing all traffic through **private endpoints
 * 🔴 It does **not** control or influence how network traffic is routed.
 * Traffic can still flow over public endpoints even if data is encrypted.
 
----
-
 #### ❌ **Use AWS Direct Connect**
 
 * Direct Connect provides a **dedicated connection from on-premises to AWS**.
 * The scenario does **not** mention on-premises or hybrid architecture.
 * 🔴 Not required for private service-to-service access **inside** AWS.
 
----
-
 #### ❌ **Use AWS VPN CloudHub**
 
 * CloudHub is used to connect **multiple remote sites together** using VPNs.
 * 🔴 Not used for creating private access paths to S3 or DynamoDB.
 * 🔴 Does not create VPC endpoints.
-
----
 
 ### 🎯 **Final Summary**
 
@@ -407,20 +367,32 @@ This fulfills the requirement of routing all traffic through **private endpoints
 <details>
 <summary>Explanation</summary>
 
+**Option 1 vs Option 2**
+
+**Short answer — choose Option 1 (FSx for NetApp ONTAP + iSCSI).**
+
+**Why:** the requirement is *high availability across AZs* **and** *low-latency block storage*.
+
+* **FSx for NetApp ONTAP** can present **iSCSI LUNs (block devices)** to EC2 instances and you can design the file system in a Multi-AZ configuration for HA — that gives you true block-level access (low latency, suitable for applications that expect block devices). ([AWS Documentation][1])
+* **FSx for Windows File Server** is a highly available **SMB (file-level)** service and supports Multi-AZ deployments, but it does **not** provide iSCSI (block) volumes. SMB is excellent for Windows file-share use cases, user profiles, and many apps, but it’s not the same as exposing block storage via iSCSI when your app requires block semantics and the lowest possible latency. ([AWS Documentation][2])
+
+**Practical notes / caveats**
+
+* If the trading app explicitly requires Windows SMB file shares (and is designed to use SMB with clustering/features Windows supports), FSx for Windows File Server could be acceptable — but for *low-latency block storage* (databases, low-latency trading engines, or apps that need raw disks / cluster disks), FSx ONTAP + iSCSI is the correct fit. ([AWS Documentation][3])
+* Test the exact latency/IOPS profile in a pilot and validate your Windows clustering or application lock semantics over iSCSI before production cutover.
+
+**Amazon FSx for NetApp ONTAP**
+
 Amazon FSx for NetApp ONTAP is a fully managed AWS service that provides high-performance, scalable file storage based on NetApp’s ONTAP file system. It offers versatile storage options, supporting both file (NFS, SMB) and block (iSCSI) protocols, making it compatible with Windows, Linux, and macOS environments.
 
 The Amazon FSx for NetApp ONTAP features Multi-AZ file systems designed to ensure continuous availability across AWS Availability Zones, providing high availability for your Windows Server workloads. It offers consistent sub-millisecond file operation latencies with SSD storage, essential for block storage workloads in Windows environments. FSx for NetApp ONTAP fully supports block storage protocols like iSCSI, commonly used in Windows Server settings, and it works seamlessly with the SMB protocol, ensuring compatibility with Windows Server and related applications.
 
 Moreover, FSx for NetApp ONTAP simplifies migrating from on-premises NetApp systems to AWS for users currently utilizing NetApp storage. It can scale to accommodate petabyte-scale datasets, making it suitable for large Windows Server environments.
 
----
-
 ### 🟢 **Correct Answer**
 
 Configure the trading application on **Amazon EC2 Windows Server instances** across **two Availability Zones**, and use **Amazon FSx for NetApp ONTAP** with a **Multi-AZ deployment**.
 Access the storage using the **iSCSI protocol**, which provides the **shared block storage** and **low latency** required for a trading workload. 🟢
-
----
 
 ### 🔴 **Incorrect Options Explained**
 
@@ -429,8 +401,6 @@ Access the storage using the **iSCSI protocol**, which provides the **shared blo
 * Provides **shared file storage**, not shared block storage.
 * Does **not** support low-latency iSCSI block access needed for high-performance trading apps.
 
----
-
 #### ❌ **Amazon EFS with cross-region replication**
 
 * EFS is NFS-based and best suited for **Linux workloads**.
@@ -438,15 +408,11 @@ Access the storage using the **iSCSI protocol**, which provides the **shared blo
 * Does **not** provide block-level access.
 * Cross-region replication does not help with **AZ-level block storage performance**.
 
----
-
 #### ❌ **Amazon S3 with cross-region replication**
 
 * S3 is **object storage**, not block storage.
 * Cannot provide the low-latency, high-throughput transactional performance required.
 * Not suitable for Windows-based trading application storage.
-
----
 
 ### 🎯 **Final Summary**
 
@@ -476,6 +442,8 @@ As the Solutions Architect, which of the following services is the most cost-eff
 <details>
 <summary>Explanation</summary>
 
+**Note: NFSv4 is primarily a Linux/Unix protocol, not Windows.**
+
 Amazon Web Services (AWS) offers cloud storage services to support a wide range of storage workloads such as EFS, S3, and EBS. You have to understand when you should use Amazon EFS, Amazon S3, and Amazon Elastic Block Store (EBS) based on the specific workloads. In this scenario, the keywords are rapidly changing data and 1000 Linux servers.
 
 Amazon EFS is a file storage service for use with Amazon EC2. Amazon EFS provides a file system interface, file system access semantics (such as strong consistency and file locking), and concurrently-accessible storage for up to thousands of Amazon EC2 instances. EFS provides the same level of high availability and high scalability like S3 however, this service is more suitable for scenarios where it is required to have a POSIX-compatible file system or if you are storing rapidly changing data.
@@ -498,8 +466,6 @@ Amazon **Elastic File System (EFS)** is the correct choice because it offers:
 
 Perfect match for **1000 Linux servers** requiring shared, scalable storage. 🟢
 
----
-
 ### 🔴 **Why the Other Options Are Incorrect**
 
 #### ❌ **Amazon S3**
@@ -508,23 +474,17 @@ Perfect match for **1000 Linux servers** requiring shared, scalable storage. �
 * 🔴 Does **not** support file locking or POSIX semantics.
 * 🔴 Not suitable for rapidly changing, shared datasets.
 
----
-
 #### ❌ **Amazon EBS**
 
 * EBS volumes can only attach to **one EC2 instance at a time** (except Multi-Attach, limited to specific use cases).
 * 🔴 Cannot be shared across 1000 EC2 instances.
 * Not a distributed file system.
 
----
-
 #### ❌ **Amazon FSx for Windows File Server**
 
 * Supports shared file storage but only for **Windows workloads**.
 * 🔴 The scenario specifically uses **Linux** EC2 instances.
 * Not compatible.
-
----
 
 ### 🎯 **Final Summary**
 
@@ -572,8 +532,6 @@ Amazon **FSx for Windows File Server** is the correct choice because it:
 * Is optimized for **Windows-based applications** and workloads
   Perfect for environments that require Windows file system features. 🟢
 
----
-
 ### 🔴 **Why the Other Options Are Incorrect**
 
 #### ❌ **Amazon S3 Glacier Deep Archive**
@@ -582,23 +540,17 @@ Amazon **FSx for Windows File Server** is the correct choice because it:
 * 🔴 Not suitable for active file shares or Windows applications
 * Retrieval times are slow (hours)
 
----
-
 #### ❌ **AWS DataSync**
 
 * Simply a **data transfer** service
 * 🔴 Does not provide storage
 * Used for moving data into services like S3 or EFS—not for hosting Windows file shares
 
----
-
 #### ❌ **Amazon FSx for Lustre**
 
 * High-performance file system for **Linux-based HPC and ML workloads**
 * 🔴 Not compatible with Windows file system requirements
 * Lacks Windows-native SMB and AD integration
-
----
 
 ### 🎯 **Final Summary**
 
@@ -637,8 +589,6 @@ Based on the given scenario, web service clients can only access trusted IP addr
 A **Network Load Balancer (NLB)** can have **Elastic IP addresses** assigned, allowing clients to whitelist the fixed IPs on their firewalls.
 This fully meets the requirement of providing **static, trusted IP addresses** for inbound access. 🟢
 
----
-
 ### 🔴 **Incorrect Options Explained**
 
 #### ❌ **Associate an Elastic IP to an Application Load Balancer**
@@ -646,23 +596,17 @@ This fully meets the requirement of providing **static, trusted IP addresses** f
 * ALBs **do not support** Elastic IP assignment.
 * To expose static IPs, you must place an **NLB in front of the ALB** if needed.
 
----
-
 #### ❌ **Create a CloudFront distribution pointing to private IPs**
 
 * CloudFront distributions use **dynamic IP ranges**, not fixed ones.
 * 🔴 Cannot guarantee a trusted, firewall-whitelisted IP.
 * Not suitable when clients require **specific IPs only**.
 
----
-
 #### ❌ **Create a Route 53 Alias to the load balancer**
 
 * This only provides a DNS name, not a fixed IP.
 * 🔴 Clients still cannot whitelist the load balancer’s dynamic IPs.
 * Does not solve the firewall trust requirement.
-
----
 
 ### 🎯 **Final Summary**
 
@@ -699,8 +643,6 @@ Lambda with container image support provides a fully managed environment that au
 AWS Lambda now supports **up to 10 GB of ephemeral storage**, which is ideal when an application requires temporary, non-persistent working space during execution.
 Since the requirement is fully **serverless** and needs **only ephemeral storage**, Lambda with **container image support** is the perfect fit. 🟢
 
----
-
 ### 🔴 **Incorrect Options Explained**
 
 #### ❌ **ECS on Fargate**
@@ -711,24 +653,18 @@ Since the requirement is fully **serverless** and needs **only ephemeral storage
 * More suited to long-running containerized workloads needing custom networking or scheduling.
 * 🔴 Not the simplest or most appropriate solution for a Lambda-friendly workload.
 
----
-
 #### ❌ **Lambda with EFS attached**
 
 * EFS = **persistent storage**, suitable for shared data across invocations.
 * The requirement specifies **ephemeral storage only**.
 * 🔴 Attaching EFS adds unnecessary complexity and cost.
-* Lambda’s built-in ephemeral storage is simpler and a better match.
-
----
+* Lambda's built-in ephemeral storage is simpler and a better match.
 
 #### ❌ **ECS with EC2 worker nodes + EBS**
 
 * Requires provisioning and managing **EC2 instances**, violating the serverless requirement.
 * Scaling, patching, and capacity planning would burden operations.
 * 🔴 Not compliant with the architectural constraints.
-
----
 
 ### 🎯 **Final Summary**
 

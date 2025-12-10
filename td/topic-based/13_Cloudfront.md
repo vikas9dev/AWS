@@ -29,9 +29,7 @@ Requiring CloudFront URLs isn't necessary, but **we recommend it** to prevent us
 
 If you want to serve private content through CloudFront and you're trying to decide whether to use **signed URLs or signed cookies**, consider the following:
 
----
-
-#### ✅ **Use signed URLs for the following cases:**
+### ✅ **Use signed URLs for the following cases:**
 
 🟢 **– You want to use an RTMP distribution.**
 Signed cookies aren't supported for RTMP distributions.
@@ -40,23 +38,17 @@ Signed cookies aren't supported for RTMP distributions.
 
 🟢 **– Your users are using a client (for example, a custom HTTP client) that doesn't support cookies.**
 
----
-
-#### ✅ **Use signed cookies for the following cases:**
+### ✅ **Use signed cookies for the following cases:**
 
 🟢 **– You want to provide access to multiple restricted files**, for example, all of the files for a video in HLS format or all of the files in the subscribers' area of a website.
 
 🟢 **– You don't want to change your current URLs.**
 
----
-
-#### ✅ **Hence, the correct answer is:**
+### ✅ **Correct Answer**
 
 **Use Signed Cookies** to control who can access the private files in your CloudFront distribution by modifying your application to determine whether a user should have access to your content. For members, send the required **Set-Cookie** headers to the viewer which will unlock the content only to them.
 
----
-
-#### ❌ **Incorrect Options (with reasons):**
+### ❌ **Incorrect Options (with reasons)**
 
 🔴 **The option that says: Configure your CloudFront distribution to use Match Viewer as its Origin Protocol Policy which will automatically match the user request. This will allow access to the private content if the request is a paying member and deny it if it is not a member is incorrect** because a **Match Viewer** is an Origin Protocol Policy that configures CloudFront to communicate with your origin using HTTP or HTTPS, depending on the protocol of the viewer request. CloudFront caches the object only once even if viewers make requests using both HTTP and HTTPS protocols.
 
@@ -109,13 +101,11 @@ When you create a **pre-signed URL** for your object, you must provide your **se
 
 Anyone who receives the **pre-signed URL** can then access the object. For example, if you have a video in your bucket and both the bucket and the object are **private**, you can share the video with others by generating a pre-signed URL.
 
-#### ✅ Hence, the correct answer is:
+### ✅ **Correct Answer**
 
 🟢 **Configure your S3 bucket to remove public read access and use pre-signed URLs with expiry dates.**
 
----
-
-#### ❌ Incorrect Options (with reasons):
+### ❌ **Incorrect Options (with reasons)**
 
 🔴 **The option that says: Using Amazon CloudFront distributions for your photos is incorrect.**
 CloudFront is primarily a **Content Delivery Network (CDN)** service that speeds up the delivery of content to your customers.
@@ -161,15 +151,13 @@ All objects and buckets, by default, are **private**. The **pre-signed URLs** ar
 
 You can generate a **pre-signed URL** programmatically using the **AWS SDK for Java** or the **AWS SDK for .NET**. If you are using Microsoft Visual Studio, you can also use **AWS Explorer** to generate a pre-signed object URL without writing any code. Anyone who receives a valid pre-signed URL can then programmatically upload an object.
 
-#### ✅ Hence, the correct answers are:
+### ✅ **Correct Answers**
 
 🟢 **– Restrict access to files in the origin by creating an Origin Access Control (OAC) and giving it permission to read the files in the bucket.**
 
 🟢 **– Require the users to access the private content by using special CloudFront signed URLs or signed cookies.**
 
----
-
-#### ❌ Incorrect Options (with reasons):
+### ❌ **Incorrect Options (with reasons)**
 
 🔴 **The option that says: Create a custom CloudFront function to check and ensure that only their clients can access the files is incorrect.**
 CloudFront Functions are just lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations and **not for enforcing security**. A CloudFront Function runtime environment offers submillisecond startup times which allows your application to scale immediately to handle millions of requests per second. But again, this can't be used to restrict access to your files.
@@ -179,9 +167,7 @@ CloudFront Functions are just lightweight functions in JavaScript for high-scale
 🔴 **The option that says: Use S3 pre-signed URLs to ensure that only their client can access the files. Remove permission to use S3 URLs to read the files for anyone else is incorrect.**
 Although this could be a valid solution, it doesn't satisfy the requirement to **serve the private content via CloudFront only** to secure the distribution of files. A better solution is to set up an **Origin Access Control (OAC)** and then use **Signed URL or Signed Cookies** in your CloudFront web distribution.
 
----
-
-#### ✅ Correct Answers Summary:
+### ✅ **Summary**
 
 * 🟢 **Option 2: Create an Origin Access Control (OAC) and give CloudFront permission to read the S3 files**
 * 🟢 **Option 4: Require users to access content via CloudFront Signed URLs or Signed Cookies**
@@ -214,13 +200,11 @@ Which of the following architectures can provide the **most cost-effective and f
 
 In the scenario, since we are only dealing with **static content**, we can leverage the **web hosting feature of S3**. Then we can improve the architecture further by integrating it with **CloudFront**. This way, users will be able to load both the web pages and images **faster** than if we hosted them on a webserver that we built from scratch.
 
-#### ✅ Hence, the correct answer is:
+### ✅ **Correct Answer**
 
 🟢 **Upload the HTML, CSS, Javascript, and the images in a single bucket. Then enable website hosting. Create a CloudFront distribution and point the domain on the S3 website endpoint.**
 
----
-
-#### ❌ Incorrect Options (with reasons):
+### ❌ **Incorrect Options (with reasons)**
 
 🔴 **The option that says: Host the website using an Nginx server in an EC2 instance. Upload the images in an S3 bucket. Use CloudFront as a CDN to deliver the images closer to end-users is incorrect.**
 Creating your own web server to host a static website in AWS is a **costly solution**. Web Servers on an EC2 instance are usually used for hosting applications that require **server-side processing** (connecting to a database, data validation, etc.). Since static websites contain web pages with fixed content, **we should use S3 website hosting instead**.
@@ -264,14 +248,12 @@ CloudFront is integrated with **AWS** – both physical locations that are direc
 CloudFront improves performance for both **cacheable content** (such as images and videos) and **dynamic content** (such as API acceleration and dynamic site delivery).
 Global Accelerator improves performance for a wide range of applications over **TCP or UDP** by proxying packets at the edge to applications running in one or more AWS Regions. Global Accelerator is a good fit for **non-HTTP use cases**, such as gaming (UDP), IoT (MQTT), or Voice over IP, as well as for HTTP use cases that specifically require **static IP addresses** or **deterministic, fast regional failover**. Both services integrate with **AWS Shield** for DDoS protection.
 
-#### ✅ Hence, the correct options are:
+### ✅ **Correct Answers**
 
 🟢 **Amazon CloudFront**
 🟢 **Amazon S3**
 
----
-
-#### ❌ Incorrect Options (with reasons):
+### ❌ **Incorrect Options (with reasons)**
 
 🔴 **AWS Fargate is incorrect** because this service is just a **serverless compute engine for containers** that works with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS). Although this service is more cost-effective than its server-based counterpart, **Amazon S3 still costs way less than Fargate**, especially for storing static content.
 
@@ -279,9 +261,7 @@ Global Accelerator improves performance for a wide range of applications over **
 
 🔴 **AWS Global Accelerator is incorrect** because this service is more suitable for **non-HTTP use cases**, such as gaming (UDP), IoT (MQTT), or Voice over IP, as well as for HTTP use cases that specifically require **static IP addresses** or deterministic, fast regional failover. Moreover, there is **no direct way to integrate AWS Global Accelerator with Amazon S3**. It's more suitable to use **Amazon CloudFront** instead in this scenario.
 
----
-
-#### ✅ **Correct Answers:**
+### ✅ **Summary**
 
 **Amazon S3** and **Amazon CloudFront**
 
@@ -311,13 +291,11 @@ By using **AWS WAF**, you can configure **web access control lists (Web ACLs)** 
 
 It is recommended that you add **web ACLs with rate-based rules** as part of your **AWS Shield Advanced** protection. These rules can alert you to sudden spikes in traffic that might indicate a potential DDoS event. A **rate-based rule** counts the requests that arrive from any individual address in any five-minute period. If the number of requests exceeds the limit that you define, the rule can trigger an action such as sending you a notification.
 
-#### ✅ Hence, the correct answer is:
+### ✅ **Correct Answer**
 
 🟢 **Configure Amazon CloudFront distribution and set Application Load Balancer as the origin. Create a rate-based web ACL rule using AWS WAF and associate it with Amazon CloudFront.**
 
----
-
-#### ❌ Incorrect Options (with reasons):
+### ❌ **Incorrect Options (with reasons)**
 
 🔴 **The option that says: Configure Amazon CloudFront distribution and set a Network Load Balancer as the origin. Use VPC Flow Logs to monitor abnormal traffic patterns. Set up a custom AWS Lambda function that processes the flow logs and invokes Amazon SNS for notification is incorrect** because this option only allows you to **monitor the traffic** that is reaching your instance. You **can't use VPC Flow Logs to mitigate DDoS attacks**.
 

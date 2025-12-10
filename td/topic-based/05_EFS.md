@@ -59,7 +59,7 @@ It's designed for **high durability**, **availability**, and **virtually unlimit
 * **Not suitable** for rapidly changing data
 * Lacks **file locking** and **strong consistency semantics** for frequent updates
 
-#### 🟢 **In this scenario → Correct Answer: Amazon EFS**
+### ✅ **Correct Answer**
 
 ✅ **Amazon EFS** is the best choice because:
 
@@ -68,7 +68,7 @@ It's designed for **high durability**, **availability**, and **virtually unlimit
 * It provides **file-level access**, **strong consistency**, and **file locking**
 * It offers **high performance**, **durability**, and **scalability** for **Linux servers**
 
-#### 🔴 **Incorrect Options**
+### ❌ **Incorrect Options**
 
 🚫 **Amazon S3:** 
 Although it provides **high scalability and availability**, it is **not designed** for **rapidly changing data**.

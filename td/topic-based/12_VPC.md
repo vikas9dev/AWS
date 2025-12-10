@@ -158,8 +158,6 @@ AWS allows **IPv6-only subnets within a dual-stack VPC**, and EC2 instances laun
 
 This resolves the immediate problem (IPv4 exhaustion) **and** provides a scalable path moving forward.
 
----
-
 ### 🟢 **Correct Answer**
 
 **Set up a new IPv6-only subnet with a large CIDR range, associate it with the VPC, and then launch the instance.**
@@ -168,8 +166,6 @@ This resolves the immediate problem (IPv4 exhaustion) **and** provides a scalabl
 ✔ Conserves remaining IPv4 space
 ✔ Supports long-term growth
 ✔ Fully supported in a dual-stack VPC
-
----
 
 ### 🔴 **Incorrect Options Explained**
 
@@ -183,15 +179,11 @@ The option that says: Set up a new IPv4 subnet with a larger CIDR range. Associa
 
 ![https://media.tutorialsdojo.com/Amazon_VPC_IPv6.png](https://media.tutorialsdojo.com/Amazon_VPC_IPv6.png)
 
----
-
 #### ❌ **Ensure the VPC has IPv6 CIDRs only and remove IPv4 CIDRs**
 
 * This is **not possible**.
 * All VPCs **must include an IPv4 CIDR block**, even when using IPv6.
 * You **cannot remove** all IPv4 CIDRs from a VPC.
-
----
 
 #### ❌ **Disable IPv4 support and use IPv6 exclusively**
 
