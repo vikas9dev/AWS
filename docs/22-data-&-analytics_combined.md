@@ -863,6 +863,9 @@ You have flexibility in the types of transformations you apply to your streams.
 
 ⚠️ **Warning:** Flink can read from Kinesis Data Streams, but it **cannot** read from Amazon Data Firehose. This is a common exam trick! 🚨
 
+- Firehose is not a streaming source. It is a fully-managed delivery service whose only job is to take data from producers and deliver it to destinations, such as: S3, Redshift, OpenSearch, Splunk, Generic HTTP endpoints. 
+- Firehose does not expose APIs for consumers to read data. No streaming framework can subscribe to Firehose as a source.
+
 📝 **Note:** Amazon Managed Service for Apache Flink is specifically for processing data streams. 🌊
 
 ---
