@@ -1,12 +1,15 @@
 # Module 1 AWS Well-Architected - Framework Overview 
 
 ## 1.1 AWS Well-Architected 
-Welcome to module one of AWS Well-Architected – AWS Well-Architected Framework Review. In this module, you will learn about the Well-Architected Framework and its definition, pillars, history, and value propositions.  
+Welcome to module one of AWS Well-Architected – AWS Well-Architected Framework Overview. In this module, you will learn about the Well-Architected Framework and its definition, pillars, history, and value propositions.  
 
 ---
 
 ## 1.2 Learning objectives 
-In this module, you learn about the AWS Well-Architected Framework, the components of the Well-Architected Framework, and the pillars and design principles of the Well-Architected Framework. 
+In this module, you learn about:- 
+- The AWS Well-Architected (AWS WA) Framework 
+- The components of the Well-Architected Framework
+- The pillars and general design principles of the Well-Architected Framework. 
 
 ## 1.3 What is the Well-Architected Framework? 
 To begin, you will learn general information about the framework, its benefits, and its history. 
@@ -32,7 +35,7 @@ In essence, the Well-Architected Framework helps you **understand the impact of 
 
 ## 1.5 What is the Well-Architected Framework? 
 
-![What is the Well-Architected Framework](img/01.png)
+<img src="img/01.png" alt="What is the Well-Architected Framework" width="600" />
 
 **AWS Solutions Architects** bring extensive experience across diverse **industries**, **business verticals**, and **use cases**. Over the years, they have **designed and reviewed thousands of customer architectures** on AWS. From this wealth of experience, AWS has identified a set of **best practices** and **core strategies** for building well-architected systems in the cloud.
 
@@ -140,6 +143,10 @@ The **AWS Well-Architected Framework** is built upon **six foundational pillars*
 
 Together, these pillars form the **foundation for building well-architected technology solutions** in the AWS Cloud.
 
+One liner to remember these pillers:-
+
+> Operate securely, stay reliable, perform efficiently, control cost, think long term.
+
 ---
 
 ### 1.12 Well-Architected lenses 
@@ -232,7 +239,75 @@ Architects should apply their **judgment** to determine which practices best fit
 
 ---
 
-## 1.20 Summary
+## Questions
+
+**1. What was the AWS Well-Architected Tool created to do?**
+
+**Options:**
+
+* A. Identify the threats associated with the customer’s business model.
+* B. Analyze the configuration of a customer’s Amazon Elastic Kubernetes Service (Amazon EKS) cluster.
+* C. Determine if a customer’s bill is correct.
+* D. Measure a customer’s workloads and teams against AWS Well-Architected best practices.
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answer:**
+
+* **D. Measure a customer’s workloads and teams against AWS Well-Architected best practices.**
+
+**Explanation:**
+The **AWS Well-Architected Tool** is designed to help customers **review and evaluate their workloads** against the **AWS Well-Architected Framework**. It measures how well workloads align with AWS **best practices across the six pillars** and provides improvement recommendations.
+
+**Why the other options are incorrect:**
+
+* **A** – Threat modeling is part of security design, but not the tool’s primary purpose
+* **B** – EKS configuration analysis is handled by other tools (e.g., EKS best practices, third-party tools)
+* **C** – Billing accuracy is handled by AWS Billing & Cost Management, not this tool
+
+</details>
+
+<br/>
+
+**2. What are some parts of the AWS Well-Architected Framework content? (Select THREE.)**
+
+**Options:**
+
+* A. Pillars
+* B. Questions
+* C. Checklists
+* D. Design principles
+* E. Software framework
+* F. Metrics
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answers:**
+
+* **A. Pillars**
+* **B. Questions**
+* **D. Design principles**
+
+**Explanation:**
+The AWS Well-Architected Framework is structured around:
+
+* **Pillars** (Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability)
+* **Design principles** for each pillar
+* **Questions** used during Well-Architected Reviews to evaluate workloads
+
+**Why others are incorrect:**
+
+* **C. Checklists** – Not an official component (questions serve this purpose)
+* **E. Software framework** – It’s a guidance framework, not software
+* **F. Metrics** – Metrics may be used in practice but are not a defined content part of the framework
+
+</details>
+
+---
+
+## Summary
 
 In this module, you explored the **value and benefits** of the **AWS Well-Architected Framework**. You learned how it helps you:
 
