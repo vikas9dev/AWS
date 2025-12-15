@@ -1,7 +1,7 @@
 # Module 1 AWS Well-Architected - Framework Overview 
 
 ## 1.1 AWS Well-Architected 
-Welcome to module one of AWS Well-Architected – AWS Well-Architected Framework Overview. In this module, you will learn about the Well-Architected Framework and its definition, pillars, history, and value propositions.  
+Welcome to module one of [AWS Well-Architected](https://skillbuilder.aws/learn/U89MJTNSM8/aws-wellarchitected-foundations/RCY5NFM8R9) – AWS Well-Architected Framework Overview. In this module, you will learn about the Well-Architected Framework and its definition, pillars, history, and value propositions.  
 
 ---
 
@@ -143,7 +143,7 @@ The **AWS Well-Architected Framework** is built upon **six foundational pillars*
 
 Together, these pillars form the **foundation for building well-architected technology solutions** in the AWS Cloud.
 
-One liner to remember these pillers:-
+One liner to remember these pillars:-
 
 > Operate securely, stay reliable, perform efficiently, control cost, think long term.
 

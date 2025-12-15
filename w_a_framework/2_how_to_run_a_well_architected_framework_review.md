@@ -1,4 +1,4 @@
-## 1.1 AWS Well-Architected
+## 1.1 Well-Architected Framework Review (WAFR)
 
 Welcome to **Module Two** of *AWS Well-Architected: How to Run a Well-Architected Framework Review.*
 In this module, you’ll explore how to conduct a **Well-Architected Framework Review (WAFR)** and use it as a tool for **continuous improvement** across your AWS workloads.
@@ -197,15 +197,18 @@ Additional preparation steps include:
 
 ## 1.12 Review Preparation Steps
 
+Below is an improved and clearer **timeline-based preparation guide** aligned with the review preparation flow shown in the image. It expands the steps slightly while keeping them practical and easy to follow.
+
 Here’s a sample **timeline** for preparing a Well-Architected Framework Review:
 
-| Time Before Review  | Key Activities                                                                                                                                               |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **3 Weeks Before**  | Select the workload and **form the core review team**. Schedule a **scoping meeting**.                                                                       |
-| **~16 Days Before** | Conduct the **scoping session**. Confirm workload details and select **relevant lenses** in the WA Tool. Identify **SMEs** and define the **review format**. |
-| **5 Days Before**   | Confirm the **scope and readiness** with all participants. Send reminders to bring existing documentation and supporting data.                               |
+| Time Before Review  | Key Activities                                                                                                                                                                                 |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **~3 Weeks Before** | Select the **workload** to be reviewed. Identify and confirm the **core review team**. Send out the **scoping meeting invite** and ensure key stakeholders are aware of the upcoming review.   |
+| **~14 Days Before** | Conduct the **scoping meeting**. Validate **question relevance**, identify **who can answer which questions**, confirm **review participants**, and finalize **review scheduling** and format. |
+| **~5 Days Before**  | Check with participants if the **agenda or scope** needs any changes. Remind attendees to have all **relevant documentation, dashboards, and metrics** ready for the review.                   |
+| **1 Day Before**    | Send a **final reminder** to all attendees confirming review time, access details, and expectations.                                                                                           |
 
-💡 **Tip:** Keep preparation simple — focus on collecting information that already exists rather than generating new materials.
+💡 **Tip:** Keep preparation lightweight. Focus on gathering **existing information and evidence** rather than creating new documents specifically for the review.
 
 ---
 
@@ -279,8 +282,63 @@ The **improvement workflow** helps you systematically identify, prioritize, and 
 * Begin executing the **improvement plan** in order of priority.
 * **Monitor and measure** outcomes to ensure the desired benefits are realized.
 
-📘 **Note:**
-Implementing missing best practices often requires collaboration between your **AWS account team**, **solution architects**, and **internal teams** to integrate improvements across **people, processes, and technology**.
+📘 **Note:** Implementing missing best practices often requires collaboration between your **AWS account team**, **solution architects**, and **internal teams** to integrate improvements across **people, processes, and technology**.
+
+---
+
+## Questions
+
+**1. What are the three phases of the AWS Well-Architected Framework Review?**
+
+**Options:**
+
+* A. Prepare, review, and audit
+* B. Prepare, review, and improve
+* C. Prepare, conduct, and identify risks
+* D. Prepare, review, and prioritize
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answer:**
+
+* **B. Prepare, review, and improve**
+
+**Explanation:**
+An **AWS Well-Architected Framework Review** follows three defined phases:
+
+1. **Prepare** – Define the workload, gather documentation, and align stakeholders.
+2. **Review** – Answer Well-Architected questions across the six pillars to identify risks.
+3. **Improve** – Create and execute an improvement plan to remediate identified risks.
+
+**Why the other options are incorrect:**
+
+* **A** – Auditing is not a formal phase in the framework
+* **C** – “Conduct” and “identify risks” are activities within the review, not phases
+* **D** – Prioritization happens during improvement but is not a named phase
+
+</details>
+
+<br/>
+
+**2. An AWS Well-Architected Framework Review of a larger workload can be broken down into multiple reviews.**
+
+**Options:**
+
+* A. True
+* B. False
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answer:**
+
+* **A. True**
+
+**Explanation:**
+AWS recommends **breaking large or complex workloads into smaller, logical components** and reviewing them separately. This makes the **Well-Architected Review more manageable**, improves accuracy, and helps teams focus on specific areas while still aligning with overall AWS Well-Architected best practices.
+
+</details>
 
 ---
 

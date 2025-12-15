@@ -99,6 +99,8 @@ Security best practices are grouped into **seven areas**:
 
 **Shared Responsibility Model:**
 
+![Shared Responsibility Model](img/shared-responsibility-model.png)
+
 * **AWS responsibility:** Security **of the cloud** (infrastructure, virtualization, facilities).
 * **Customer responsibility:** Security **in the cloud** (OS, applications, data, configuration).
 
@@ -297,6 +299,111 @@ Best practices:
 * **Programmatic deployments:** Reduce human errors during deployments.
 * **Secure pipelines:** Assess pipeline security regularly and enforce separation of permissions.
 * **Embed security ownership in teams:** Empower builders to make security decisions while maintaining validation by the security team.
+
+---
+
+## Question
+
+**1. Why is security important in cloud architecture?**
+
+**Options:**
+
+* A. To operate a workload securely, it is important to apply overarching best practices to every area of security.
+* B. Envelope encryption makes everything more secure.
+* C. Without securing cost savings, the business will not be viable.
+* D. No one will use the application if it is secure.
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answer:**
+
+* **A. To operate a workload securely, it is important to apply overarching best practices to every area of security.**
+
+**Explanation:**
+In cloud architecture, **security must be built in at every layer**—identity, network, compute, storage, and operations. Applying **overarching security best practices consistently** helps protect data, systems, and workloads while enabling business agility and trust.
+
+**Why the other options are incorrect:**
+
+* **B** – Encryption is important, but it alone does not address all security concerns
+* **C** – Cost savings are unrelated to why security is fundamentally important
+* **D** – Secure applications are essential for user trust and adoption
+
+</details>
+
+---
+
+**2. What are the security best practice areas? (Select THREE.)**
+
+**Options:**
+
+* A. Security formations
+* B. Data protection
+* C. Incident response
+* D. Identity and access management
+* E. Preparation for security events
+* F. Keeping people away from the data
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answers:**
+
+* **B. Data protection**
+* **C. Incident response**
+* **D. Identity and access management**
+
+**Explanation:**
+The **Security pillar** of the AWS Well-Architected Framework is organized into defined best practice areas, including:
+
+* **Identity and access management (IAM)** – Control access to AWS services and resources securely.
+* **Data protection** – Protect data at rest and in transit using encryption and proper key management.
+* **Incident response** – Prepare for, respond to, and recover from security incidents.
+
+**Why the other options are incorrect:**
+
+* **A. Security formations** – Not a recognized best practice area
+* **E. Preparation for security events** – Preparation is part of incident response, not a separate area
+* **F. Keeping people away from the data** – Overly simplistic and not an AWS-defined practice
+
+</details>
+
+---
+
+**3. What are the areas of security design principles? (Select THREE.)**
+
+**Options:**
+
+* A. Apply security at all layers.
+* B. Protect data at transit and at rest.
+* C. Understand that true security doesn’t require planning.
+* D. Keep people away from data.
+* E. Use detective controls.
+* F. Respond to incidents.
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answers:**
+
+* **A. Apply security at all layers**
+* **B. Protect data at transit and at rest**
+* **E. Use detective controls**
+
+**Explanation:**
+The **Security pillar design principles** of the AWS Well-Architected Framework include:
+
+* **Apply security at all layers** – Implement defense in depth across network, compute, application, and data layers.
+* **Protect data in transit and at rest** – Use encryption and key management to safeguard sensitive data.
+* **Use detective controls** – Continuously monitor, log, and alert to detect potential security events.
+
+**Why the other options are incorrect:**
+
+* **C** – Security always requires planning and proactive design
+* **D** – Oversimplified and not an AWS design principle
+* **F** – Responding to incidents is part of incident response practices, not a design principle
+
+</details>
 
 ---
 

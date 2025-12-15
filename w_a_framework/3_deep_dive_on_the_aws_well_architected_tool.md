@@ -198,6 +198,126 @@ Each question in the tool includes:
 
 ---
 
+## Question
+
+**1. What is a component of the AWS Well-Architected Framework?**
+
+**Options:**
+
+* A. Content
+* B. Pillars
+* C. Check list
+* D. Architecture diagrams
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answer:**
+
+* **B. Pillars**
+
+**Explanation:**
+The **AWS Well-Architected Framework** is built around **six pillars** (Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability). These pillars form the **core structure** of the framework and guide architectural best practices.
+
+**Why the other options are incorrect:**
+
+* **A. Content** – Too generic; not a defined component
+* **C. Check list** – The framework uses questions, not checklists
+* **D. Architecture diagrams** – Helpful artifacts, but not a framework component
+
+</details>
+
+<br/>
+
+**2. Which item is mandatory to define when adding a workload to review using the AWS Well-Architected Tool?**
+
+**Options:**
+
+* A. Region
+* B. Industry type
+* C. Account ID
+* D. Architecture design
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answer:**
+
+* **A. Region**
+
+**Explanation:**
+When creating a workload in the **AWS Well-Architected Tool**, **defining the AWS Region is mandatory**. The review is performed in the context of a specific Region because **best practices, service availability, and architectural considerations can vary by Region**.
+
+**Why the other options are incorrect:**
+
+* **B. Industry type** – Optional metadata, not required
+* **C. Account ID** – Not required to create a workload review
+* **D. Architecture design** – Helpful for discussion, but not mandatory to define
+
+</details>
+
+<br/>
+
+**3. Which mechanism in the AWS Well-Architected Tool can be used to track the improvements in workload architecture?**
+
+**Options:**
+
+* A. Custom lenses
+* B. Milestones
+* C. Best practices in the Well-Architected Framework
+* D. Workload notes
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answer:**
+
+* **B. Milestones**
+
+**Explanation:**
+In the **AWS Well-Architected Tool**, **milestones** are used to **capture the state of a workload at a specific point in time**. They allow teams to **track progress and improvements** as architectural risks are addressed and best practices are implemented over time.
+
+**Why the other options are incorrect:**
+
+* **A. Custom lenses** – Used to evaluate workloads from additional perspectives, not for tracking progress
+* **C. Best practices** – Guidance content, not a tracking mechanism
+* **D. Workload notes** – Used for documentation, not progress tracking
+
+</details>
+
+<br/>
+
+**4. What is the recommended way to share a workload?**
+
+**Options:**
+
+* A. Use the share feature in the AWS Well-Architected Tool.
+* B. It’s not recommended to share a workload review with customers or the AWS account team.
+* C. Upload the report to an Amazon S3 bucket, and share the public link.
+* D. Download the report, encrypt it, and email it to customers.
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answer:**
+
+* **A. Use the share feature in the AWS Well-Architected Tool.**
+
+**Explanation:**
+AWS recommends using the **built-in sharing feature** of the **AWS Well-Architected Tool** to securely share workload reviews with **customers, partners, or AWS account teams**. This ensures **proper access control, security, and version consistency**.
+
+**Why the other options are incorrect:**
+
+* **B** – Sharing is recommended and supported
+* **C** – Public S3 links can introduce security risks
+* **D** – Manual sharing via email is less secure and not recommended
+
+</details>
+
+<br/>
+
+---
+
 ## 1.20 Summary
 
 In this module, you learned:

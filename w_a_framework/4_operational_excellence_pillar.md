@@ -35,6 +35,10 @@ The AWS Well-Architected Framework currently has **six pillars**:
 
 These pillars form the **foundations of cloud architecture** for technology solutions. This module focuses specifically on **Operational Excellence**.
 
+One liner to remember these pillars:-
+
+> Operate securely, stay reliable, perform efficiently, control cost, think long term.
+
 ---
 
 ## 1.5 What is the Operational Excellence Pillar?
@@ -180,6 +184,8 @@ Teams need to **understand the entire workload, their role in it, and shared bus
 ---
 
 ## 1.12 Operating Models
+
+![operating_model](img/operating_model.png)
 
 The **operating model** helps visualize responsibilities across teams:
 
@@ -407,37 +413,109 @@ Ensure workloads, processes, procedures, and personnel are ready to **support pr
 
 **Key practices include:**
 
-* **Evaluate Operational Readiness**
+### 1. Evaluate Operational Readiness
 
-  * Assess workload, processes, procedures, and personnel to identify operational risks.
-  * Manage changes using **manual or automated checklists** to confirm readiness.
+Evaluate the operational readiness of your **workload, processes, procedures, and personnel** to understand operational risks.
 
-* **Use Runbooks and Playbooks**
+* Use a **consistent readiness process** before going live or deploying changes
+* Include **manual or automated checklists**
+* Identify gaps early and create plans to address them
+* Manage the **flow of change** into environments in a controlled way
 
-  * **Runbooks:** Document routine operational activities.
-  * **Playbooks:** Step-by-step guides for incident investigation and resolution.
 
-* **Personnel Capability**
+### 2. Change Management
 
-  * Ensure sufficient trained personnel for normal operations, troubleshooting, and rotation during on-call or vacations.
-  * Provide knowledge to operate the platform and workloads.
+Use a formal mechanism to manage changes that:
 
-* **Operational Readiness Reviews (ORRs)**
+* Supports **delivery of business value**
+* Helps **mitigate risks** associated with change
+* Covers both **successful and unsuccessful deployments**
+* Ensures all changes comply with **governance requirements**
 
-  * Validate that teams can safely operate workloads.
-  * Include architectural recommendations, operational processes, event management, release quality, and lessons learned from post-incident analysis.
-  * Incorporate security, governance, and compliance requirements.
+**Pre-mortems**
 
-* **Pre-Mortem Exercises**
+* Simulate potential failures before deployment
+* Anticipate risks and define mitigation strategies
+* Decide whether benefits outweigh risks before deploying
 
-  * Simulate failures to **develop mitigation strategies**.
-  * Evaluate risks and benefits of deploying changes.
-  * Ensure compliance with governance standards.
 
-* **Support Plans for Production Workloads**
+### 3. Runbooks and Playbooks
 
-  * Ensure software and services supporting workloads have appropriate support levels.
-  * Document support plans, contacts, and procedures for requesting support.
+#### Runbooks
+
+Runbooks are **documented procedures** used to perform routine operational tasks.
+
+* Step-by-step instructions to achieve a specific outcome
+* Reduce risk and improve consistency
+* Can be as simple as a checklist
+* Used for standard, repeatable operations
+
+#### Playbooks
+
+Playbooks are **incident investigation guides**.
+
+* Help investigate incidents, assess impact, and find root cause
+* Used for scenarios such as:
+
+  * Failed deployments
+  * Performance issues
+  * Security incidents
+* Often identify issues that are resolved using runbooks
+* Core component of incident response plans
+
+
+### 4. Personnel Readiness and Capability
+
+Ensure you have **enough trained personnel** to support the workload.
+
+* Staff must be trained on:
+
+  * The platform
+  * Services used by the workload
+* Provide sufficient operational knowledge
+* Ensure coverage for:
+
+  * Normal operations
+  * Incident troubleshooting
+  * On-call rotations
+  * Vacations (to avoid burnout)
+
+
+### 5. Operational Readiness Reviews (ORRs)
+
+Use **Operational Readiness Reviews (ORRs)** to validate that workloads can be safely operated.
+
+* ORR is a structured review and inspection process
+* Uses a **checklist-based, self-service approach**
+* Includes best practices derived from real-world incidents
+
+**ORR Checklist Areas**
+
+* Architecture recommendations
+* Operational processes
+* Event and incident management
+* Release quality
+* Lessons learned from post-incident analysis
+* Security, governance, and compliance (optional but recommended)
+
+ORRs are not just about best practices — they are meant to **prevent recurrence of past failures**.
+
+### 6. Support Plans for Production Workloads
+
+Ensure production workloads are fully supported.
+
+* Select appropriate **support plans** to meet service-level needs
+* Cover all dependencies:
+
+  * Cloud services
+  * Third-party software
+  * External vendors
+* Document:
+
+  * Support plans
+  * How to request support
+  * Escalation paths
+* Maintain mechanisms to ensure **support contacts remain up to date**
 
 ---
 
@@ -626,6 +704,75 @@ Continuous learning and sharing strengthen organizational resilience and operati
 * **Dedicate Time and Resources**
 
   * Ensure continuous incremental improvements are achievable.
+
+---
+
+## Questions
+
+**1. Which of the following are best practice areas for the Operational Excellence pillar? (Select THREE.)**
+
+**Options:**
+
+* A. Performance efficiency
+* B. Prepare
+* C. Cost effectiveness
+* D. Organization
+* E. Security
+* F. Evolve
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answers:**
+
+* **B. Prepare**
+* **D. Organization**
+* **F. Evolve**
+
+**Explanation:**
+The **Operational Excellence pillar** of the AWS Well-Architected Framework focuses on running and improving workloads effectively. Its best practice areas are:
+
+* **Organization** – Structure teams, define responsibilities, and establish governance.
+* **Prepare** – Prepare for operations by understanding workloads, risks, and procedures.
+* **Operate** – (Not listed in options) Run workloads and respond to events.
+* **Evolve** – Continuously improve processes and procedures through lessons learned.
+
+**Why the other options are incorrect:**
+
+* **A. Performance efficiency** – Belongs to the Performance Efficiency pillar
+* **C. Cost effectiveness** – Part of the Cost Optimization pillar
+* **E. Security** – Its own dedicated pillar
+
+</details>
+
+---
+
+**2. What is a design principle of operational excellence?**
+
+**Options:**
+
+* A. Implement a strong identity foundation.
+* B. Automatically recover from failure.
+* C. Measure overall efficiency.
+* D. Perform operations as code.
+
+<details>
+<summary>Answer and Explanation</summary>
+
+**✅ Correct Answer:**
+
+* **D. Perform operations as code.**
+
+**Explanation:**
+A key **design principle of the Operational Excellence pillar** is to **perform operations as code**. This means defining operational procedures and processes in code so they can be **automated, version-controlled, tested, and consistently executed**.
+
+**Why the other options are incorrect:**
+
+* **A** – Security pillar design principle
+* **B** – Reliability pillar design principle
+* **C** – Not an official AWS Well-Architected design principle
+
+</details>
 
 ---
 
