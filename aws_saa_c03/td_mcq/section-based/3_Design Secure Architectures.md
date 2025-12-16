@@ -118,6 +118,50 @@ Since the requirement is about allowing access to **trusted S3 buckets via a VPC
 
 For **instance-specific, IP-restricted access**, always prefer **Security Groups** over NACLs—especially in a default VPC.
 
+### TCP vs UDP (Quick Comparison)
+
+| Feature            | **TCP (Transmission Control Protocol)**  | **UDP (User Datagram Protocol)**          |
+| ------------------ | ---------------------------------------- | ----------------------------------------- |
+| Connection         | Connection-oriented (handshake required) | Connectionless                            |
+| Reliability        | **Reliable** – guarantees delivery       | **Unreliable** – no delivery guarantee    |
+| Ordering           | Maintains packet order                   | No ordering                               |
+| Error Handling     | Retransmission, error checking           | Minimal error checking, no retransmission |
+| Speed              | Slower (overhead due to checks)          | Faster (low overhead)                     |
+| Congestion Control | Yes                                      | No                                        |
+| Use Cases          | Web, email, file transfer                | Streaming, gaming, VoIP, DNS              |
+
+#### TCP – When reliability matters
+
+* Ensures **all data arrives correctly and in order**
+* Retransmits lost packets
+* Examples:
+
+  * 🌐 HTTP/HTTPS
+  * 📧 SMTP, IMAP
+  * 📁 FTP
+  * 🧠 Database connections
+
+#### UDP – When speed matters
+
+* Sends data **without waiting for confirmation**
+* Some packet loss is acceptable
+* Examples:
+
+  * 🎥 Video/audio streaming
+  * 🎮 Online gaming
+  * 📞 VoIP
+  * 🔍 DNS queries
+
+#### Simple analogy
+
+* **TCP** = Phone call 📞 (confirming every message)
+* **UDP** = Radio broadcast 📻 (send fast, no confirmation)
+
+#### One-line summary
+
+* **Use TCP** when you need accuracy
+* **Use UDP** when you need speed
+
 </details>
 
 ---
