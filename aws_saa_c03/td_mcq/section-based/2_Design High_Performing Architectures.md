@@ -129,8 +129,6 @@ Together, IAM + AWS Organizations provide **governance + cost visibility + auton
   * ❌ No separate billing
 * Transit Gateway is for **network connectivity**, not **account governance**.
 
----
-
 #### ❌ **Creating separate Availability Zones for each division + AWS Global Accelerator**
 
 * AZs are predefined by AWS — you cannot create them.
@@ -679,3 +677,223 @@ is the only option that fully satisfies:
 ✔️ Best and correct answer.
 
 </details>
+
+---
+
+## Question 11
+
+**A Solutions Architect needs to set up the required compute resources for the application which have workloads that require high, sequential read and write access to very large data sets on local storage. Which of the following instance type is the most suitable one to use in this scenario?**
+
+* General Purpose Instances
+* Memory Optimized Instances
+* Storage Optimized Instances
+* Compute Optimized Instances
+
+<details>
+<summary>Explanation</summary>
+
+Note:- In question, notice the **very large data sets** on local storage.
+
+✅ **Correct Answer: Storage Optimized Instances**
+
+Storage Optimized instances are specifically designed for workloads that require **high, sequential read and write access** to **very large datasets on local storage**. They provide:
+
+* ⚡ **High IOPS and throughput** for disk-intensive operations
+* 💾 **Locally attached NVMe or HDD storage**, ideal for big data processing
+* 📊 Best suited for use cases like data warehousing, log processing, and large-scale ETL jobs
+
+Storage optimized instances are designed for workloads that require high, sequential read and write access to very large data sets on local storage. They are optimized to deliver tens of thousands of low-latency, random I/O operations per second (IOPS) to applications.
+
+❌ **Why others are not correct:**
+
+* ❌ **General Purpose Instances** – Balanced resources, but not optimized for heavy disk I/O
+* ❌ **Memory Optimized Instances** – Focused on in-memory workloads, not disk-intensive ones
+* ❌ **Compute Optimized Instances** – Designed for high CPU performance, not storage throughput
+
+🟢 When the workload is **storage-heavy with sequential read/write patterns**, **Storage Optimized Instances** are the right choice.
+
+</details>
+
+---
+
+## Question 12
+
+**A Solutions Architect needs to deploy a mobile application that collects votes for a singing competition. Millions of users from around the world will submit votes using their mobile phones. These votes must be collected and stored in a highly scalable and highly available database which will be queried for real-time ranking. The database is expected to undergo frequent schema changes throughout the voting period. Which of the following combination of services should the architect use to meet this requirement?**
+
+* Amazon Aurora and Amazon Cognito
+* Amazon Relational Database Service (RDS) and Amazon MQ
+* Amazon DynamoDB and AWS AppSync
+* Amazon DocumentDB (with MongoDB compatibility) and Amazon AppFlow
+
+<details>
+<summary>Explanation</summary>
+
+✅ **Correct Answer: Amazon DynamoDB and AWS AppSync**
+
+This use case requires **massive scalability**, **high availability**, **real-time access**, and **schema flexibility** 🌍📱.
+
+🟢 **Why this combination works best:**
+
+* **Amazon DynamoDB**
+
+  * ⚡ Fully serverless and automatically scales to **millions of writes per second**
+  * 🌐 Built-in **high availability** across multiple AZs
+  * 🔄 **Schema-less NoSQL** design supports **frequent schema changes**
+  * 📊 Excellent for real-time counters and rankings
+
+* **AWS AppSync**
+
+  * 🔌 Provides **real-time data synchronization** using GraphQL
+  * 🚀 Optimized for mobile applications with offline support
+  * 🔄 Integrates seamlessly with DynamoDB for live updates (e.g., rankings)
+
+DynamoDB is durable, scalable, and highly available data store which can be used for real-time tabulation. You can also use AppSync with DynamoDB to make it easy for you to build collaborative apps that keep shared data updated in real-time. You just specify the data for your app with simple code statements and AWS AppSync manages everything needed to keep the app data updated in real-time. This will allow your app to access data in Amazon DynamoDB, trigger AWS Lambda functions, or run Amazon OpenSearch Service queries and combine data from these services to provide the exact data you need for your app.
+
+![Amazon DynamoDB + AWS AppSync](https://media.tutorialsdojo.com/Untitled1-1024x467.png)
+
+❌ **Why others are not suitable:**
+
+* ❌ **Amazon Aurora and Amazon Cognito**
+
+  * Aurora is relational ❌ and not ideal for frequent schema changes or massive write spikes
+
+* ❌ **Amazon RDS and Amazon MQ**
+
+  * RDS lacks horizontal scalability for global high-write workloads
+  * MQ is for messaging, not real-time querying
+
+* ❌ **Amazon DocumentDB and Amazon AppFlow**
+
+  * AppFlow is meant for SaaS data ingestion, not real-time mobile voting
+  * Higher latency compared to DynamoDB for this scenario
+  * Amazon DocumentDB (with MongoDB compatibility) and Amazon AppFlow are incorrect. While Amazon DocumentDB (with MongoDB compatibility) is a viable database option, Amazon AppFlow cannot interface with it to query updates. Amazon AppFlow is simply an integration service for transferring data securely between Software-as-a-Service (SaaS) applications like Salesforce, SAP, Zendesk, Slack, ServiceNow, and AWS services.
+
+🎯 **Conclusion:**
+For a globally distributed, high-traffic voting application with real-time ranking and schema flexibility, **Amazon DynamoDB + AWS AppSync** is the most suitable and scalable solution.
+
+</details>
+
+---
+
+## Question 13
+
+**An Auto Scaling group (ASG) of Amazon EC2 Linux instances has an Amazon FSx for OpenZFS file system with basic monitoring enabled in Amazon CloudWatch. The Solutions Architect noticed that the legacy web application hosted in the ASG takes a long time to load. After checking the instances, the Architect noticed that the ASG is not launching more instances as it should be, even though the servers already have high memory usage. Which of the following options should the Architect implement to solve this issue?**
+
+* Set up Amazon Rekognition to automatically identify and recognize the cause of the high memory usage. Use the AWS Well-Architected Tool to automatically trigger the scale-out event in the ASG based on the overall memory usage.
+* Implement an AI solution that leverages Amazon Comprehend to track the near-real-time memory usage of each and every EC2 instance. Use Amazon SageMaker AI to automatically trigger the Auto Scaling event if there is high memory usage.
+* Install the CloudWatch unified agent to the EC2 instances. Set up a custom parameter in AWS Systems Manager Parameter Store with the CloudWatch agent configuration to create an aggregated metric on memory usage percentage. Scale the Auto Scaling group based on the aggregated metric.
+* Enable detailed monitoring on the EC2 instances of the Auto Scaling group. Use Auto Scaling with custom metrics to scale out the Auto Scaling group based on the aggregated memory usage of EC2 instances.
+
+<details>
+<summary>Explanation</summary>
+
+🔴 **Detailed monitoring in CloudWatch primarily enhances the granularity of standard metrics like CPU utilization. While custom metrics can be integrated with AWS Auto Scaling, setting this up requires more overhead compared to installing the CloudWatch unified agent, which directly handles memory metrics.**
+
+✅ **Correct Answer:**
+Install the CloudWatch unified agent to the EC2 instances. Set up a custom parameter in AWS Systems Manager Parameter Store with the CloudWatch agent configuration to create an aggregated metric on memory usage percentage. Scale the Auto Scaling group based on the aggregated metric.
+
+🟢 **Why this is correct:**
+
+* 📊 **Memory utilization is NOT a default EC2 metric** in CloudWatch
+* ⚙️ **Basic and detailed monitoring only provide CPU, disk, and network metrics**, not memory usage
+* 🧩 The **CloudWatch unified agent** is required to collect **OS-level metrics** like memory utilization
+* 🗂️ Using **SSM Parameter Store** allows centralized and consistent agent configuration
+* 📈 Once published, the **custom memory metric** can be aggregated and used by **Auto Scaling policies**
+
+Amazon CloudWatch agent enables you to collect both system metrics and log files from Amazon EC2 instances and on-premises servers. The agent supports both Windows Server and Linux and allows you to select the metrics to be collected, including sub-resource metrics such as per-CPU core.
+
+The premise of the scenario is that the EC2 servers have high memory usage, but since this specific metric is not tracked by the Auto Scaling group by default, the scaling out activity is not being triggered. Remember that by default, CloudWatch doesn’t monitor memory usage but only the CPU utilization, Network utilization, Disk performance, and Disk Reads/Writes.
+
+This is the reason why you have to install a CloudWatch agent in your EC2 instances to collect and monitor the custom metric (memory usage), which will be used by your Auto Scaling Group as a trigger for scaling activities.
+
+The AWS Systems Manager Parameter Store is one of the capabilities of AWS Systems Manager. It provides secure, hierarchical storage for configuration data management and secrets management. You can store data such as passwords, database strings, Amazon Machine Image (AMI) IDs, and license codes as parameter values. You can store values as plain text or encrypted data. You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter.
+
+❌ **Why the other options are wrong:**
+
+* ❌ **Amazon Rekognition & Well-Architected Tool**
+
+  * 🔴 Rekognition is for image/video analysis
+  * 🔴 Well-Architected Tool does not trigger Auto Scaling actions
+
+* ❌ **Amazon Comprehend & SageMaker**
+
+  * 🔴 Comprehend is for NLP, not system metrics
+  * 🔴 Over-engineered and unrelated to Auto Scaling
+
+* ❌ **Enable detailed monitoring only**
+
+  * 🔴 Detailed monitoring increases metric frequency but **still does not include memory usage**
+  * 🔴 Auto Scaling cannot act without a valid memory metric
+
+🎯 **Conclusion:**
+To scale an ASG based on memory pressure, you must **publish memory metrics using the CloudWatch unified agent** and then **use those custom metrics for Auto Scaling**.
+
+</details>
+
+---
+
+## Question 14
+
+**A company receives semi-structured and structured data from different sources, which are eventually stored in their Amazon S3 data lake. The Solutions Architect plans to use big data processing frameworks to analyze these data and access it using various business intelligence tools and standard SQL queries. Which of the following provides the MOST high-performing solution that fulfills this requirement?**
+
+* Create an Amazon EC2 instance and store the processed data in Amazon EBS.
+* Create an Amazon EMR cluster and store the processed data in Amazon Redshift.
+* Use AWS Glue and store the processed data in Amazon S3.
+* Use Amazon Managed Service for Apache Flink Studio and store the processed data in Amazon DynamoDB.
+
+<details>
+<summary>Explanation</summary>
+
+Note:- **Amazon Managed Service for Apache Flink Studio is more suitable for processing streaming data. Additionally, Amazon DynamoDB doesn’t fully support the use of standard SQL and Business Intelligence (BI) tools, unlike Amazon Redshift. It also doesn’t allow you to run complex analytic queries against terabytes to petabytes of structured and semi-structured data.**
+
+Amazon EMR is a managed cluster platform that simplifies running big data frameworks, such as Apache Hadoop and Apache Spark, on AWS to process and analyze vast amounts of data. By using these frameworks and related open-source projects, such as Apache Hive and Apache Pig, you can process data for analytics purposes and business intelligence workloads. Additionally, you can use Amazon EMR to transform and move large amounts of data into and out of other AWS data stores and databases.
+
+Amazon Redshift is the most widely used cloud data warehouse. It makes it fast, simple, and cost-effective to analyze all your data using standard SQL and your existing Business Intelligence (BI) tools. It allows you to run complex analytic queries against terabytes to petabytes of structured and semi-structured data, using sophisticated query optimization, columnar storage on high-performance storage, and massively parallel query execution.
+
+The key phrases in the scenario are “big data processing frameworks” and “various business intelligence tools and standard SQL queries” to analyze the data. To leverage big data processing frameworks, you need to use Amazon EMR. The cluster will perform data transformations (ETL) and load the processed data into Amazon Redshift for analytic and business intelligence applications.
+
+✅ **Correct Answer:** Create an Amazon EMR cluster and store the processed data in Amazon Redshift
+
+🟢 **Why this is the best and most high-performing solution:**
+
+* 🚀 **Amazon EMR**
+
+  * Designed for **large-scale big data processing**
+  * Supports frameworks like **Spark, Hive, and Presto**
+  * Optimized for high-throughput batch analytics on massive datasets
+
+* 📊 **Amazon Redshift**
+
+  * Fully managed, **high-performance data warehouse**
+  * Optimized for **complex analytical queries** and **BI tools**
+  * Supports **standard SQL** with very low query latency
+
+* 🔗 **EMR + Redshift** is a common high-performance analytics architecture:
+
+  * EMR processes and transforms data from S3
+  * Redshift stores curated, analytics-ready data for fast querying and dashboards
+
+❌ **Why the other options are less suitable:**
+
+* ❌ **EC2 + EBS**
+
+  * Manual scaling and management
+  * Not designed for large-scale analytics or BI workloads
+
+* ❌ **AWS Glue + S3**
+
+  * Serverless and flexible, but generally **lower query performance**
+  * Better suited for ETL and ad-hoc analytics (e.g., Athena), not high-performance BI
+
+* ❌ **Apache Flink + DynamoDB**
+
+  * Flink is for **stream processing**
+  * DynamoDB is not optimized for **SQL-based analytics or BI tools**
+  * Amazon Managed Service for Apache Flink Studio is more suitable for processing streaming data. Additionally, Amazon DynamoDB doesn’t fully support the use of standard SQL and Business Intelligence (BI) tools, unlike Amazon Redshift. It also doesn’t allow you to run complex analytic queries against terabytes to petabytes of structured and semi-structured data.
+
+🎯 **Conclusion:**
+For **maximum performance**, large-scale analytics, and **fast SQL-based BI queries**, using **Amazon EMR for processing** and **Amazon Redshift for analytics** is the most suitable architecture.
+
+</details>
+
+---
