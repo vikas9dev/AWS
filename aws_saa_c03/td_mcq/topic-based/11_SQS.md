@@ -1,6 +1,6 @@
 # SQS
 
-## Question 1
+## **Question 1**
 
 **A software company has resources hosted in AWS and on-premises servers. You have been requested to create a decoupled architecture for applications which make use of both resources.
 Which of the following options are valid? (Select TWO.)**
@@ -12,7 +12,7 @@ Which of the following options are valid? (Select TWO.)**
 * Use RDS to utilize both on-premises servers and EC2 instances for your decoupled application
 
 <details>
-  <summary>Explanation</summary>
+  <summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### 🟢 **Correct Services for a Decoupled Architecture**
 
@@ -58,7 +58,7 @@ To achieve true decoupling between your on-premises servers and EC2 instances, o
 
 ---
 
-## Question 2
+## **Question 2**
 
 **A company launched a website that accepts high-quality photos and turns the photos into a downloadable video montage. The website offers both a free and a premium account, with the premium account guaranteeing faster processing. All requests by both free and premium members go through a single Amazon SQS queue and are then processed by a group of Amazon EC2 instances that generate the videos. The company needs to ensure that premium users, who paid for the service, have higher priority than free members.
 How should the company re-design its architecture to address this requirement?**
@@ -69,7 +69,7 @@ How should the company re-design its architecture to address this requirement?**
 * Use Amazon Kinesis to process the photos and generate the video montage in real-time.
 
 <details>
-  <summary>Explanation</summary>
+  <summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### 🟢 **Why Amazon SQS Is the Right Service**
 
@@ -95,7 +95,9 @@ This ensures the required **priority-based message processing** without losing m
 **Hence, the correct answer is:**
 **Create an SQS queue for free members and another for premium members. Configure the EC2 instances to consume messages from the premium queue first and when it is empty, process messages from the free members’ queue.**
 
-![https://media.tutorialsdojo.com/OrderDispatcher-1024x534.png](https://media.tutorialsdojo.com/OrderDispatcher-1024x534.png)
+<img src="https://media.tutorialsdojo.com/OrderDispatcher-1024x534.png"
+     alt="Order dispatcher architecture with SQS"
+     width="600" />
 
 ### 🔴 **Incorrect Options**
 

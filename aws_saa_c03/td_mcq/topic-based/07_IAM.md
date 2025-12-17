@@ -1,6 +1,6 @@
 # IAM
 
-## Question 1
+## **Question 1**
 
 **A company has an application that continually sends encrypted documents to Amazon S3. The company requires that the configuration for data access is in line with its strict compliance standards. It should also be alerted if there is any risk of unauthorized access or suspicious access patterns.**
 
@@ -13,11 +13,9 @@ Which step is needed to meet the requirements?
 - Use Amazon Inspector to alert whenever a security violation is detected on S3.
 - Use Amazon Rekognition to monitor and recognize patterns on S3.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **Amazon GuardDuty Overview**
 
@@ -65,8 +63,6 @@ GuardDuty actually **analyzes CloudTrail data** under the hood to detect suspici
 **Amazon Inspector** performs **vulnerability assessments** and **security configuration checks** on **EC2**, **ECR**, and **Lambda functions**, not on **S3**.
 It does not monitor for **malicious activity or behavioral anomalies**.
 
----
-
 #### 🧠 **Summary**
 
 | AWS Service               | Primary Purpose                                                | Detects S3 Threats?      |
@@ -83,13 +79,8 @@ It does not monitor for **malicious activity or behavioral anomalies**.
 
 ---
 
-## Question 2
+## **Question 2**
 
-Here is the **question and options**, cleanly formatted:
-
----
-
-**Question:**
 A tech company that you are working for has undertaken a Total Cost Of Ownership (TCO) analysis evaluating the use of Amazon S3 versus acquiring more storage hardware. The result was that all 1200 employees would be granted access to use Amazon S3 for the storage of their personal documents.
 
 Which of the following will you need to consider so you can set up a solution that incorporates a single sign-on feature from your corporate AD or LDAP directory and also restricts access for each individual user to a designated user folder in an S3 bucket? (Select TWO.)
@@ -102,10 +93,8 @@ Which of the following will you need to consider so you can set up a solution th
 - Use 3rd party Single Sign-On solutions such as Atlassian Crowd, OKTA, OneLogin and many others.
 - Set up a matching IAM user for each of the 1200 users in your corporate directory that needs access to a folder in the S3 bucket.
 
----
-
 <details>
-  <summary>Explanation</summary>
+  <summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **Temporary credentials in AWS** are commonly used for scenarios involving:
 
@@ -157,15 +146,15 @@ This scenario specifically requires **enterprise identity federation** with **Si
 - WorkDocs **does not integrate directly with S3**.
 - It is a content collaboration service, not a mechanism for controlling access to S3 buckets.
 
----
-
 ### ❌ **Creating matching IAM users for all 1200 corporate users**
 
 - Impractical and unscalable.
 - These users should authenticate using **existing AD credentials**, not IAM credentials.
 - Violates best practices and increases management overhead.
 
-![https://media.tutorialsdojo.com/saml-based-federation.diagram.png](https://media.tutorialsdojo.com/saml-based-federation.diagram.png)
+<img src="https://media.tutorialsdojo.com/saml-based-federation.diagram.png"
+     alt="SAML-based federation diagram"
+     width="600" />
 
 ### 🧠 **Summary**
 

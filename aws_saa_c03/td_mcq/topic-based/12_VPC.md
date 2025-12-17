@@ -1,6 +1,6 @@
 # VPC
 
-## Question 1
+## **Question 1**
 
 **A large insurance company has an AWS account that contains three VPCs (DEV, UAT and PROD) in the same region. UAT is peered to both PROD and DEV using a VPC peering connection. All VPCs have non-overlapping CIDR blocks. The company wants to push minor code releases from Dev to Prod to speed up time to market.**
 
@@ -12,7 +12,7 @@
 * Create a new entry to PROD in the DEV route table using the VPC peering connection as the target.
 
 <details>
-  <summary>Explanation</summary>
+  <summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### 🟢 **Understanding VPC Peering**
 
@@ -53,7 +53,7 @@ To enable communication between DEV and PROD, you must create a **direct VPC pee
 
 ---
 
-## Question 2
+## **Question 2**
 
 **A media company has two VPCs: VPC-1 and VPC-2 with peering connection between each other. VPC-1 only contains private subnets while VPC-2 only contains public subnets. The company uses a single AWS Direct Connect connection and a virtual interface to connect their on-premises network with VPC-1.**
 
@@ -66,7 +66,7 @@ To enable communication between DEV and PROD, you must create a **direct VPC pee
 * Establish a hardware VPN over the Internet between VPC-2 and the on-premises network.
 
 <details>
-  <summary>Explanation</summary>
+  <summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### 🟢 **Key Concept: VPC Peering Does NOT Support Edge-to-Edge Routing**
 
@@ -118,7 +118,9 @@ This configuration ensures:
 * No violation of VPC peering limitations
 * High availability via dual hybrid connections
 
-![https://media.tutorialsdojo.com/edge-to-edge-vpn-diagram.png](https://media.tutorialsdojo.com/edge-to-edge-vpn-diagram.png)
+<img src="https://media.tutorialsdojo.com/edge-to-edge-vpn-diagram.png"
+     alt="Edge-to-edge VPN and VPC peering diagram"
+     width="600" />
 
 
 ### 🧠 **Summary**
@@ -135,7 +137,7 @@ This meets the requirement for **high availability**, **fault tolerance**, and *
 
 ---
 
-## Question 3
+## **Question 3**
 
 **A company has multiple VPCs with IPv6 enabled for its suite of web applications. The Solutions Architect attempted to deploy a new Amazon EC2 instance but encountered an error indicating that there were no available IP addresses on the subnet. The VPC has a combination of IPv4 and IPv6 CIDR blocks, but the IPv4 CIDR blocks are nearing exhaustion. The architect needs a solution that will resolve this issue while allowing future scalability.**
 
@@ -147,7 +149,7 @@ This meets the requirement for **high availability**, **fault tolerance**, and *
 * Set up a new IPv6-only subnet with a large CIDR range. Associate the new subnet with the VPC then launch the instance.
 
 <details>
-  <summary>Explanation</summary>
+  <summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### 🟢 **Core Concept: IPv4 Exhaustion & Dual-Stack VPCs**
 
@@ -177,7 +179,9 @@ This resolves the immediate problem (IPv4 exhaustion) **and** provides a scalabl
 
 The option that says: Set up a new IPv4 subnet with a larger CIDR range. Associate the new subnet with the VPC and then launch the instance is incorrect because it is not a scalable, long-term solution. While creating a new IPv4 subnet would temporarily solve the immediate problem of address exhaustion, it does not address the fundamental issue of the limited IPv4 address space. The company would eventually face the same problem again. This approach fails to meet the requirement for future scalability and is a temporary fix rather than a sustainable strategy.
 
-![https://media.tutorialsdojo.com/Amazon_VPC_IPv6.png](https://media.tutorialsdojo.com/Amazon_VPC_IPv6.png)
+<img src="https://media.tutorialsdojo.com/Amazon_VPC_IPv6.png"
+     alt="Amazon VPC IPv6 architecture"
+     width="600" />
 
 #### ❌ **Ensure the VPC has IPv6 CIDRs only and remove IPv4 CIDRs**
 
@@ -190,8 +194,6 @@ The option that says: Set up a new IPv4 subnet with a larger CIDR range. Associa
 * IPv4 **cannot be disabled** on a VPC.
 * Many AWS services still rely on IPv4.
 * Disabling IPv4 would break existing workloads and is not supported by AWS.
-
----
 
 ### 🧠 **Summary**
 

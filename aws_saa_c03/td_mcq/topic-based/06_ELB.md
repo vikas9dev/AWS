@@ -1,6 +1,6 @@
 # ELB
 
-## Question 1
+## **Question 1**
 
 **A company hosted an e-commerce website on an Auto Scaling group of Amazon EC2 instances behind an Application Load Balancer. The Solutions Architect noticed that the website is receiving a high number of illegitimate external requests from multiple systems with frequently changing IP addresses. To address the performance issues, the Solutions Architect must implement a solution that would block these requests while having minimal impact on legitimate traffic.**
 
@@ -15,7 +15,7 @@ Which of the following options fulfills this requirement?
 
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **AWS WAF (Web Application Firewall)** is tightly integrated with:
 
@@ -78,7 +78,7 @@ They do not provide the **request-level filtering** or **rate-based control** th
 
 ---
 
-## Question 2
+## **Question 2**
 
 A DevOps Engineer is required to design a cloud architecture in AWS. The Engineer is planning to develop a highly available and fault-tolerant architecture consisting of an Elastic Load Balancer and an Auto Scaling group of EC2 instances deployed across multiple Availability Zones. This will be used by an online accounting application that requires path-based routing, host-based routing, and bi-directional streaming using Remote Procedure Call (gRPC).
 
@@ -93,7 +93,7 @@ Which configuration will satisfy the given requirement?
 
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **Application Load Balancer (ALB)** operates at the **request level (Layer 7)** of the OSI model and intelligently routes traffic to targets such as:
 
@@ -170,7 +170,7 @@ The ALB operates at **Layer 7** and supports **HTTP/2-based gRPC traffic**, maki
 
 ---
 
-## Question 3
+## **Question 3**
 
 **A company is hosting its web application in an Auto Scaling group of EC2 instances behind an Application Load Balancer. Recently, the Solutions Architect identified a series of SQL injection attempts and cross-site scripting attacks to the application, which had adversely affected their production data.**
 
@@ -185,7 +185,7 @@ Which of the following should the Architect implement to mitigate this kind of a
 
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **AWS WAF (Web Application Firewall)** is a **security service** that lets you **monitor and filter HTTP/HTTPS requests** sent to your:
 
@@ -255,7 +255,7 @@ Malicious requests are blocked **before reaching your application**, improving b
 
 ---
 
-## Question 4
+## **Question 4**
 
 A social media company needs to capture the detailed information of all HTTP requests that went through its public-facing Application Load Balancer every five minutes. The client’s IP address and network latencies must also be tracked, while the load balancer’s availability is monitored separately through the ELB health check. The captured data should be used for analyzing traffic patterns and for troubleshooting Docker applications orchestrated by the Amazon ECS Anywhere service.
 
@@ -270,7 +270,7 @@ Which of the following options meets the customer requirements with the LEAST am
 
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **Amazon CloudWatch Application Insights** enables **observability** for your **applications and AWS resources**, helping you **detect, analyze, and troubleshoot** issues more efficiently.
 It uses **machine learning (via Amazon SageMaker)** and other AWS technologies to automatically **monitor**, **analyze**, and **visualize** your application's health and performance.

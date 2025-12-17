@@ -1,6 +1,6 @@
 # EBS
 
-## Question 1
+## **Question 1**
 
 **A company is implementing its Business Continuity Plan. As part of this initiative, the IT Director instructed the IT team to set up an automated backup of all the Amazon EBS volumes attached to the company’s Amazon EC2 instances. The solution must be implemented as soon as possible and should be both cost-effective and simple to maintain.**
 
@@ -13,11 +13,9 @@ What is the fastest and most cost-effective solution to automatically back up al
 * Use an EBS snapshot retention rule in AWS Backup to automatically manage snapshot retention and expiration.
 * Use Amazon Data Lifecycle Manager (Amazon DLM) to automate the creation of EBS snapshots.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **Amazon Data Lifecycle Manager (DLM)** automates the **creation**, **retention**, and **deletion** of **Amazon Elastic Block Store (EBS) snapshots**.
 It simplifies **EBS volume management** by allowing you to define **policies** that govern the **lifecycle of snapshots**, ensuring **regular backups** are created and **obsolete snapshots** are automatically removed.
@@ -34,7 +32,9 @@ Combined with the monitoring features of **Amazon EventBridge** and **AWS CloudT
 ✅ **Hence, the correct answer is:**
 🟢 **Use Amazon Data Lifecycle Manager (Amazon DLM) to automate the creation of EBS snapshots.**
 
-![https://media.tutorialsdojo.com/public/TD-Data-Lifecycle-Manager-08-22-2025.png](https://media.tutorialsdojo.com/public/TD-Data-Lifecycle-Manager-08-22-2025.png)
+<img src="https://media.tutorialsdojo.com/public/TD-Data-Lifecycle-Manager-08-22-2025.png"
+     alt="EBS Data Lifecycle Manager diagram"
+     width="600" />
 
 🔴 **The option that says:**
 *For an automated solution, create a scheduled job that calls the "create-snapshot" command via the AWS CLI to take a snapshot of production EBS volumes periodically*
@@ -56,7 +56,7 @@ It is therefore **less cost-effective** and **not the most straightforward** sol
 
 ---
 
-## Question 2
+## **Question 2**
 
 **A company plans to migrate all of their applications to AWS. The Solutions Architect suggested storing all the data in EBS volumes. The Chief Technical Officer is worried that EBS volumes are not appropriate for the existing workloads due to compliance requirements, downtime scenarios, and IOPS performance.**
 
@@ -70,11 +70,9 @@ Which of the following are valid points in proving that EBS is the best service 
 * Amazon EBS provides the ability to create snapshots (backups) of any EBS volume and write a copy of the data in the volume to Amazon RDS, where it is stored redundantly in multiple Availability Zones.
 * When you create an EBS volume in an Availability Zone, it is automatically replicated on a separate AWS Region to prevent data loss due to a failure of any single hardware component.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **Amazon EBS (Elastic Block Store)** volume is a **durable, block-level storage device** that you can attach to a **single EC2 instance.**
 You can use **EBS volumes** as **primary storage** for data that requires **frequent updates**, such as the **system drive** for an instance or **database application storage**.
@@ -132,7 +130,7 @@ Amazon EBS provides the ability to **create snapshots (backups)** of any EBS vol
 
 ---
 
-## Question 3
+## **Question 3**
 
 **A company has several unencrypted Amazon EBS snapshots in its Amazon VPC. The Solutions Architect must ensure that all of the new EBS volumes restored from the unencrypted snapshots are automatically encrypted.**
 
@@ -145,11 +143,9 @@ What should be done to accomplish this requirement?
 * Enable the EBS Encryption By Default feature for specific EBS volumes.
 * Enable the EBS Encryption By Default feature for the AWS Region.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **You can configure your AWS account** to **enforce encryption** of new **EBS volumes** and **snapshot copies** that you create.
 For example, **Amazon EBS** encrypts the **EBS volumes** created when you **launch an instance** and the **snapshots** that you copy from an **unencrypted snapshot**.
@@ -182,7 +178,9 @@ Although there is **no direct way** to encrypt an existing **unencrypted volume*
 ✅ **Hence, the correct answer is:**
 🟢 **Enable the EBS Encryption By Default feature for the AWS Region.**
 
-![https://media.tutorialsdojo.com/EBS_Encryption_By_Default.png](https://media.tutorialsdojo.com/EBS_Encryption_By_Default.png)
+<img src="https://media.tutorialsdojo.com/EBS_Encryption_By_Default.png"
+     alt="EBS encryption by default diagram"
+     width="600" />
 
 🔴 **The option that says:**
 *Launch new EBS volumes and encrypt them using asymmetric AWS KMS keys*
@@ -203,7 +201,7 @@ You **cannot enable it selectively** for individual EBS volumes — it applies t
 
 ---
 
-## Question 4
+## **Question 4**
 
 **A technical lead of the Cloud Infrastructure team was consulted by a software developer regarding the required AWS resources of the web application that he is building. The developer knows that an Instance Store only provides ephemeral storage where the data is automatically deleted when the instance is terminated. To ensure that the data of the web application persists, the app should be launched in an EC2 instance that has a durable, block-level storage volume attached. The developer knows that they need to use an EBS volume, but they are not sure what type they need to use.**
 
@@ -217,11 +215,9 @@ In this scenario, which of the following is true about Amazon EBS volume types a
 * Magnetic volumes provide the lowest cost per gigabyte of all EBS volume types and are ideal for workloads where data is accessed infrequently, and applications where the lowest storage cost is important.
 * Single root I/O virtualization (SR-IOV) volumes are suitable for a broad range of workloads, including small to medium-sized databases, development and test environments, and boot volumes.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **Amazon EBS** provides **three volume types** to best meet the needs of your workloads:
 **General Purpose (SSD)**, **Provisioned IOPS (SSD)**, and **Magnetic.**

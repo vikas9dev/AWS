@@ -12,7 +12,7 @@
 - Take a snapshot of the DB cluster. Use the snapshot to create a new Aurora DB cluster.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### ✅ **Correct Answer**
 
@@ -54,7 +54,7 @@ AWS DMS provides the **most efficient**, **least disruptive**, and **recommended
 - Enable Cross-Region Snapshots Copy in your Amazon Redshift Cluster.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### 🟢 **Correct Approach**
 
@@ -96,7 +96,7 @@ To ensure **high availability**, **disaster recovery**, and **cross-region resil
 - Create a Direct Connect Gateway and add VPC attachments to connect all departments. Configure AWS Security Hub to secure the application traffic travelling between the VPCs.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### 🟢 **Correct Answer**
 
@@ -108,7 +108,9 @@ AWS Network Firewall adds **stateful inspection**, **IPS**, and **web filtering*
 
 A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPCs) and on-premises networks. As your cloud infrastructure expands globally, inter-Region peering connects transit gateways together using the AWS Global Infrastructure. Your data is automatically encrypted and never travels over the public internet.
 
-![https://media.tutorialsdojo.com/aws-transit-gateway-mesh-aec3.png](https://media.tutorialsdojo.com/aws-transit-gateway-mesh-aec3.png)
+<img src="https://media.tutorialsdojo.com/aws-transit-gateway-mesh-aec3.png"
+     alt="AWS Transit Gateway mesh diagram"
+     width="600" />
 
 A transit gateway attachment is both a source and a destination of packets. You can attach the following resources to your transit gateway:
 
@@ -124,7 +126,9 @@ Intra-region peering connections are supported. You can have different transit g
 
 AWS Network Firewall is a managed service that makes it easy to deploy essential network protections for all of your Amazon Virtual Private Clouds (VPCs). The service can be setup with just a few clicks and scales automatically with your network traffic, so you don’t have to worry about deploying and managing any infrastructure. AWS Network Firewall’s flexible rules engine lets you define firewall rules that give you fine-grained control over network traffic, such as blocking outbound Server Message Block (SMB) requests to prevent the spread of malicious activity.
 
-![https://media.tutorialsdojo.com/aws-network-firewall-diagram.png](https://media.tutorialsdojo.com/aws-network-firewall-diagram.png)
+<img src="https://media.tutorialsdojo.com/aws-network-firewall-diagram.png"
+     alt="AWS Network Firewall architecture"
+     width="600" />
 
 AWS Network Firewall includes features that provide protections from common network threats. AWS Network Firewall’s stateful firewall can incorporate context from traffic flows, like tracking connections and protocol identification, to enforce policies such as preventing your VPCs from accessing domains using an unauthorized protocol. AWS Network Firewall’s intrusion prevention system (IPS) provides active traffic flow inspection so you can identify and block vulnerability exploits using signature-based detection. AWS Network Firewall also offers web filtering that can stop traffic to known bad URLs and monitor fully qualified domain names.
 
@@ -170,11 +174,13 @@ This ensures a scalable, secure, and AWS-recommended architecture ⭐.
 - Configure an Active–Active Failover with One Primary and One Secondary Resource.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 You can use Route 53 health checking to configure active-active and active-passive failover configurations. You configure active-active failover using any routing policy (or combination of routing policies) other than failover, and you configure active-passive failover using the failover routing policy.
 
-![https://media.tutorialsdojo.com/AWS-Route53-Weighted.PNG](https://media.tutorialsdojo.com/AWS-Route53-Weighted.PNG)
+<img src="https://media.tutorialsdojo.com/AWS-Route53-Weighted.PNG"
+     alt="Route 53 weighted routing diagram"
+     width="600" />
 
 **Active-Active Failover**
 
@@ -231,7 +237,7 @@ What should be done to satisfy the requirement?**
 - Configure ASG to suspend the health check process for each EC2 instance.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 By default, Amazon EBS root device volumes are automatically deleted when the instance terminates. However, by default, any additional EBS volumes that you attach at launch, or any EBS volumes that you attach to an existing instance persist even after the instance terminates. This behavior is controlled by the volume’s DeleteOnTermination attribute, which you can modify.
 
@@ -292,7 +298,7 @@ To ensure EBS volumes remain after instance termination,
 * Use CloudWatch Alarms to trigger scaling for containerized applications.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 The Kubernetes Horizontal Pod Autoscaler automatically scales the number of Pods in a deployment, replication controller, or replica set based on that resource’s CPU utilization. This can help your applications scale out to meet increased demand or scale in when resources are not needed, thus freeing up your nodes for other applications. When you set a target CPU utilization percentage, the Horizontal Pod Autoscaler scales your application in or out to try to meet that target.
 
@@ -355,7 +361,7 @@ This combination ensures **automatic**, **responsive**, and **high-performance**
 * Create an Amazon CloudFront distribution with the us-west-2 S3 bucket as the origin. Use signed URLs for software downloads.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 AWS Outposts is a fully managed service that brings AWS infrastructure, services, APIs, and tools directly to customer locations. It’s tailored for workloads that must remain on-premises due to low latency or the need for local data processing.
 

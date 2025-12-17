@@ -1,6 +1,6 @@
 # CloudFront 
 
-## Question 1
+## **Question 1**
 
 A company uses **Amazon CloudFront** to distribute static content stored in an S3 bucket. They recently introduced a **members-only feature** for premium media files. They must provide access to **multiple private media files only to paying subscribers**, **without changing the current URLs**.
 
@@ -13,10 +13,8 @@ A company uses **Amazon CloudFront** to distribute static content stored in an S
 3. Configure your CloudFront distribution to use Field-Level Encryption to protect your private data and only allow access to members.
 4. Create a Signed URL with a custom policy which only allows the members to see the private files.
 
----
-
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 Many companies that distribute content over the internet want to restrict access to documents, business data, media streams, or content that is intended for selected users, for example, users who have paid a fee. To securely serve this private content by using **CloudFront**, you can do the following:
 
@@ -56,13 +54,15 @@ Signed cookies aren't supported for RTMP distributions.
 
 🔴 **The option that says: Configure your CloudFront distribution to use Field-Level Encryption to protect your private data and only allow access to members is incorrect** because **Field-Level Encryption** only allows you to securely upload user-submitted sensitive information to your web servers. It does **not** provide access to download multiple private files.
 
-![https://media.tutorialsdojo.com/amazon-cloud-front-signed-URL-signed-Cookies.png](https://media.tutorialsdojo.com/amazon-cloud-front-signed-URL-signed-Cookies.png)
+<img src="https://media.tutorialsdojo.com/amazon-cloud-front-signed-URL-signed-Cookies.png"
+     alt="Amazon CloudFront signed URLs and signed cookies diagram"
+     width="600" />
 
 </details>
 
 ---
 
-## Question 2
+## **Question 2**
 
 A travel photo-sharing website is using **Amazon S3** to serve high-quality photos to visitors. After a few days, the company discovers that other travel websites are **hotlinking** (directly linking to the images) and using these photos, resulting in **financial losses**.
 
@@ -78,7 +78,7 @@ A travel photo-sharing website is using **Amazon S3** to serve high-quality phot
 ---
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 The problem here is **hotlinking** — unauthorized third-party websites directly referencing and displaying your images from your S3 bucket.
 To prevent this:
@@ -119,7 +119,7 @@ Blocking IP addresses using **NACLs** is not a very efficient method because a *
 
 ---
 
-## Question 3
+## **Question 3**
 
 A company has clients all across the globe that access product files stored in several Amazon S3 buckets, which are behind multiple Amazon CloudFront web distributions. The company wants to deliver content **only to a specific client**, ensuring the data can only be accessed through CloudFront.
 
@@ -138,7 +138,7 @@ Currently, all clients can directly access the S3 buckets via S3 URLs or CloudFr
 ---
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 Many companies that distribute content over the Internet want to restrict access to documents, business data, media streams, or content that is intended for selected users, for example, users who have paid a fee. To securely serve this private content by using **CloudFront**, you can do the following:
 
@@ -176,7 +176,7 @@ Although this could be a valid solution, it doesn't satisfy the requirement to *
 
 ---
 
-## Question 4
+## **Question 4**
 
 A solutions architect is instructed to host a website consisting of HTML, CSS, and JavaScript files. The web pages will display several high-resolution images. The website should have **optimal loading times** and be able to respond to **high request rates**.
 
@@ -192,7 +192,7 @@ Which of the following architectures can provide the **most cost-effective and f
 ---
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 **Amazon S3** is an object storage service that offers industry-leading scalability, data availability, security, and performance. Additionally, you can use **Amazon S3 to host a static website**. On a static website, individual webpages include static content. **Amazon S3 is highly scalable and you only pay for what you use**, you can start small and grow your application as you wish, with no compromise on performance or reliability.
 
@@ -219,7 +219,7 @@ This is how we served static websites in the **old days**. Now, with the help of
 
 ---
 
-## Question 5
+## **Question 5**
 
 A digital media company shares static content with its premium users worldwide and to partners who syndicate their media files. The company wants to reduce server costs and securely deliver the content globally with low latency.
 
@@ -236,7 +236,7 @@ Which combination of services should be used to provide the **MOST suitable and 
 ---
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 **Amazon CloudFront** is a fast **Content Delivery Network (CDN)** service that securely delivers data, videos, applications, and APIs to customers globally with **low latency, high transfer speeds**, all within a developer-friendly environment.
 
@@ -269,7 +269,7 @@ Global Accelerator improves performance for a wide range of applications over **
 
 ---
 
-## Question 6
+## **Question 6**
 
 A company's web app runs on an Auto Scaling group behind an **Application Load Balancer (ALB)**. To strengthen security and **minimize DDoS impact**, which solution is most effective?
 
@@ -281,7 +281,7 @@ A company's web app runs on an Auto Scaling group behind an **Application Load B
 4. Configure CloudFront with **Network** Load Balancer origin; use **GuardDuty** + Lambda + SNS.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 **AWS WAF** is a **web application firewall** that helps protect your web applications or APIs against common web exploits that may affect availability, compromise security, or consume excessive resources. **AWS WAF gives you control** over how traffic reaches your applications by enabling you to create security rules that block common attack patterns, such as **SQL injection** or **cross-site scripting (XSS)**, and rules that filter out specific traffic patterns you define. You can deploy AWS WAF on **Amazon CloudFront** as part of your CDN solution, the **Application Load Balancer** that fronts your web servers or origin servers running on EC2, or **Amazon API Gateway** for your APIs.
 

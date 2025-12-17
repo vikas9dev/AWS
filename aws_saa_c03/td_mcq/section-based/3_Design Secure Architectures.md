@@ -12,7 +12,7 @@
 - 🅓 Generate an endpoint policy for trusted VPCs.
 
 <details>
-<summary>Answer & Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ✅ Correct Answer: 🅒 Generate an endpoint policy for trusted S3 buckets
 
@@ -28,7 +28,9 @@ In this scenario, the requirement is to:
 
 That is exactly what an **S3 VPC endpoint policy** is designed for.
 
-![s3-endpoint-policy](https://media.tutorialsdojo.com/public/s3-gateway-endpoint-policy-sample.jpg)
+<img src="https://media.tutorialsdojo.com/public/s3-gateway-endpoint-policy-sample.jpg"
+     alt="S3 gateway endpoint policy sample"
+     width="600" />
 
 ### Why the other options are incorrect
 
@@ -87,7 +89,7 @@ Since the requirement is about allowing access to **trusted S3 buckets via a VPC
   - Allow/Deny: ALLOW
 
 <details>
-<summary>Answer & Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### ✅ Correct Answer: 🅑
 
@@ -181,7 +183,7 @@ For **instance-specific, IP-restricted access**, always prefer **Security Groups
 - 🅓 Create a **Signed URL** with a custom policy which only allows the members to see the private files.
 
 <details>
-<summary>Answer & Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### ✅ Correct Answer: 🅐 Use Signed Cookies
 
@@ -248,7 +250,7 @@ If you want to serve private content through CloudFront and you're trying to dec
 - 🅔 Snapshots are automatically encrypted.
 
 <details>
-<summary>Answer & Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### ✅ Correct Answers: 🅒 and 🅔
 
@@ -306,7 +308,7 @@ EBS encryption provides **end-to-end protection**:
 - 🅓 Attach the `kms:decrypt` permission to the Lambda function’s execution role. Add a statement to the AWS KMS key’s policy that grants the function’s ARN the `kms:decrypt` permission.
 
 <details>
-<summary>Answer & Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### ✅ Correct Answer: 🅐
 
@@ -366,7 +368,7 @@ In this scenario, which of the following can be used to fulfill this requirement
 - 🅓 Set up **SAML 2.0–Based Federation using a Web Identity Federation**
 
 <details>
-<summary>Answer & Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### ✅ Correct Answer: 🅒
 
@@ -413,7 +415,7 @@ When users must access AWS using **existing on-premises Active Directory credent
 - 🅓 Generate an IAM authentication token using AWS credentials and provide this token as a password.
 
 <details>
-<summary>Answer & Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### ✅ Correct Answer: 🅒
 
@@ -434,7 +436,9 @@ The requirements explicitly state:
 - **In-transit encryption** ensures the password and data are protected over the network.
 - Redis AUTH is enforced **before transactional commands** (`MULTI` / `EXEC`) can be used.
 
-![Redis AUTH](https://media.tutorialsdojo.com/ElastiCache-Redis-Secure-Compliant.png)
+<img src="https://media.tutorialsdojo.com/ElastiCache-Redis-Secure-Compliant.png"
+     alt="ElastiCache Redis AUTH secure architecture"
+     width="600" />
 
 ### Why the other options are incorrect
 
@@ -473,7 +477,7 @@ For **Amazon ElastiCache for Redis**, when you need:
 - 🅓 AWS Directory Services, VPN connection, and Amazon WorkSpaces
 
 <details>
-<summary>Answer & Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### ✅ Correct Answer: 🅓
 
@@ -495,7 +499,9 @@ This is exactly what **Amazon WorkSpaces** is designed for.
 - A **VPN connection** allows secure connectivity between AWS and the on-premises network.
 - AWS-managed security (network isolation, encryption, IAM integration) is leveraged automatically.
 
-![Amazon WorkSpaces](https://media.tutorialsdojo.com/public/standardedition_usecases_1017_large.png)
+<img src="https://media.tutorialsdojo.com/public/standardedition_usecases_1017_large.png"
+     alt="Amazon WorkSpaces architecture"
+     width="600" />
 
 ### Why the other options are incorrect
 
@@ -529,7 +535,7 @@ When the requirement is **cost-effective virtual desktops integrated with on-pre
 * 🅔 Do nothing. Amazon S3 objects are already public by default.
 
 <details>
-<summary>Answer & Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### ✅ Correct Answers: 🅑 and 🅓
 
@@ -589,7 +595,7 @@ To make S3 objects publicly readable over the Internet:
 * 🅓 Use AWS DataSync to move the data. Store all of your data in Amazon EFS and enable Object Lock.
 
 <details>
-<summary>Answer & Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### ✅ Correct Answer: 🅑
 

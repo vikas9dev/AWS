@@ -11,7 +11,7 @@ Which of the following is the BEST solution that the architect should set up to 
 * Enable inter-region VPC peering that allows peering relationships to be established between multiple VPCs across different AWS regions. Set up a networking configuration that ensures that the traffic will always stay on the global AWS backbone and never traverse the public Internet.
 
 <details> 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 AWS Transit Gateway is a service that enables customers to connect their Amazon Virtual Private Clouds (VPCs) and their on-premises networks to a single gateway. As you grow the number of workloads running on AWS, you need to be able to scale your networks across multiple accounts and Amazon VPCs to keep up with the growth.
 
@@ -30,7 +30,9 @@ A transit gateway attachment is both a source and a destination of packets. You 
 
 If you attach a transit gateway peering connection, the transit gateway must be in a different Region.
 
-![https://media.tutorialsdojo.com/transit-gateway-Inter-Region-Peering.jpg](https://media.tutorialsdojo.com/transit-gateway-Inter-Region-Peering.jpg)
+<img src="https://media.tutorialsdojo.com/transit-gateway-Inter-Region-Peering.jpg"
+     alt="Transit Gateway inter-Region peering diagram"
+     width="600" />
 
 ### ✅ **Correct Answer**
 
@@ -90,7 +92,7 @@ This meets the requirement of connecting **hundreds of VPCs**, **multiple region
 * Create separate VPCs for each division within the corporate IT AWS account. Launch an AWS Transit Gateway with equal-cost multipath routing (ECMP) and VPN tunnels for intra-VPC communication.
 
 <details> 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ### 🟢 **Correct Choices**
 
@@ -163,7 +165,7 @@ Everything else fails to meet governance or account separation requirements. ✔
 * Use Amazon FSx For Lustre and Amazon S3 for hot and cold storage respectively.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 Hot storage refers to the storage that keeps frequently accessed data (hot data). Warm storage refers to the storage that keeps less frequently accessed data (warm data). Cold storage refers to the storage that keeps rarely accessed data (cold data). In terms of pricing, the colder the data, the cheaper it is to store, and the costlier it is to access when needed.
 
@@ -239,7 +241,7 @@ Which of the following must be used to easily capture, transform, and load strea
 * Amazon DynamoDB Streams
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 Amazon Data Firehose is the easiest way to load streaming data into data stores and analytics tools. It can capture, transform, and load streaming data into Amazon S3, Amazon Redshift, Amazon OpenSearch Service, and Splunk, enabling near real-time analytics with existing business intelligence tools and dashboards you are already using today.
 
@@ -306,7 +308,7 @@ Making it the correct answer. ✔️
 * Use AWS VPN CloudHub to route all access to S3 and DynamoDB via private endpoints.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 A VPC endpoint allows you to privately connect your VPC to supported AWS and VPC endpoint services powered by AWS PrivateLink without needing an Internet gateway, NAT computer, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.
 
@@ -363,7 +365,7 @@ This fulfills the requirement of routing all traffic through **private endpoints
 * Configure the trading application on Amazon EC2 Windows instances across two Availability Zones. Use Amazon Simple Storage Service (Amazon S3) for storage and configure cross-region replication to sync data between S3 buckets in each Availability Zone.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 **Option 1 vs Option 2**
 
@@ -438,7 +440,7 @@ As the Solutions Architect, which of the following services is the most cost-eff
 * Amazon EBS
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 **Note: NFSv4 is primarily a Linux/Unix protocol, not Windows.**
 
@@ -511,7 +513,7 @@ Perfect match for **1000 Linux servers** requiring shared, scalable storage. �
 * AWS DataSync
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 Amazon FSx provides fully managed third-party file systems. Amazon FSx provides you with the native compatibility of third-party file systems with feature sets for workloads such as Windows-based storage, high-performance computing (HPC), machine learning, and electronic design automation (EDA). You don’t have to worry about managing file servers and storage, as Amazon FSx automates time-consuming administration tasks such as hardware provisioning, software configuration, patching, and backups. Amazon FSx integrates the file systems with cloud-native AWS services, making them even more useful for a broader set of workloads.
 
@@ -576,7 +578,7 @@ Amazon **FSx for Windows File Server** is the correct choice because it:
 * Create an Alias Record in Route 53 which maps to the DNS name of the load balancer.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 A Network Load Balancer functions at the fourth layer of the Open Systems Interconnection (OSI) model. It can handle millions of requests per second. After the load balancer receives a connection request, it selects a target from the default rule’s target group. It attempts to open a TCP connection to the selected target on the port specified in the listener configuration.
 
@@ -628,7 +630,7 @@ This fully meets the requirement of providing **static, trusted IP addresses** f
 * Deploy the application in an AWS Lambda function with Container image support. Attach an Amazon Elastic File System (Amazon EFS) volume to the function.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 AWS Lambda with Container Image Support is a fully managed, serverless compute service that allows you to run your applications without provisioning or managing servers. Traditionally, AWS Lambda functions were deployed using code written in supported programming languages, but with container image support, you can now package and deploy your application as a Docker container. This provides more flexibility, as it allows you to use custom runtimes or include dependencies that are difficult to manage in a traditional Lambda function deployment. Lambda functions with container images can be up to 10 GB in size, enabling you to deploy large, complex applications with ease.
 
@@ -690,7 +692,7 @@ is the only option that fully satisfies:
 * Compute Optimized Instances
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 Note:- In question, notice the **very large data sets** on local storage.
 
@@ -726,7 +728,7 @@ Storage optimized instances are designed for workloads that require high, sequen
 * Amazon DocumentDB (with MongoDB compatibility) and Amazon AppFlow
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 ✅ **Correct Answer: Amazon DynamoDB and AWS AppSync**
 
@@ -749,7 +751,9 @@ This use case requires **massive scalability**, **high availability**, **real-ti
 
 DynamoDB is durable, scalable, and highly available data store which can be used for real-time tabulation. You can also use AppSync with DynamoDB to make it easy for you to build collaborative apps that keep shared data updated in real-time. You just specify the data for your app with simple code statements and AWS AppSync manages everything needed to keep the app data updated in real-time. This will allow your app to access data in Amazon DynamoDB, trigger AWS Lambda functions, or run Amazon OpenSearch Service queries and combine data from these services to provide the exact data you need for your app.
 
-![Amazon DynamoDB + AWS AppSync](https://media.tutorialsdojo.com/Untitled1-1024x467.png)
+<img src="https://media.tutorialsdojo.com/Untitled1-1024x467.png"
+     alt="Amazon DynamoDB and AWS AppSync architecture"
+     width="600" />
 
 ❌ **Why others are not suitable:**
 
@@ -785,7 +789,7 @@ For a globally distributed, high-traffic voting application with real-time ranki
 * Enable detailed monitoring on the EC2 instances of the Auto Scaling group. Use Auto Scaling with custom metrics to scale out the Auto Scaling group based on the aggregated memory usage of EC2 instances.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🔴 **Detailed monitoring in CloudWatch primarily enhances the granularity of standard metrics like CPU utilization. While custom metrics can be integrated with AWS Auto Scaling, setting this up requires more overhead compared to installing the CloudWatch unified agent, which directly handles memory metrics.**
 
@@ -842,7 +846,7 @@ To scale an ASG based on memory pressure, you must **publish memory metrics usin
 * Use Amazon Managed Service for Apache Flink Studio and store the processed data in Amazon DynamoDB.
 
 <details>
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 Note:- **Amazon Managed Service for Apache Flink Studio is more suitable for processing streaming data. Additionally, Amazon DynamoDB doesn’t fully support the use of standard SQL and Business Intelligence (BI) tools, unlike Amazon Redshift. It also doesn’t allow you to run complex analytic queries against terabytes to petabytes of structured and semi-structured data.**
 

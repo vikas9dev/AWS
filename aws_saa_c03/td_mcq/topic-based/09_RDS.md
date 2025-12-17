@@ -15,11 +15,9 @@ To protect customers’ confidential data, it must be ensured that the **Amazon 
 3. Use a combination of IAM and STS to enforce restricted access to your RDS instance using a temporary authentication token
 4. Create an IAM Role and assign it to your EC2 instances which will grant exclusive access to your RDS instance
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 **IAM Database Authentication** allows you to use **temporary IAM tokens** to connect to Amazon RDS instead of using long-term passwords. This ensures secure access tied to the **IAM role of EC2 instances**, meeting the requirement of authentication based on EC2 instance profile credentials.
 
@@ -31,7 +29,9 @@ To protect customers’ confidential data, it must be ensured that the **Amazon 
 
 ✅ **Correct Answer:** **Enable the IAM DB Authentication**
 
-![Learn more about IAM DB Authentication](https://media.tutorialsdojo.com/2019-01-13_07-04-06-a2157247b0fa129795001208504fcb51.png)
+<img src="https://media.tutorialsdojo.com/2019-01-13_07-04-06-a2157247b0fa129795001208504fcb51.png"
+     alt="Learn more about IAM DB Authentication"
+     width="600" />
 
 ### ❌ **Incorrect Options**
 
@@ -64,11 +64,9 @@ Which of the following options is the **MOST suitable solution** that you should
 4. Specify the TDE option in an RDS option group that is associated with that DB instance to enable Transparent Data Encryption (TDE).
 5. Download the Amazon RDS Root CA certificate. Import the certificate to your servers and configure your application to use SSL to encrypt the connection to RDS.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 The goal is to **secure data in transit** between EC2 and RDS SQL Server.
 Encryption in transit for RDS SQL Server is achieved using **SSL/TLS**.
@@ -87,7 +85,9 @@ These two steps together ensure that **all DB traffic is encrypted and trusted e
 - ✔ **Option 3:** Force SSL for all DB connections using `rds.force_ssl = true` and reboot the DB instance
 - ✔ **Option 5:** Download the RDS Root CA certificate and configure the application to use SSL
 
-![https://media.tutorialsdojo.com/public/rds_sql_ssl_cert.png](https://media.tutorialsdojo.com/public/rds_sql_ssl_cert.png)
+<img src="https://media.tutorialsdojo.com/public/rds_sql_ssl_cert.png"
+     alt="RDS SQL Server SSL certificate usage"
+     width="600" />
 
 ### ❌ **Incorrect Options**
 
@@ -124,11 +124,9 @@ As the Solutions Architect, your responsibility is to ensure that the database i
 4. Migrate the Oracle database to AWS using the AWS Database Migration Service (DMS).
 5. Launch an Oracle database instance in Amazon RDS with Recovery Manager (RMAN) enabled.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 The requirements are:
 
@@ -147,7 +145,9 @@ To meet both:
 - ✔ **Create an Oracle database in Amazon RDS with Multi-AZ deployments.**
 - ✔ **Migrate the Oracle database to AWS using the AWS Database Migration Service (DMS).**
 
-![https://media.tutorialsdojo.com/con-multi-AZ.png](https://media.tutorialsdojo.com/con-multi-AZ.png)
+<img src="https://media.tutorialsdojo.com/con-multi-AZ.png"
+     alt="RDS Multi-AZ deployment diagram"
+     width="600" />
 
 ### ❌ **Incorrect Options**
 
@@ -184,11 +184,9 @@ The Solutions Architect wants to convince the client to use **Amazon RDS Read Re
 4. Provides asynchronous replication and improves the performance of the primary database by taking read-heavy database workloads from it.
 5. Allows both read and write operations on the read replica to complement the primary database.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 **Amazon RDS Read Replicas** are designed for **scaling read performance**. They allow you to create one or more read-only copies of your database so you can serve high-volume read traffic.
 
@@ -206,7 +204,9 @@ This improves the performance of the **primary database** since it no longer han
 - ✔ **Option 2:** It elastically scales out beyond the capacity constraints of a single DB instance for read-heavy workloads.
 - ✔ **Option 4:** Provides asynchronous replication and offloads read-heavy workloads from the primary DB.
 
-![https://media.tutorialsdojo.com/2020-02-28_01-52-40-4fa2635076a98c44c28464d31d793a21.png](https://media.tutorialsdojo.com/2020-02-28_01-52-40-4fa2635076a98c44c28464d31d793a21.png)
+<img src="https://media.tutorialsdojo.com/2020-02-28_01-52-40-4fa2635076a98c44c28464d31d793a21.png"
+     alt="RDS read replica scaling diagram"
+     width="600" />
 
 ### ❌ **Incorrect Options**
 
@@ -240,10 +240,8 @@ An online events registration system is hosted in AWS and uses ECS to host its f
 * Storage failure on secondary DB instance
 * Compute unit failure on secondary DB instance
 
----
-
 <details>
-  <summary>Explanation</summary>
+  <summary><strong>Answer & Explanation</strong> 📝</summary>
 
 Amazon RDS provides high availability and automatic failover support via **Multi-AZ deployments**. In this setup, RDS provisions a **synchronous standby replica** in a **different Availability Zone**, ensuring data redundancy and minimizing downtime.
 

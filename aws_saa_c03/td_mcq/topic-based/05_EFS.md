@@ -1,6 +1,6 @@
 # EFS
 
-## Question 1
+## **Question 1**
 
 **A leading e-commerce company is in need of a storage solution that can be simultaneously accessed by 1000 Linux servers in multiple availability zones. The servers are hosted in EC2 instances that use a hierarchical directory structure via the NFSv4 protocol. The service should be able to handle rapidly changing data at scale while maintaining high performance. It should also be highly durable and highly available whenever the servers pull data from it, with little need for management.**
 
@@ -15,7 +15,7 @@ As the Solutions Architect, which of the following services is the most cost-eff
 
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **Amazon Web Services (AWS)** offers multiple **cloud storage services** to support a wide range of storage workloads such as **Amazon EFS**, **Amazon S3**, and **Amazon EBS**.
 To choose the right one, you need to understand which service fits your **specific workload**.

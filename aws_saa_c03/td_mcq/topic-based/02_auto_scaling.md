@@ -1,6 +1,6 @@
 # Auto Scaling
 
-### **Question 1**
+## **Question 1**
 
 A commercial bank has a forex trading application. They created an Auto Scaling group of EC2 instances that allow the bank to cope with the current traffic and achieve cost efficiency. They want the Auto Scaling group to behave in such a way that it will follow a predefined set of parameters before it scales down the number of EC2 instances, preventing unintended slowdown or unavailability.
 
@@ -14,11 +14,9 @@ Which of the following statements are true regarding the **cooldown period**? (S
 4. Its default value is 600 seconds.
 5. It ensures that the Auto Scaling group does not launch or terminate additional EC2 instances before the previous scaling activity takes effect.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 In **Auto Scaling**, the following statements are **correct** regarding the **cooldown period**:
 
@@ -51,15 +49,11 @@ A tech company is currently using Auto Scaling for their web application. A new 
 3. Create a new target group and launch template.
 4. Do nothing. You can start directly launching EC2 instances in the Auto Scaling group with the same launch template.
 
----
-
-Hint: Target groups are primarily used in ELBs and not in Auto Scaling. The scenario didn’t mention that the architecture has a load balancer. 
-
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
+
+Hint: Target groups are primarily used in ELBs and not in Auto Scaling. The scenario didn’t mention that the architecture has a load balancer. 
 
 A **launch template** is a template that an **Auto Scaling group** uses to launch **EC2 instances**. When you create a launch template, you specify information for the instances, such as the **ID of the Amazon Machine Image (AMI)**, the **instance type**, a **key pair**, one or more **security groups**, and a **block device mapping**. If you've launched an EC2 instance before, you specified the same information in order to launch the instance.
 
@@ -94,11 +88,9 @@ Which of the following is the **MOST operationally efficient** solution to ensur
 3. Configure a Dynamic scaling policy for the Auto Scaling group to launch new instances based on the Memory utilization.
 4. Configure a Scheduled scaling policy for the Auto Scaling group to launch new instances before the start of the day.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 **Scaling based on a schedule** allows you to scale your application in response to predictable load changes. For example, every week the traffic to your web application starts to increase on Wednesday, remains high on Thursday, and starts to decrease on Friday. You can plan your scaling activities based on the predictable traffic patterns of your web application.
 
@@ -133,11 +125,9 @@ Which of the following is the most suitable type of scaling policy that you shou
 - C. Target Tracking Scaling
 - D. Simple Scaling
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **With step scaling**, you choose **scaling metrics** and **threshold values** for the **CloudWatch alarms** that trigger the scaling process, as well as define how your **scalable target** should be scaled when a threshold is in breach for a specified number of evaluation periods.
 
@@ -170,7 +160,9 @@ Otherwise, it is better to use **step scaling policies** instead.
 ✅ **Hence, the correct answer in this scenario is:**
 🟢 **Step Scaling**
 
-![https://media.tutorialsdojo.com/public/as_create_stepped_group_5.png](https://media.tutorialsdojo.com/public/as_create_stepped_group_5.png)
+<img src="https://media.tutorialsdojo.com/public/as_create_stepped_group_5.png"
+     alt="Auto Scaling step scaling configuration example"
+     width="600" />
 
 🔴 **Target tracking scaling is incorrect** because the target tracking scaling policy increases or decreases the current capacity of the group based on a **target value for a specific metric**, instead of a **set of scaling adjustments**.
 
@@ -257,7 +249,7 @@ When the traffic drops and CPU falls below 30%, it scales in.
 
 ---
 
-## Question 5
+## **Question 5**
 
 **A major TV network has a web application running on eight Amazon T3 EC2 instances behind an application load balancer. The number of requests that the application processes are consistent and do not experience spikes. A Solutions Architect must configure an Auto Scaling group for the instances to ensure that the application is running at all times.**
 
@@ -270,11 +262,9 @@ Which of the following options can satisfy the given requirements?
 * Deploy two EC2 instances with Auto Scaling in four regions behind an Amazon Elastic Load Balancer.
 * Deploy four EC2 instances with Auto Scaling in one Availability Zone and four in another Availability Zone in the same region behind an Amazon Elastic Load Balancer.
 
----
-
 <details>
 
-<summary>Explanation</summary>
+<summary><strong>Answer & Explanation</strong> 📝</summary>
 
 🟢 **The best option to take** is to **deploy four EC2 instances in one Availability Zone and four in another availability zone in the same region behind an Amazon Elastic Load Balancer.** In this way, if one availability zone goes down, there is still another available zone that can accommodate traffic.
 
@@ -305,7 +295,9 @@ If there is one such instance, **terminate it.**
 
 4️⃣ If there is **more than one unprotected instance** closest to the next billing hour, choose **one of these instances at random.**
 
-![https://media.tutorialsdojo.com/ASG-default-policy-evaluation-flowchart.png](https://media.tutorialsdojo.com/ASG-default-policy-evaluation-flowchart.png)
+<img src="https://media.tutorialsdojo.com/ASG-default-policy-evaluation-flowchart.png"
+     alt="Auto Scaling default termination policy evaluation flowchart"
+     width="600" />
 
 🟢 **Hence, the correct answer is:**
 **The EC2 instance launched from the oldest launch template.**
