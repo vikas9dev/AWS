@@ -136,17 +136,17 @@ This scenario specifically requires **enterprise identity federation** with **Si
 
 ### 🔴 **Incorrect Options Explained**
 
-### ❌ **Using 3rd-party SSO solutions such as OKTA, OneLogin, Atlassian Crowd**
+<span style="color:red"><strong>### ❌ Using 3rd-party SSO solutions such as OKTA, OneLogin, Atlassian Crowd</strong></span>
 
 - Unnecessary, because **AWS already supports SAML 2.0** natively.
 - The scenario doesn't mention any requirement to use external IdPs.
 
-### ❌ **Mapping each user to a folder via Amazon WorkDocs**
+<span style="color:red"><strong>### ❌ Mapping each user to a folder via Amazon WorkDocs</strong></span>
 
 - WorkDocs **does not integrate directly with S3**.
 - It is a content collaboration service, not a mechanism for controlling access to S3 buckets.
 
-### ❌ **Creating matching IAM users for all 1200 corporate users**
+<span style="color:red"><strong>### ❌ Creating matching IAM users for all 1200 corporate users</strong></span>
 
 - Impractical and unscalable.
 - These users should authenticate using **existing AD credentials**, not IAM credentials.

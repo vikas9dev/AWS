@@ -26,23 +26,25 @@ Key characteristics:
 * **CIDR blocks must NOT overlap**.
 * **Transitive peering is not supported** → VPC A ↔ VPC B and VPC B ↔ VPC C does **not** mean VPC A ↔ VPC C.
 
+Correct Option: **Create a new VPC peering connection between PROD and DEV with the appropriate routes.**
+
 ### 🛑 **Incorrect Options Explained**
 
-#### ❌ **“Add a route entry from DEV to PROD using the existing UAT peering connection”**
+<span style="color:red"><strong>#### ❌ “Add a route entry from DEV to PROD using the existing UAT peering connection”</strong></span>
 
-Even if routes are added, **DEV and PROD cannot communicate** because **no peering exists between them**.
-Routing alone cannot override AWS’s restriction:
+Even if routes are added, **DEV and PROD cannot communicate** because **no peering exists between them**.  
+Routing alone cannot override AWS’s restriction:  
 ➡️ **VPC peering is NOT transitive.**
 
-#### ❌ **“Change DEV and PROD to have overlapping CIDR blocks”**
+<span style="color:red"><strong>#### ❌ “Change DEV and PROD to have overlapping CIDR blocks”</strong></span>
 
-Overlapping CIDRs result in **invalid peering configurations**.
+Overlapping CIDRs result in **invalid peering configurations**.  
 AWS does **not allow peering** between VPCs with overlapping IP ranges because routing becomes ambiguous.
 
-#### ❌ **“Do nothing. They are already connected through UAT.”**
+<span style="color:red"><strong>#### ❌ “Do nothing. They are already connected through UAT.”</strong></span>
 
-This is incorrect due to the same rule:
-➡️ **Transitive VPC peering is not allowed.**
+This is incorrect due to the same rule:  
+➡️ **Transitive VPC peering is not allowed.**  
 Even if DEV ↔ UAT and PROD ↔ UAT are connected, **DEV does NOT connect to PROD** automatically.
 
 ### 🧠 **Summary**
@@ -88,15 +90,15 @@ This is strictly disallowed because VPC peering **does not allow edge-to-edge ro
 
 All of these incorrect options assume **transitive routing through VPC-2**, which AWS forbids:
 
-#### ❌ **Use AWS VPN CloudHub with Direct Connect in VPC-2’s region**
+<span style="color:red"><strong>#### ❌ Use AWS VPN CloudHub with Direct Connect in VPC-2’s region</strong></span>
 
 Still involves routing from VPC-1 → VPC-2 → On-Prem, which is NOT allowed.
 
-#### ❌ **Establish a hardware VPN between VPC-2 and on-prem**
+<span style="color:red"><strong>#### ❌ Establish a hardware VPN between VPC-2 and on-prem</strong></span>
 
 Same issue — VPC-1 traffic would need to route *through* VPC-2.
 
-#### ❌ **Create a new Direct Connect in the same region as VPC-2**
+<span style="color:red"><strong>#### ❌ Create a new Direct Connect in the same region as VPC-2</strong></span>
 
 This again implies routing to on-prem via VPC-2, which VPC peering cannot support.
 
@@ -169,30 +171,31 @@ This resolves the immediate problem (IPv4 exhaustion) **and** provides a scalabl
 ✔ Supports long-term growth
 ✔ Fully supported in a dual-stack VPC
 
-### 🔴 **Incorrect Options Explained**
-
-#### ❌ **Create a new IPv4 subnet with a larger CIDR range**
-
-* IPv4 space is limited; this is only a **temporary fix**.
-* Does not address the root issue: **long-term IPv4 exhaustion**.
-* Fails the “future scalability” requirement.
-
-The option that says: Set up a new IPv4 subnet with a larger CIDR range. Associate the new subnet with the VPC and then launch the instance is incorrect because it is not a scalable, long-term solution. While creating a new IPv4 subnet would temporarily solve the immediate problem of address exhaustion, it does not address the fundamental issue of the limited IPv4 address space. The company would eventually face the same problem again. This approach fails to meet the requirement for future scalability and is a temporary fix rather than a sustainable strategy.
 
 <img src="https://media.tutorialsdojo.com/Amazon_VPC_IPv6.png"
      alt="Amazon VPC IPv6 architecture"
      width="600" />
 
-#### ❌ **Ensure the VPC has IPv6 CIDRs only and remove IPv4 CIDRs**
+### 🔴 **Incorrect Options Explained**
 
-* This is **not possible**.
-* All VPCs **must include an IPv4 CIDR block**, even when using IPv6.
+<span style="color:red"><strong>#### ❌ Create a new IPv4 subnet with a larger CIDR range</strong></span>
+
+* IPv4 space is limited; this is only a **temporary fix**.  
+* Does not address the root issue: **long-term IPv4 exhaustion**.  
+* Fails the “future scalability” requirement.  
+
+The option that says: Set up a new IPv4 subnet with a larger CIDR range. Associate the new subnet with the VPC and then launch the instance is incorrect because it is not a scalable, long-term solution. While creating a new IPv4 subnet would temporarily solve the immediate problem of address exhaustion, it does not address the fundamental issue of the limited IPv4 address space. The company would eventually face the same problem again. This approach fails to meet the requirement for future scalability and is a temporary fix rather than a sustainable strategy.
+
+<span style="color:red"><strong>#### ❌ Ensure the VPC has IPv6 CIDRs only and remove IPv4 CIDRs</strong></span>
+
+* This is **not possible**.  
+* All VPCs **must include an IPv4 CIDR block**, even when using IPv6.  
 * You **cannot remove** all IPv4 CIDRs from a VPC.
 
-#### ❌ **Disable IPv4 support and use IPv6 exclusively**
+<span style="color:red"><strong>#### ❌ Disable IPv4 support and use IPv6 exclusively</strong></span>
 
-* IPv4 **cannot be disabled** on a VPC.
-* Many AWS services still rely on IPv4.
+* IPv4 **cannot be disabled** on a VPC.  
+* Many AWS services still rely on IPv4.  
 * Disabling IPv4 would break existing workloads and is not supported by AWS.
 
 ### 🧠 **Summary**

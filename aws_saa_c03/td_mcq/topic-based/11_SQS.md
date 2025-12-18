@@ -34,17 +34,17 @@ Both services help ensure components can work independently without waiting on e
 
 ### 🔴 **Incorrect Options**
 
-#### ❌ **Using Amazon RDS**
+<span style="color:red"><strong>#### ❌ Using Amazon RDS</strong></span>
 
 * RDS is a **database service**, not a messaging or workflow coordination tool.
 * It cannot be used to create a decoupled, event-driven architecture between on-prem and AWS.
 
-#### ❌ **Using Amazon DynamoDB**
+<span style="color:red"><strong>#### ❌ Using Amazon DynamoDB</strong></span>
 
 * DynamoDB is a **NoSQL database service**.
 * It is not meant for message buffering or asynchronous task orchestration.
 
-#### ❌ **Using VPC Peering for On-Premises Connectivity**
+<span style="color:red"><strong>#### ❌ Using VPC Peering for On-Premises Connectivity</strong></span>
 
 * **VPC Peering** only works between **AWS VPCs**.
 * You cannot peer a VPC directly with an **on-premises network**.
@@ -101,17 +101,17 @@ This ensures the required **priority-based message processing** without losing m
 
 ### 🔴 **Incorrect Options**
 
-#### ❌ **“Set a higher priority in the SQS queue for premium members”**
+<span style="color:red"><strong>#### ❌ “Set a higher priority in the SQS queue for premium members”</strong></span>
 
 * SQS **does not support message priority** within a single queue.
 * Priority must be handled by **separate queues** or application logic.
 
-#### ❌ **“Use Amazon Kinesis to process the photos and generate the video montage in real time”**
+<span style="color:red"><strong>#### ❌ “Use Amazon Kinesis to process the photos and generate the video montage in real time”</strong></span>
 
 * Kinesis is for **real-time streaming data** (logs, telemetry, clickstreams).
 * Not applicable to this batch-style photo/video processing scenario.
 
-#### ❌ **“Use Amazon S3 to store and process the photos and then generate the montage”**
+<span style="color:red"><strong>#### ❌ “Use Amazon S3 to store and process the photos and then generate the montage”</strong></span>
 
 * Amazon S3 is **storage only**—it does not process data.
 * It cannot replace a queuing and processing workflow.

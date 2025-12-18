@@ -56,19 +56,19 @@ When the **rate-based rule** triggers, **AWS WAF** automatically **blocks or thr
 
 ### ❌ **Incorrect Options**
 
-🚫 **Option:** *Create a regular rule in AWS WAF and associate the web ACL to an Application Load Balancer.*
-❌ **Reason:** Regular rules match only the **defined conditions** (e.g., specific IPs, headers, or strings).
-They **do not support rate-limiting behavior**.
+<span style="color:red"><strong>🚫 Option: Create a regular rule in AWS WAF and associate the web ACL to an Application Load Balancer.</strong></span>  
+❌ **Reason:** Regular rules match only the **defined conditions** (e.g., specific IPs, headers, or strings).  
+They **do not support rate-limiting behavior**.  
 To control excessive requests, you must use a **rate-based rule** instead.
 
-🚫 **Option:** *Create a custom network ACL and associate it with the subnet of the Application Load Balancer to block the offending requests.*
-❌ **Reason:**
-While **NACLs** can block **specific IP ranges**, they **cannot dynamically limit requests** based on traffic rate.
+<span style="color:red"><strong>🚫 Option: Create a custom network ACL and associate it with the subnet of the Application Load Balancer to block the offending requests.</strong></span>  
+❌ **Reason:**  
+While **NACLs** can block **specific IP ranges**, they **cannot dynamically limit requests** based on traffic rate.  
 They also lack the intelligence to handle **rapidly changing IPs** used by attackers.
 
-🚫 **Option:** *Create a custom rule in the security group of the Application Load Balancer to block the offending requests.*
-❌ **Reason:**
-**Security groups** can only **allow** incoming traffic — they **cannot explicitly deny** or **rate-limit** requests.
+<span style="color:red"><strong>🚫 Option: Create a custom rule in the security group of the Application Load Balancer to block the offending requests.</strong></span>  
+❌ **Reason:**  
+**Security groups** can only **allow** incoming traffic — they **cannot explicitly deny** or **rate-limit** requests.  
 They do not provide the **request-level filtering** or **rate-based control** that **AWS WAF** offers.
 
 ✅ **Final Answer:**
@@ -143,16 +143,16 @@ The ALB operates at **Layer 7** and supports **HTTP/2-based gRPC traffic**, maki
 
 ### ❌ **Incorrect Options**
 
-🚫 **Option:** *Configure a Network Load Balancer in front of the auto-scaling group. Use a UDP listener for routing.*
-❌ **Reason:**
+<span style="color:red"><strong>🚫 Option: Configure a Network Load Balancer in front of the auto-scaling group. Use a UDP listener for routing.</strong></span>  
+❌ **Reason:**  
 **Network Load Balancers (NLBs)** operate at **Layer 4 (Transport layer)** and **do not support gRPC**, which requires **Layer 7 (Application layer)** features.
 
-🚫 **Option:** *Configure a Gateway Load Balancer in front of the auto-scaling group. Ensure that the IP Listener Routing uses the GENEVE protocol on port 6081 to allow gRPC response traffic.*
-❌ **Reason:**
+<span style="color:red"><strong>🚫 Option: Configure a Gateway Load Balancer in front of the auto-scaling group. Ensure that the IP Listener Routing uses the GENEVE protocol on port 6081 to allow gRPC response traffic.</strong></span>  
+❌ **Reason:**  
 **Gateway Load Balancers (GWLBs)** operate at **Layer 3 and Layer 4**, using the **GENEVE protocol** for network appliance traffic, not **Layer 7 protocols** like gRPC.
 
-🚫 **Option:** *Configure a Network Load Balancer in front of the auto-scaling group. Create an AWS Global Accelerator and set the load balancer as an endpoint.*
-❌ **Reason:**
+<span style="color:red"><strong>🚫 Option: Configure a Network Load Balancer in front of the auto-scaling group. Create an AWS Global Accelerator and set the load balancer as an endpoint.</strong></span>  
+❌ **Reason:**  
 **AWS Global Accelerator** enhances **network routing performance** over the AWS global network but **does not handle gRPC load balancing** or **application-layer routing.**
 
 ### 🧠 **Summary**
@@ -228,19 +228,19 @@ This ensures that malicious requests are identified and blocked **at the edge**,
 
 ### ❌ **Incorrect Options**
 
-🚫 **Option:** *Use Amazon GuardDuty to prevent SQL injection and XSS attacks.*
-❌ **Reason:**
-**Amazon GuardDuty** is a **threat detection service**, not a web firewall.
+<span style="color:red"><strong>🚫 Option: Use Amazon GuardDuty to prevent SQL injection and XSS attacks.</strong></span>  
+❌ **Reason:**  
+**Amazon GuardDuty** is a **threat detection service**, not a web firewall.  
 It identifies suspicious activity and compromised resources but **cannot block or filter requests**.
 
-🚫 **Option:** *Use AWS Firewall Manager to set up security rules and associate them with the ALB.*
-❌ **Reason:**
-**AWS Firewall Manager** is an **administration tool** that helps you manage **WAF rules**, **Shield Advanced**, and **security policies** across **multiple AWS accounts and resources**.
+<span style="color:red"><strong>🚫 Option: Use AWS Firewall Manager to set up security rules and associate them with the ALB.</strong></span>  
+❌ **Reason:**  
+**AWS Firewall Manager** is an **administration tool** that helps you manage **WAF rules**, **Shield Advanced**, and **security policies** across **multiple AWS accounts and resources**.  
 It **does not create or enforce** the actual security rules — it just manages them.
 
-🚫 **Option:** *Block the IP addresses of the attackers using a Network ACL (NACL).*
-❌ **Reason:**
-**NACLs** control **inbound and outbound traffic** at the **subnet level**.
+<span style="color:red"><strong>🚫 Option: Block the IP addresses of the attackers using a Network ACL (NACL).</strong></span>  
+❌ **Reason:**  
+**NACLs** control **inbound and outbound traffic** at the **subnet level**.  
 They **cannot detect or prevent** **SQL injection** or **XSS attacks**, as these are **application-layer (Layer 7)** threats.
 
 ### 🧠 **Summary**
@@ -317,25 +317,25 @@ Access logging is **disabled by default**, but you can **enable or disable it an
 
 ### ❌ **Incorrect Options**
 
-🚫 **Option:** *Enable AWS CloudTrail for their Application Load Balancer. Use CloudTrail Lake to analyze and troubleshoot the application traffic.*
-❌ **Reason:**
+<span style="color:red"><strong>🚫 Option: Enable AWS CloudTrail for their Application Load Balancer. Use CloudTrail Lake to analyze and troubleshoot the application traffic.</strong></span>  
+❌ **Reason:**  
 **AWS CloudTrail** tracks **API calls and account activity**, **not application traffic**.
 
-* It records **resource changes** (like ALB creation/deletion), not **HTTP requests**.
+* It records **resource changes** (like ALB creation/deletion), not **HTTP requests**.  
 * **CloudTrail Lake** is designed for **querying API event data**, not **analyzing client request patterns**.
 
-🚫 **Option:** *Install and run the AWS X-Ray daemon on the ECS cluster. Use Amazon CloudWatch ServiceLens to analyze traffic.*
-❌ **Reason:**
+<span style="color:red"><strong>🚫 Option: Install and run the AWS X-Ray daemon on the ECS cluster. Use Amazon CloudWatch ServiceLens to analyze traffic.</strong></span>  
+❌ **Reason:**  
 **AWS X-Ray** traces requests and latency **within your application**, not **at the load balancer level**.
 
-* It **won't capture the client's IP address** or **ALB network latency**.
+* It **won't capture the client's IP address** or **ALB network latency**.  
 * The question explicitly requires **tracking client IP and latency**, which is only possible through **ALB access logs**.
 
-🚫 **Option:** *Integrate Amazon EventBridge metrics on the Application Load Balancer to capture the client IP address. Use CloudWatch GetMetricData to retrieve traffic metrics.*
-❌ **Reason:**
+<span style="color:red"><strong>🚫 Option: Integrate Amazon EventBridge metrics on the Application Load Balancer to capture the client IP address. Use CloudWatch GetMetricData to retrieve traffic metrics.</strong></span>  
+❌ **Reason:**  
 **EventBridge** cannot **capture or log HTTP request data** such as client IP or latency.
 
-* It handles **event-driven automation**, not **web traffic analysis**.
+* It handles **event-driven automation**, not **web traffic analysis**.  
 * **CloudWatch GetMetricData** only retrieves existing **aggregated metrics**, not detailed per-request data.
 
 ### 🧠 **Summary**

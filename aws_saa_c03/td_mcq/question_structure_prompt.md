@@ -63,4 +63,8 @@ Use these rules when editing any files under `aws_saa_c03/td_mcq`.
     - `topic-based/01_ec2.md` (topic-style questions), and
     - `section-based/1_Design Resilient Architectures.md` / `3_Design Secure Architectures.md` (section-style questions).
 
+### 6. Highlight incorrect options in red
 
+- Use red text when explicitly calling out **incorrect** options inside the answer/explanation.
+- Wrap the label or heading for the wrong option with a red `<span>`, for example:  
+  `<span style="color:red"><strong>Option B – Incorrect</strong></span>`

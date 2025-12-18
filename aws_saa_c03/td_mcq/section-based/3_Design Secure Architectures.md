@@ -559,14 +559,14 @@ When the requirement is **cost-effective virtual desktops integrated with on-pre
 
 ### ❌ Why the other options are incorrect
 
-* ❌ **🅐 CORS configuration**
-  CORS controls **browser cross-origin requests**, not public access permissions.
+* <span style="color:red"><strong>❌ 🅐 CORS configuration</strong></span>  
+  CORS controls **browser cross-origin requests**, not public access permissions.  
   Objects must already be public for CORS to matter.
 
-* ❌ **🅒 IAM role**
+* <span style="color:red"><strong>❌ 🅒 IAM role</strong></span>  
   IAM roles control **who can manage AWS resources**, not anonymous public access.
 
-* ❌ **🅔 Objects are public by default**
+* <span style="color:red"><strong>❌ 🅔 Objects are public by default</strong></span>  
   S3 objects are **private by default**, not public.
 
 ---

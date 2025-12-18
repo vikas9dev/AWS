@@ -879,17 +879,17 @@ The key phrases in the scenario are “big data processing frameworks” and “
 
 ❌ **Why the other options are less suitable:**
 
-* ❌ **EC2 + EBS**
+* <span style="color:red"><strong>❌ EC2 + EBS</strong></span>
 
   * Manual scaling and management
   * Not designed for large-scale analytics or BI workloads
 
-* ❌ **AWS Glue + S3**
+* <span style="color:red"><strong>❌ AWS Glue + S3</strong></span>
 
   * Serverless and flexible, but generally **lower query performance**
   * Better suited for ETL and ad-hoc analytics (e.g., Athena), not high-performance BI
 
-* ❌ **Apache Flink + DynamoDB**
+* <span style="color:red"><strong>❌ Apache Flink + DynamoDB</strong></span>
 
   * Flink is for **stream processing**
   * DynamoDB is not optimized for **SQL-based analytics or BI tools**

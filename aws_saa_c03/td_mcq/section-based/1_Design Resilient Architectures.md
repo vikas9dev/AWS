@@ -22,15 +22,15 @@ This option ensures **minimal downtime** ⏱️ and a **smooth migration** 🔄.
 
 ### ❌ **Incorrect Options (with reasons)**
 
-#### 🔴 Change the Aurora Instance class to Serverless
+<span style="color:red"><strong>#### 🔴 Change the Aurora Instance class to Serverless</strong></span>
 
 This is **not possible**. You **cannot directly modify** a provisioned Aurora instance to Aurora Serverless.
 
-#### 🔴 Take a snapshot of the DB cluster and create a new Aurora DB cluster
+<span style="color:red"><strong>#### 🔴 Take a snapshot of the DB cluster and create a new Aurora DB cluster</strong></span>
 
 Although functional, this method causes **long downtime** 😴 because the application must be stopped until the new cluster is created and ready.
 
-#### 🔴 Add an Aurora Replica, set it to Serverless, then fail over
+<span style="color:red"><strong>#### 🔴 Add an Aurora Replica, set it to Serverless, then fail over</strong></span>
 
 While technically doable, this approach still results in a **write downtime** ✍️🚫 for a short period during the failover process.
 
@@ -62,16 +62,16 @@ Configure **Amazon Redshift Cross-Region Snapshot Copy** to automatically copy *
 
 ### ❌ **Incorrect Options (with reasons)**
 
-#### 🔴 Create a scheduled job to take snapshots and store them in S3
+<span style="color:red"><strong>#### 🔴 Create a scheduled job to take snapshots and store them in S3</strong></span>
 
 While technically possible, this method involves **heavy manual work** 🛠️ and is **not the best practice**. Redshift offers a built-in, automated feature, so manual scripting should be avoided.
 
-#### 🔴 Do nothing because Redshift is highly available
+<span style="color:red"><strong>#### 🔴 Do nothing because Redshift is highly available</strong></span>
 
 Even though Redshift is fully managed and offers high availability, it **does NOT automatically replicate snapshots across regions**.  
 You **must** configure **cross-region snapshot copy** to ensure disaster recovery in case of **regional outages** 🚨.
 
-#### 🔴 Relying only on Automated Snapshots
+<span style="color:red"><strong>#### 🔴 Relying only on Automated Snapshots</strong></span>
 
 Automated snapshots are stored **within the same region** 📍.  
 If the region goes down, these snapshots become **unavailable**. Therefore, they are **not sufficient** for cross-region disaster recovery.
@@ -134,22 +134,22 @@ AWS Network Firewall includes features that provide protections from common netw
 
 ### ❌ **Incorrect Options (with reasons)**
 
-#### 🔴 Create a Route 53 Traffic Policy + DNS Firewall
+<span style="color:red"><strong>#### 🔴 Create a Route 53 Traffic Policy + DNS Firewall</strong></span>
 
-- Route 53 **Traffic Policies** are mainly for **geoproximity routing** and large-scale DNS record management—not VPC connectivity.
-- Route 53 **Resolver DNS Firewall** only filters **outbound DNS traffic** 🌐.
+- Route 53 **Traffic Policies** are mainly for **geoproximity routing** and large-scale DNS record management—not VPC connectivity.  
+- Route 53 **Resolver DNS Firewall** only filters **outbound DNS traffic** 🌐.  
 - It **cannot inspect flows**, **cannot block exploits**, and **cannot secure VPC-to-VPC application traffic**.
 
-#### 🔴 Use a NAT Gateway to connect the two VPCs + Systems Manager Session Manager
+<span style="color:red"><strong>#### 🔴 Use a NAT Gateway to connect the two VPCs + Systems Manager Session Manager</strong></span>
 
-- A **NAT Gateway** only provides **outbound internet/NAT connectivity** for private subnets.
-- It **cannot connect VPCs**, especially **across regions** 🚫.
+- A **NAT Gateway** only provides **outbound internet/NAT connectivity** for private subnets.  
+- It **cannot connect VPCs**, especially **across regions** 🚫.  
 - **Session Manager** is only for remote EC2 management (SSH-less access), not for user session handling or VPC connectivity.
 
-#### 🔴 Create a Direct Connect Gateway + VPC attachments + Security Hub
+<span style="color:red"><strong>#### 🔴 Create a Direct Connect Gateway + VPC attachments + Security Hub</strong></span>
 
-- A **Direct Connect Gateway** is used to connect **on-premises** to AWS—not for **VPC-to-VPC inter-region connectivity**.
-- You still require a **Transit Gateway** to interconnect multiple VPCs.
+- A **Direct Connect Gateway** is used to connect **on-premises** to AWS—not for **VPC-to-VPC inter-region connectivity**.  
+- You still require a **Transit Gateway** to interconnect multiple VPCs.  
 - **AWS Security Hub** is a **security posture management** tool. It does **not secure network traffic** on its own.
 
 ### 🟢 **Summary**
@@ -199,23 +199,6 @@ Use an active-passive failover configuration when you want a primary resource or
 **Configuring an Active-Active Failover with Weighted Routing Policy** is correct.  
 In an **Active-Active** setup, **all resources stay available** simultaneously, and traffic is distributed using **weighted routing**, ensuring optimal load sharing and high availability ⭐.
 
-### ❌ **Incorrect Options (with reasons)**
-
-#### 🔴 Configuring an Active-Passive Failover with Weighted Records
-
-Active-Passive is meant for scenarios where **primary resources handle traffic** and **secondary resources stay on standby**.  
-Here, the requirement is for **all resources to remain active at all times**, so Active-Passive does **not** fit the use case.
-
-#### 🔴 Configuring an Active-Passive Failover with Multiple Primary and Secondary Resources
-
-Even with multiple resources, Active-Passive still implies **one group is active** while the other serves as **backup** only.  
-This contradicts the objective of **maximizing availability through simultaneous resource usage**.
-
-#### 🔴 Configuring an Active-Active Failover with One Primary and One Secondary Resource
-
-Active-Active architectures **do not have primary or secondary roles**.  
-All resources are active, receiving traffic continuously.  
-Therefore, you **cannot** configure an Active-Active Failover with a primary/secondary structure.
 
 ### 🟢 **Summary**
 
@@ -251,27 +234,27 @@ You can modify this attribute during instance launch or later through the **Cons
 
 ### ❌ **Incorrect Options (with reasons)**
 
-#### 🔴 Use AWS DataSync to replicate root volume data to Amazon S3
+<span style="color:red"><strong>#### 🔴 Use AWS DataSync to replicate root volume data to Amazon S3</strong></span>
 
 AWS DataSync **does not support EBS volumes**.  
 It only works with:
 
-- NFS
-- SMB
-- Self-managed object storage
-- Snowcone
-- S3
-- EFS
-- FSx for Windows
+- NFS  
+- SMB  
+- Self-managed object storage  
+- Snowcone  
+- S3  
+- EFS  
+- FSx for Windows  
 
 Therefore, this option is **not applicable** for EBS root volumes.
 
-#### 🔴 Configure ASG to suspend the health check process
+<span style="color:red"><strong>#### 🔴 Configure ASG to suspend the health check process</strong></span>
 
 Suspending health checks stops the Auto Scaling Group from replacing **unhealthy instances**, which can lead to **application downtime** and **reduced availability**.  
 It does **not** affect EBS volume termination behavior.
 
-#### 🔴 Enable Termination Protection for all EC2 instances
+<span style="color:red"><strong>#### 🔴 Enable Termination Protection for all EC2 instances</strong></span>
 
 Termination Protection only prevents **accidental manual termination** from the console.  
 It does **not** preserve EBS volumes nor affect **DeleteOnTermination** behavior.
@@ -325,15 +308,15 @@ Together, HPA + Karpenter enable **full-stack autoscaling**:
 
 ### ❌ **Incorrect Options (with reasons)**
 
-#### 🔴 Install Metrics Server + Activate Vertical Pod Autoscaler  
+<span style="color:red"><strong>#### 🔴 Install Metrics Server + Activate Vertical Pod Autoscaler</strong></span>  
 Vertical Pod Autoscaler performs **vertical scaling** (scale up/down pod CPU & memory), not horizontal scaling.  
 The question explicitly requires **"scale in and out"**, which refers to **horizontal pod autoscaling**, making this approach inappropriate.
 
-#### 🔴 Use CloudWatch Alarms to trigger scaling  
+<span style="color:red"><strong>#### 🔴 Use CloudWatch Alarms to trigger scaling</strong></span>  
 CloudWatch alarms introduce **latency** between metric collection and autoscaling.  
 This approach lacks the **real-time responsiveness** needed for rapidly changing traffic patterns and **is not integrated** with Kubernetes scheduling.
 
-#### 🔴 Enable the Kubernetes Cluster Autoscaler  
+<span style="color:red"><strong>#### 🔴 Enable the Kubernetes Cluster Autoscaler</strong></span>  
 Cluster Autoscaler **does** adjust node counts, but:  
 - It is **slower** than Karpenter ⏳  
 - Requires **more manual configuration & tuning**  

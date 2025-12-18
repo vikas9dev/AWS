@@ -38,18 +38,18 @@ Combined with the monitoring features of **Amazon EventBridge** and **AWS CloudT
 
 🔴 **The option that says:**
 *For an automated solution, create a scheduled job that calls the "create-snapshot" command via the AWS CLI to take a snapshot of production EBS volumes periodically*
-is **incorrect** ❌ because even though it is a **valid approach**, it requires **manual setup** and **scripting effort** to create and schedule snapshot jobs.
+is <span style="color:red"><strong>incorrect ❌</strong></span> because even though it is a **valid approach**, it requires **manual setup** and **scripting effort** to create and schedule snapshot jobs.
 
 Using **Amazon DLM** provides a **faster**, **fully managed**, and **code-free** way to automate **EBS snapshot creation, retention, and deletion** without the need for **custom scripts** or **cron jobs.**
 
 🔴 **The option that says:**
 *Set your Amazon Storage Gateway with EBS volumes as the data source and store the backups in your on-premises servers through the storage gateway*
-is **incorrect** ❌ because **Amazon Storage Gateway** is used for **backing up data from on-premises servers to AWS**, not for creating backups of **EBS volumes within the AWS Cloud**.
+is <span style="color:red"><strong>incorrect ❌</strong></span> because **Amazon Storage Gateway** is used for **backing up data from on-premises servers to AWS**, not for creating backups of **EBS volumes within the AWS Cloud**.
 It does **not** serve as a backup tool for **Amazon VPC or EBS** resources.
 
 🔴 **The option that says:**
 *Use an EBS snapshot retention rule in AWS Backup to automatically manage snapshot retention and expiration*
-is **incorrect** ❌ because while **AWS Backup** can manage **retention rules**, it is designed for **centralized backup** across **multiple AWS services**, not solely for **EBS snapshot automation**.
+is <span style="color:red"><strong>incorrect ❌</strong></span> because while **AWS Backup** can manage **retention rules**, it is designed for **centralized backup** across **multiple AWS services**, not solely for **EBS snapshot automation**.
 It is therefore **less cost-effective** and **not the most straightforward** solution for this specific **EBS snapshot automation use case.**
 
 </details>
@@ -113,15 +113,15 @@ When you create an EBS volume in an **Availability Zone**, it is **automatically
 
 🚫 **Option:**
 "When you create an EBS volume in an Availability Zone, it is automatically replicated on a separate AWS region to prevent data loss..."
-**Incorrect** — Replication happens **within the same Availability Zone**, **not across regions.**
+<span style="color:red"><strong>**Incorrect ❌**</strong></span> — Replication happens **within the same Availability Zone**, **not across regions.**
 
 🚫 **Option:**
 "EBS volumes can be attached to any EC2 instance in any Availability Zone."
-**Incorrect** — EBS volumes can only be attached to **EC2 instances in the same Availability Zone.**
+<span style="color:red"><strong>**Incorrect ❌**</strong></span> — EBS volumes can only be attached to **EC2 instances in the same Availability Zone.**
 
 🚫 **Option:**
 "Amazon EBS provides the ability to create snapshots of any EBS volume and write a copy of the data in the volume to Amazon RDS..."
-**Incorrect** — EBS **snapshots** are actually stored in **Amazon S3**, **not** Amazon RDS.
+<span style="color:red"><strong>**Incorrect ❌**</strong></span> — EBS **snapshots** are actually stored in **Amazon S3**, **not** Amazon RDS.
 
 🟢 **Correct statement:**
 Amazon EBS provides the ability to **create snapshots (backups)** of any EBS volume and store them **redundantly in Amazon S3 across multiple Availability Zones.**
@@ -184,17 +184,17 @@ Although there is **no direct way** to encrypt an existing **unencrypted volume*
 
 🔴 **The option that says:**
 *Launch new EBS volumes and encrypt them using asymmetric AWS KMS keys*
-is **incorrect** ❌ because **Amazon EBS does not support asymmetric KMS keys.**
+is <span style="color:red"><strong>incorrect ❌</strong></span> because **Amazon EBS does not support asymmetric KMS keys.**
 To encrypt an **EBS snapshot**, you must use **symmetric encryption KMS keys.**
 
 🔴 **The option that says:**
 *Launch new EBS volumes and specify the symmetric encryption AWS KMS keys for encryption*
-is **incorrect** ❌ because although it enables encryption, this process is **manual** and can lead to **inconsistencies**, leaving some volumes **unencrypted**.
+is <span style="color:red"><strong>incorrect ❌</strong></span> because although it enables encryption, this process is **manual** and can lead to **inconsistencies**, leaving some volumes **unencrypted**.
 🟢 A better approach is to **enable EBS Encryption By Default**, ensuring **all new EBS volumes and snapshots** are **automatically encrypted.**
 
 🔴 **The option that says:**
 *Enable the EBS Encryption By Default feature for specific EBS volumes*
-is **incorrect** ❌ because the **Encryption By Default** feature is **Region-wide**.
+is <span style="color:red"><strong>incorrect ❌</strong></span> because the **Encryption By Default** feature is **Region-wide**.
 You **cannot enable it selectively** for individual EBS volumes — it applies to **all EBS resources in that Region.**
 
 </details>

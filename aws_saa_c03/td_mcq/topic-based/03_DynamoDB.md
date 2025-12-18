@@ -49,17 +49,17 @@ Since your code is **stateless**, AWS Lambda can start as many copies of your fu
 
 🔴 **The option that says:**
 *Configure CloudFront with DynamoDB as the origin; cache frequently accessed data on the client device using ElastiCache*
-is **incorrect** ❌ because although **CloudFront** delivers content faster to users using **edge locations**, you **cannot integrate DynamoDB with CloudFront** as these two are **incompatible.**
+is <span style="color:red"><strong>incorrect ❌</strong></span> because although **CloudFront** delivers content faster to users using **edge locations**, you **cannot integrate DynamoDB with CloudFront** as these two are **incompatible.**
 
 🔴 **The option that says:**
 *Use AWS IAM Identity Center to authenticate users and have them directly access DynamoDB using single sign-on. Manually set the provisioned read and write capacity to a higher RCU and WCU*
-is **incorrect** ❌ because **AWS IAM Identity Center** only helps to **centrally manage access** to multiple AWS accounts and apps — it does **not** improve **scalability or performance**.
+is <span style="color:red"><strong>incorrect ❌</strong></span> because **AWS IAM Identity Center** only helps to **centrally manage access** to multiple AWS accounts and apps — it does **not** improve **scalability or performance**.
 
 Moreover, **manually setting high RCU/WCU** is **costly**, as this capacity runs **continuously**, even when traffic is low or stable.
 
 🔴 **The option that says:**
 *Since Auto Scaling is enabled by default, the provisioned read and write capacity will adjust automatically. Also enable DynamoDB Accelerator (DAX) to improve the performance from milliseconds to microseconds*
-is **incorrect** ❌ because **Auto Scaling is not enabled by default** in a **DynamoDB table** created using the **AWS CLI**.
+is <span style="color:red"><strong>incorrect ❌</strong></span> because **Auto Scaling is not enabled by default** in a **DynamoDB table** created using the **AWS CLI**.
 
 </details>
 

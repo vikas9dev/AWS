@@ -70,15 +70,15 @@ It's designed for **high durability**, **availability**, and **virtually unlimit
 
 ### ❌ **Incorrect Options**
 
-🚫 **Amazon S3:** 
+<span style="color:red"><strong>🚫 Amazon S3:</strong></span>  
 Although it provides **high scalability and availability**, it is **not designed** for **rapidly changing data**.
 It lacks **strong consistency and file locking**, which makes it **less suitable** for concurrent write-heavy workloads.
 
-🚫 **Amazon EBS:**
+<span style="color:red"><strong>🚫 Amazon EBS:</strong></span>  
 Provides **low-latency block storage** for a **single instance only**.
 Cannot be shared across multiple EC2 instances, hence **not suitable** for a **1000-server** setup.
 
-🚫 **Amazon FSx for Windows File Server:**
+<span style="color:red"><strong>🚫 Amazon FSx for Windows File Server:</strong></span>  
 Supports **multiple EC2 connections**, but it's **Windows-only**.
 The scenario specifies **Linux servers**, so this option is **not applicable.**
 

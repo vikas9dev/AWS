@@ -37,9 +37,9 @@ To protect customers’ confidential data, it must be ensured that the **Amazon 
 
 | Option                                                         | Why It's Incorrect                                                                                           |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| **Configure SSL in your application to encrypt DB connection** | SSL only encrypts data _in transit_; it does not provide IAM-based token authentication.                     |
-| **Use IAM + STS temporary tokens**                             | STS provides temp credentials for AWS API calls, but RDS requires **IAM DB Authentication**, not STS tokens. |
-| **Create an IAM Role for EC2 to access RDS**                   | IAM roles alone **cannot authenticate** directly to RDS. You still must enable **IAM DB Authentication**.    |
+| <span style="color:red"><strong>Configure SSL in your application to encrypt DB connection</strong></span> | SSL only encrypts data _in transit_; it does not provide IAM-based token authentication.                     |
+| <span style="color:red"><strong>Use IAM + STS temporary tokens</strong></span>                             | STS provides temp credentials for AWS API calls, but RDS requires **IAM DB Authentication**, not STS tokens. |
+| <span style="color:red"><strong>Create an IAM Role for EC2 to access RDS</strong></span>                   | IAM roles alone **cannot authenticate** directly to RDS. You still must enable **IAM DB Authentication**.    |
 
 ### 📝 **Summary**
 
@@ -93,9 +93,9 @@ These two steps together ensure that **all DB traffic is encrypted and trusted e
 
 | Option                                       | Why It's Wrong                                                                                    |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| **1. Configure SG to allow only port 443**   | SG rules do not enforce SSL between EC2 and RDS. Port 443 is not used for RDS SQL Server traffic. |
-| **2. Enable IAM DB Authentication**          | IAM DB Auth is only supported for **MySQL and PostgreSQL**, not SQL Server.                       |
-| **4. Use TDE (Transparent Data Encryption)** | TDE encrypts data **at rest**, not in transit, so it doesn't meet the requirement.                |
+| <span style="color:red"><strong>1. Configure SG to allow only port 443</strong></span>   | SG rules do not enforce SSL between EC2 and RDS. Port 443 is not used for RDS SQL Server traffic. |
+| <span style="color:red"><strong>2. Enable IAM DB Authentication</strong></span>          | IAM DB Auth is only supported for **MySQL and PostgreSQL**, not SQL Server.                       |
+| <span style="color:red"><strong>4. Use TDE (Transparent Data Encryption)</strong></span> | TDE encrypts data **at rest**, not in transit, so it doesn't meet the requirement.                |
 
 ### 📝 **Summary**
 
@@ -153,9 +153,9 @@ To meet both:
 
 | Option                                        | Reason                                                                                                                                                 |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Convert the schema using AWS SCT              | SCT is needed only for **heterogeneous** migrations (e.g., Oracle → PostgreSQL). Here, it's **Oracle-to-Oracle**, so no schema conversion is required. |
-| Migrate to non-cluster Aurora single instance | Not suitable for critical workloads that require **high availability**; a single instance has a single point of failure.                               |
-| Launch RDS Oracle with RMAN enabled           | RMAN is **not supported** in RDS. RDS uses automated backups, snapshots, and Multi-AZ instead.                                                         |
+| <span style="color:red"><strong>Convert the schema using AWS SCT</strong></span>              | SCT is needed only for **heterogeneous** migrations (e.g., Oracle → PostgreSQL). Here, it's **Oracle-to-Oracle**, so no schema conversion is required. |
+| <span style="color:red"><strong>Migrate to non-cluster Aurora single instance</strong></span> | Not suitable for critical workloads that require **high availability**; a single instance has a single point of failure.                               |
+| <span style="color:red"><strong>Launch RDS Oracle with RMAN enabled</strong></span>           | RMAN is **not supported** in RDS. RDS uses automated backups, snapshots, and Multi-AZ instead.                                                         |
 
 ### 📝 **Summary**
 
@@ -212,9 +212,9 @@ This improves the performance of the **primary database** since it no longer han
 
 | Option                                              | Reason                                                                                                                            |
 | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **1. Increase IOPS via AWS Global Accelerator**     | Global Accelerator is unrelated to RDS performance. It routes user traffic to nearest endpoints, not DB IOPS.                     |
-| **3. Synchronous replication & automatic failover** | That is a **Multi-AZ** feature, not Read Replica. Read Replicas use **asynchronous** replication and are for performance, not HA. |
-| **5. Allows both read & write operations**          | Read Replicas are **read-only** and cannot process writes unless promoted to standalone DB.                                       |
+| <span style="color:red"><strong>1. Increase IOPS via AWS Global Accelerator</strong></span>     | Global Accelerator is unrelated to RDS performance. It routes user traffic to nearest endpoints, not DB IOPS.                     |
+| <span style="color:red"><strong>3. Synchronous replication & automatic failover</strong></span> | That is a **Multi-AZ** feature, not Read Replica. Read Replicas use **asynchronous** replication and are for performance, not HA. |
+| <span style="color:red"><strong>5. Allows both read & write operations</strong></span>          | Read Replicas are **read-only** and cannot process writes unless promoted to standalone DB.                                       |
 
 ### 📝 **Summary**
 
@@ -284,9 +284,9 @@ For read traffic, you must use **Read Replicas**.
 
 These do **not** trigger failover because they do **not affect the primary instance**:
 
-* Storage failure on secondary DB instance
-* Failure of a Read Replica
-* Compute unit failure on secondary DB instance
+* <span style="color:red"><strong>Storage failure on secondary DB instance</strong></span>
+* <span style="color:red"><strong>Failure of a Read Replica</strong></span>
+* <span style="color:red"><strong>Compute unit failure on secondary DB instance</strong></span>
 
 </details>
 

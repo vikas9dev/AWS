@@ -48,11 +48,11 @@ Signed cookies aren't supported for RTMP distributions.
 
 ### ❌ **Incorrect Options (with reasons)**
 
-🔴 **The option that says: Configure your CloudFront distribution to use Match Viewer as its Origin Protocol Policy which will automatically match the user request. This will allow access to the private content if the request is a paying member and deny it if it is not a member is incorrect** because a **Match Viewer** is an Origin Protocol Policy that configures CloudFront to communicate with your origin using HTTP or HTTPS, depending on the protocol of the viewer request. CloudFront caches the object only once even if viewers make requests using both HTTP and HTTPS protocols.
+<span style="color:red"><strong>🔴 The option that says: Configure your CloudFront distribution to use Match Viewer as its Origin Protocol Policy which will automatically match the user request. This will allow access to the private content if the request is a paying member and deny it if it is not a member is incorrect</strong></span> because a **Match Viewer** is an Origin Protocol Policy that configures CloudFront to communicate with your origin using HTTP or HTTPS, depending on the protocol of the viewer request. CloudFront caches the object only once even if viewers make requests using both HTTP and HTTPS protocols.
 
-🔴 **The option that says: Create a Signed URL with a custom policy which only allows the members to see the private files is incorrect** because **Signed URLs** are primarily used for providing access to **individual files**, as shown in the above explanation. In addition, the scenario explicitly says that they **don't want to change their current URLs** which is why implementing **Signed Cookies** is more suitable than Signed URLs.
+<span style="color:red"><strong>🔴 The option that says: Create a Signed URL with a custom policy which only allows the members to see the private files is incorrect</strong></span> because **Signed URLs** are primarily used for providing access to **individual files**, as shown in the above explanation. In addition, the scenario explicitly says that they **don't want to change their current URLs** which is why implementing **Signed Cookies** is more suitable than Signed URLs.
 
-🔴 **The option that says: Configure your CloudFront distribution to use Field-Level Encryption to protect your private data and only allow access to members is incorrect** because **Field-Level Encryption** only allows you to securely upload user-submitted sensitive information to your web servers. It does **not** provide access to download multiple private files.
+<span style="color:red"><strong>🔴 The option that says: Configure your CloudFront distribution to use Field-Level Encryption to protect your private data and only allow access to members is incorrect</strong></span> because **Field-Level Encryption** only allows you to securely upload user-submitted sensitive information to your web servers. It does **not** provide access to download multiple private files.
 
 <img src="https://media.tutorialsdojo.com/amazon-cloud-front-signed-URL-signed-Cookies.png"
      alt="Amazon CloudFront signed URLs and signed cookies diagram"
@@ -74,8 +74,6 @@ A travel photo-sharing website is using **Amazon S3** to serve high-quality phot
 2. Use Amazon CloudFront distributions for your photos.
 3. Store and privately serve the high-quality photos on Amazon WorkDocs instead.
 4. Block the IP addresses of the offending websites using NACL.
-
----
 
 <details>
 <summary><strong>Answer & Explanation</strong> 📝</summary>
@@ -107,13 +105,13 @@ Anyone who receives the **pre-signed URL** can then access the object. For examp
 
 ### ❌ **Incorrect Options (with reasons)**
 
-🔴 **The option that says: Using Amazon CloudFront distributions for your photos is incorrect.**
+<span style="color:red"><strong>🔴 The option that says: Using Amazon CloudFront distributions for your photos is incorrect.</strong></span>  
 CloudFront is primarily a **Content Delivery Network (CDN)** service that speeds up the delivery of content to your customers.
 
-🔴 **The option that says: Blocking the IP addresses of the offending websites using NACL is also incorrect.**
+<span style="color:red"><strong>🔴 The option that says: Blocking the IP addresses of the offending websites using NACL is also incorrect.</strong></span>  
 Blocking IP addresses using **NACLs** is not a very efficient method because a **quick change in IP address** would easily bypass this configuration.
 
-🔴 **The option that says: Storing and privately serving the high-quality photos on Amazon WorkDocs instead is incorrect** as **WorkDocs** is simply a fully managed, secure content creation, storage, and collaboration service. It is **not a suitable service for storing static content**. Amazon WorkDocs is more often used to easily create, edit, and share documents for collaboration and **not for serving object data like Amazon S3**.
+<span style="color:red"><strong>🔴 The option that says: Storing and privately serving the high-quality photos on Amazon WorkDocs instead is incorrect</strong></span> as **WorkDocs** is simply a fully managed, secure content creation, storage, and collaboration service. It is **not a suitable service for storing static content**. Amazon WorkDocs is more often used to easily create, edit, and share documents for collaboration and **not for serving object data like Amazon S3**.
 
 </details>
 
@@ -134,8 +132,6 @@ Currently, all clients can directly access the S3 buckets via S3 URLs or CloudFr
 3. Create a custom CloudFront function to check and ensure that only their clients can access the files.
 4. Require the users to access the private content by using special CloudFront signed URLs or signed cookies.
 5. Use S3 pre-signed URLs to ensure that only their client can access the files. Remove permission to use S3 URLs to read the files for anyone else.
-
----
 
 <details>
 <summary><strong>Answer & Explanation</strong> 📝</summary>
@@ -159,12 +155,12 @@ You can generate a **pre-signed URL** programmatically using the **AWS SDK for J
 
 ### ❌ **Incorrect Options (with reasons)**
 
-🔴 **The option that says: Create a custom CloudFront function to check and ensure that only their clients can access the files is incorrect.**
+<span style="color:red"><strong>🔴 The option that says: Create a custom CloudFront function to check and ensure that only their clients can access the files is incorrect.</strong></span>  
 CloudFront Functions are just lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations and **not for enforcing security**. A CloudFront Function runtime environment offers submillisecond startup times which allows your application to scale immediately to handle millions of requests per second. But again, this can't be used to restrict access to your files.
 
-🔴 **The option that says: Enable the Origin Shield feature of the CloudFront distribution to protect the files from unauthorized access is incorrect** because this feature is not primarily used for security but for **improving your origin's load times, improving origin availability, and reducing your overall operating costs** in CloudFront.
+<span style="color:red"><strong>🔴 The option that says: Enable the Origin Shield feature of the CloudFront distribution to protect the files from unauthorized access is incorrect</strong></span> because this feature is not primarily used for security but for **improving your origin's load times, improving origin availability, and reducing your overall operating costs** in CloudFront.
 
-🔴 **The option that says: Use S3 pre-signed URLs to ensure that only their client can access the files. Remove permission to use S3 URLs to read the files for anyone else is incorrect.**
+<span style="color:red"><strong>🔴 The option that says: Use S3 pre-signed URLs to ensure that only their client can access the files. Remove permission to use S3 URLs to read the files for anyone else is incorrect.</strong></span>  
 Although this could be a valid solution, it doesn't satisfy the requirement to **serve the private content via CloudFront only** to secure the distribution of files. A better solution is to set up an **Origin Access Control (OAC)** and then use **Signed URL or Signed Cookies** in your CloudFront web distribution.
 
 ### ✅ **Summary**
@@ -188,8 +184,6 @@ Which of the following architectures can provide the **most cost-effective and f
 2. Host the website in an AWS Elastic Beanstalk environment. Upload the images to S3 and use CloudFront as a CDN.
 3. Launch an Auto Scaling Group of EC2 servers with Apache, store images in EBS, and use AWS Global Accelerator.
 4. Host the website using an Nginx server on EC2, store images in S3, and use CloudFront as a CDN.
-
----
 
 <details>
 <summary><strong>Answer & Explanation</strong> 📝</summary>
@@ -233,8 +227,6 @@ Which combination of services should be used to provide the **MOST suitable and 
 4. AWS Fargate
 5. Amazon S3
 
----
-
 <details>
 <summary><strong>Answer & Explanation</strong> 📝</summary>
 
@@ -255,11 +247,11 @@ Global Accelerator improves performance for a wide range of applications over **
 
 ### ❌ **Incorrect Options (with reasons)**
 
-🔴 **AWS Fargate is incorrect** because this service is just a **serverless compute engine for containers** that works with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS). Although this service is more cost-effective than its server-based counterpart, **Amazon S3 still costs way less than Fargate**, especially for storing static content.
+<span style="color:red"><strong>🔴 AWS Fargate is incorrect</strong></span> because this service is just a **serverless compute engine for containers** that works with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS). Although this service is more cost-effective than its server-based counterpart, **Amazon S3 still costs way less than Fargate**, especially for storing static content.
 
-🔴 **AWS Lambda is incorrect** because this simply lets you **run your code serverless** without provisioning or managing servers. Although this is also a cost-effective service since you pay only for the compute time you consume, **you can't use this to store static content or as a CDN**. A better combination is **Amazon CloudFront and Amazon S3**.
+<span style="color:red"><strong>🔴 AWS Lambda is incorrect</strong></span> because this simply lets you **run your code serverless** without provisioning or managing servers. Although this is also a cost-effective service since you pay only for the compute time you consume, **you can't use this to store static content or as a CDN**. A better combination is **Amazon CloudFront and Amazon S3**.
 
-🔴 **AWS Global Accelerator is incorrect** because this service is more suitable for **non-HTTP use cases**, such as gaming (UDP), IoT (MQTT), or Voice over IP, as well as for HTTP use cases that specifically require **static IP addresses** or deterministic, fast regional failover. Moreover, there is **no direct way to integrate AWS Global Accelerator with Amazon S3**. It's more suitable to use **Amazon CloudFront** instead in this scenario.
+<span style="color:red"><strong>🔴 AWS Global Accelerator is incorrect</strong></span> because this service is more suitable for **non-HTTP use cases**, such as gaming (UDP), IoT (MQTT), or Voice over IP, as well as for HTTP use cases that specifically require **static IP addresses** or deterministic, fast regional failover. Moreover, there is **no direct way to integrate AWS Global Accelerator with Amazon S3**. It's more suitable to use **Amazon CloudFront** instead in this scenario.
 
 ### ✅ **Summary**
 

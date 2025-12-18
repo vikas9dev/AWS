@@ -26,11 +26,11 @@ In **Auto Scaling**, the following statements are **correct** regarding the **co
 
 ### ❌ **Incorrect Options**
 
-🔴 **– It ensures that before the Auto Scaling group scales out, the EC2 instances have ample time to cooldown.**
+<span style="color:red"><strong>🔴 – It ensures that before the Auto Scaling group scales out, the EC2 instances have ample time to cooldown.</strong></span>
 
-🔴 **– It ensures that the Auto Scaling group launches or terminates additional EC2 instances without any downtime.**
+<span style="color:red"><strong>🔴 – It ensures that the Auto Scaling group launches or terminates additional EC2 instances without any downtime.</strong></span>
 
-🔴 **– Its default value is 600 seconds.**
+<span style="color:red"><strong>🔴 – Its default value is 600 seconds.</strong></span>
 
 These statements are inaccurate and don't depict what the word "cooldown" actually means for Auto Scaling. The **cooldown period** is a configurable setting for your Auto Scaling group that helps to ensure that it **doesn't launch or terminate additional instances before the previous scaling activity takes effect**. After the Auto Scaling group dynamically scales using a simple scaling policy, it waits for the cooldown period to complete before resuming scaling activities.
 
@@ -67,9 +67,9 @@ For this scenario, you have to **create a new launch template**. Remember that y
 
 ### ❌ **Incorrect Options (with reasons)**
 
-🔴 **The option that says: Do nothing. You can start directly launching EC2 instances in the Auto Scaling group with the same launch template is incorrect** because what you are trying to achieve is to **change the AMI** being used by your fleet of EC2 instances. Therefore, you need to change the launch template to update what your instances are using.
+<span style="color:red"><strong>🔴 The option that says: Do nothing. You can start directly launching EC2 instances in the Auto Scaling group with the same launch template is incorrect</strong></span> because what you are trying to achieve is to **change the AMI** being used by your fleet of EC2 instances. Therefore, you need to change the launch template to update what your instances are using.
 
-🔴 **The option that says: Create a new target group and Create a new target group and launch template are both incorrect** because you only want to **change the AMI** being used by your instances, and not the instances themselves. **Target groups** are primarily used in **ELBs** and not in Auto Scaling. The scenario didn't mention that the architecture has a load balancer. Therefore, you should be updating your **launch template**, not the **target group**.
+<span style="color:red"><strong>🔴 The option that says: Create a new target group and Create a new target group and launch template are both incorrect</strong></span> because you only want to **change the AMI** being used by your instances, and not the instances themselves. **Target groups** are primarily used in **ELBs** and not in Auto Scaling. The scenario didn't mention that the architecture has a load balancer. Therefore, you should be updating your **launch template**, not the **target group**.
 
 </details>
 
@@ -102,12 +102,12 @@ To configure your Auto Scaling group to scale based on a schedule, you create a 
 
 ### ❌ **Incorrect Options**
 
-🔴 The following options are both incorrect. Although these are valid solutions, it is still better to configure a Scheduled scaling policy as you already know the exact peak hours of your application. By the time either the CPU or Memory hits a peak, the application already has performance issues, so you need to ensure the scaling is done beforehand using a Scheduled scaling policy:
+<span style="color:red"><strong>🔴 The following options are both incorrect.</strong></span> Although these are valid solutions, it is still better to configure a Scheduled scaling policy as you already know the exact peak hours of your application. By the time either the CPU or Memory hits a peak, the application already has performance issues, so you need to ensure the scaling is done beforehand using a Scheduled scaling policy:
 
-* Configure a Dynamic scaling policy for the Auto Scaling group to launch new instances based on the CPU utilization
-* Configure a Dynamic scaling policy for the Auto Scaling group to launch new instances based on the Memory utilization
+* <span style="color:red"><strong>Configure a Dynamic scaling policy for the Auto Scaling group to launch new instances based on the CPU utilization</strong></span>
+* <span style="color:red"><strong>Configure a Dynamic scaling policy for the Auto Scaling group to launch new instances based on the Memory utilization</strong></span>
 
-🔴 The option that says: Configure a Predictive scaling policy for the Auto Scaling group to automatically adjust the number of Amazon EC2 instances is incorrect. Although this type of scaling policy can be used in this scenario, it is not the most operationally efficient option. Take note that the scenario mentioned that the Auto Scaling group consists of Amazon EC2 instances with different instance types and sizes. Predictive scaling assumes that your Auto Scaling group is homogenous, which means that all EC2 instances are of equal capacity. The forecasted capacity can be inaccurate if you are using a variety of EC2 instance sizes and types on your Auto Scaling group.
+<span style="color:red"><strong>🔴 The option that says: Configure a Predictive scaling policy for the Auto Scaling group to automatically adjust the number of Amazon EC2 instances is incorrect.</strong></span> Although this type of scaling policy can be used in this scenario, it is not the most operationally efficient option. Take note that the scenario mentioned that the Auto Scaling group consists of Amazon EC2 instances with different instance types and sizes. Predictive scaling assumes that your Auto Scaling group is homogenous, which means that all EC2 instances are of equal capacity. The forecasted capacity can be inaccurate if you are using a variety of EC2 instance sizes and types on your Auto Scaling group.
 
 </details>
 
@@ -164,11 +164,11 @@ Otherwise, it is better to use **step scaling policies** instead.
      alt="Auto Scaling step scaling configuration example"
      width="600" />
 
-🔴 **Target tracking scaling is incorrect** because the target tracking scaling policy increases or decreases the current capacity of the group based on a **target value for a specific metric**, instead of a **set of scaling adjustments**.
+<span style="color:red"><strong>🔴 Target tracking scaling is incorrect</strong></span> because the target tracking scaling policy increases or decreases the current capacity of the group based on a **target value for a specific metric**, instead of a **set of scaling adjustments**.
 
-🔴 **Simple scaling is incorrect** because the simple scaling policy increases or decreases the current capacity of the group based on a **single scaling adjustment**, instead of a **set of scaling adjustments**.
+<span style="color:red"><strong>🔴 Simple scaling is incorrect</strong></span> because the simple scaling policy increases or decreases the current capacity of the group based on a **single scaling adjustment**, instead of a **set of scaling adjustments**.
 
-🔴 **Scheduled Scaling is incorrect** because the scheduled scaling policy is based on a **schedule** that allows you to set your own scaling schedule for **predictable load changes**.
+<span style="color:red"><strong>🔴 Scheduled Scaling is incorrect</strong></span> because the scheduled scaling policy is based on a **schedule** that allows you to set your own scaling schedule for **predictable load changes**.
 This is **not considered** as one of the types of **dynamic scaling**.
 
 #### 🟢 Target Tracking Scaling
@@ -276,9 +276,9 @@ The **110% compute capacity for the 4 servers** might cause some degradation of 
 
 Take note that **Auto Scaling** will launch additional **EC2 instances** to the remaining **Availability Zone/s** in the event of an **Availability Zone outage** in the region. Hence, **the correct answer is the option that says: Deploy four EC2 instances with Auto Scaling in one Availability Zone and four in another availability zone in the same region behind an Amazon Elastic Load Balancer.**
 
-🔴 **The option that says: Deploy eight EC2 instances with Auto Scaling in one Availability Zone behind an Amazon Elastic Load Balancer is incorrect** because this architecture is **not highly available.** If that Availability Zone goes down, then your web application will be unreachable.
+<span style="color:red"><strong>🔴 The option that says: Deploy eight EC2 instances with Auto Scaling in one Availability Zone behind an Amazon Elastic Load Balancer is incorrect</strong></span> because this architecture is **not highly available.** If that Availability Zone goes down, then your web application will be unreachable.
 
-🔴 **The options that say: Deploy four EC2 instances with Auto Scaling in one region and four in another region behind an Amazon Elastic Load Balancer and Deploy two EC2 instances with Auto Scaling in four regions behind an Amazon Elastic Load Balancer are incorrect** because the **ELB is designed to only run in one region and not across multiple regions.**
+<span style="color:red"><strong>🔴 The options that say: Deploy four EC2 instances with Auto Scaling in one region and four in another region behind an Amazon Elastic Load Balancer and Deploy two EC2 instances with Auto Scaling in four regions behind an Amazon Elastic Load Balancer are incorrect</strong></span> because the **ELB is designed to only run in one region and not across multiple regions.
 
 🟢 **The default termination policy** is designed to help ensure that your **network architecture spans Availability Zones evenly.**
 With the **default termination policy**, the behavior of the **Auto Scaling group** is as follows:
@@ -302,11 +302,11 @@ If there is one such instance, **terminate it.**
 🟢 **Hence, the correct answer is:**
 **The EC2 instance launched from the oldest launch template.**
 
-🔴 **The option that says:** *The EC2 instance which has the least number of user sessions* is **incorrect** because the **number of user sessions** is **not typically a factor** considered by Amazon EC2 Auto Scaling groups when deciding which instances to terminate during a **scale-in event.**
+<span style="color:red"><strong>🔴 The option that says: The EC2 instance which has the least number of user sessions is incorrect</strong></span> because the **number of user sessions** is **not typically a factor** considered by Amazon EC2 Auto Scaling groups when deciding which instances to terminate during a **scale-in event.**
 
-🔴 **The option that says:** *The EC2 instance which has been running for the longest time* is **incorrect** because the **duration** for which an EC2 instance has been running is **not a primary factor** considered by Amazon EC2 Auto Scaling when deciding which instances to terminate.
+<span style="color:red"><strong>🔴 The option that says: The EC2 instance which has been running for the longest time is incorrect</strong></span> because the **duration** for which an EC2 instance has been running is **not a primary factor** considered by Amazon EC2 Auto Scaling when deciding which instances to terminate.
 
-🔴 **The option that says:** *The instance will be randomly selected by the Auto Scaling group* is **incorrect** because **Amazon EC2 Auto Scaling groups do not randomly select instances** for termination during a scale-in event — random selection only occurs **if all other conditions are equal.**
+<span style="color:red"><strong>🔴 The option that says: The instance will be randomly selected by the Auto Scaling group is incorrect</strong></span> because **Amazon EC2 Auto Scaling groups do not randomly select instances** for termination during a scale-in event — random selection only occurs **if all other conditions are equal.**
 
 </details>
 
