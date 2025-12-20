@@ -384,7 +384,7 @@ When:
 As the Senior Solutions Architect, how can you implement a cost-effective architecture in AWS for their financial system?\*\*
 
 - 🅐 Use Dedicated Hosts, which provide a physical host that is fully dedicated to running your instances, and bring your existing per-socket, per-core, or per-VM software licenses to reduce costs.
-- 🅑 Use **On-Demand Capacity Reservations**, which provide compute capacity that is always available in the specified Availability Zone.
+- 🅑 Use On-Demand Capacity Reservations, which provide compute capacity that is always available in the specified Availability Zone.
 - 🅒 Use Regional Reserved Instances to reserve capacity on a specific Availability Zone and lower the operating cost through its billing discounts.
 - 🅓 Use On-Demand EC2 instances which allow you to pay for the instances that you launch and use by the second. Reserve compute capacity in a specific Availability Zone to avoid any interruption.
 
@@ -671,6 +671,257 @@ When you need:
 - **Lowest possible DR cost**
 
 👉 **AWS Elastic Disaster Recovery (AWS DRS) with a pilot light strategy** is the most cost-effective and purpose-built solution.
+
+</details>
+
+---
+
+## Question 11
+
+**A company has an e-commerce application that saves the transaction logs to an Amazon S3 bucket. You are instructed by the CTO to configure the application to keep the transaction logs for one month for troubleshooting purposes, and then afterward, purge the logs.**
+
+**What should you do to accomplish this requirement?**
+
+* 🅐 Add a new bucket policy on the Amazon S3 bucket.
+* 🅑 Configure the lifecycle configuration rules on the Amazon S3 bucket to purge the transaction logs after a month.
+* 🅒 Create a new IAM policy for the Amazon S3 bucket that automatically deletes the logs after a month.
+* 🅓 Enable CORS on the Amazon S3 bucket which will enable the automatic monthly deletion of data.
+
+<details>
+<summary>Answer & Explanation</summary>
+
+### ✅ Correct Answer: 🅑
+
+**Configure the lifecycle configuration rules on the Amazon S3 bucket to purge the transaction logs after a month.**
+
+### Explanation
+
+The requirement is:
+
+* Retain logs for a **fixed period (1 month)**
+* **Automatically delete** logs after that period
+* Use a **managed, low-overhead solution**
+
+**Amazon S3 Lifecycle configuration rules** are specifically designed for this purpose:
+
+* You can define a rule to **expire (delete) objects** after a specified number of days.
+* Works automatically without manual intervention.
+* Can be scoped to a **prefix or tag** if only certain logs need to be managed.
+
+In this scenario, the best way to accomplish the requirement is to simply configure the lifecycle configuration rules on the Amazon S3 bucket to purge the transaction logs after a month.
+
+Lifecycle configuration enables you to specify the lifecycle management of objects in a bucket. The configuration is a set of one or more rules, where each rule defines an action for Amazon S3 to apply to a group of objects. These actions can be classified as follows:
+
+Transition actions – In which you define when objects transition to another storage class. For example, you may choose to transition objects to the STANDARD_IA (IA, for infrequent access) storage class 30 days after creation or archive objects to the GLACIER storage class one year after creation.
+
+Expiration actions – In which you specify when the objects expire. Then Amazon S3 deletes the expired objects on your behalf.
+
+### Why the other options are incorrect
+
+* ❌ **Bucket policy**
+  Controls **access permissions**, not object retention or deletion schedules.
+
+* ❌ **IAM policy**
+  Defines **who can perform actions**, not when objects are deleted.
+
+* ❌ **CORS configuration**
+  Controls **cross-origin access for browsers**, not lifecycle management.
+
+### Key takeaway 📌
+
+For **time-based retention and automatic deletion of S3 objects**, always use:
+
+👉 **Amazon S3 Lifecycle configuration rules**
+
+</details>
+
+---
+
+## Question 12
+
+**A company is building an automation tool for generating custom reports on its AWS usage. The company must be able to programmatically access and forecast usage costs on specific services.
+
+Which of the following would meet the requirements with the LEAST amount of operational overhead?**
+
+* 🅐 Utilize the downloadable AWS Cost Explorer report `.csv` files to access the cost-related data. Predict usage costs using AWS Budgets.
+* 🅑 Generate AWS Budgets reports for usage cost data and deliver them via Amazon Simple Queue Service (SQS).
+* 🅒 Configure AWS Budgets to send usage cost data to the company via Amazon SNS.
+* 🅓 Use the AWS Cost Explorer API with pagination to programmatically retrieve the usage cost-related data.
+
+<details>
+<summary>Answer & Explanation</summary>
+
+### ✅ Correct Answer: 🅓
+
+**Use the AWS Cost Explorer API with pagination to programmatically retrieve the usage cost-related data.**
+
+### Explanation
+
+The requirements are:
+
+* **Programmatic access** to AWS usage and cost data
+* Ability to **forecast costs** on **specific AWS services**
+* **Least operational overhead** for an automation tool
+
+**AWS Cost Explorer API** is purpose-built for this use case:
+
+* Provides **programmatic access** to detailed cost and usage data.
+* Supports **service-level granularity**, filtering, and grouping.
+* Includes **cost forecasting capabilities** via the API.
+* Pagination support allows handling **large datasets efficiently**.
+* No need to manage file downloads, message queues, or notifications.
+
+![AWS Cost Explorer](https://media.tutorialsdojo.com/public/td-cost-explorer-10-03-2024.png)
+
+AWS Cost Explorer is a service provided by Amazon Web Services (AWS) that helps you visualize, understand, and analyze your AWS costs and usage. It provides a comprehensive set of tools and features to help you monitor and manage your AWS spending.
+
+The primary purpose of AWS Cost Explorer is to help you gain insights into your AWS costs and usage patterns over time. It lets you view and analyze your historical spending data, forecast future costs, and identify cost-saving opportunities.
+
+You can programmatically query your cost and usage data via the Cost Explorer API. You can query for aggregated data such as total monthly costs or total daily usage. You can also query for granular data, such as the number of daily write operations for DynamoDB database tables in your production environment.
+
+By using the AWS Cost Explorer API, the company can programmatically access the usage cost-related data they need on specific services. The pagination feature allows for the efficient retrieval of large datasets.
+
+### Why the other options add more overhead
+
+* ❌ **🅐 Downloadable CSV reports + Budgets**
+  Requires manual or scheduled file handling and separate tooling to parse and analyze data.
+
+* ❌ **🅑 Budgets reports via SQS**
+  AWS Budgets is designed for **alerts and thresholds**, not detailed analytics or forecasting pipelines.
+
+* ❌ **🅒 Budgets via SNS**
+  Suitable for notifications, not for **custom reporting or forecasting**.
+
+### Key takeaway 📌
+
+For **automated, low-overhead, programmatic access** to AWS cost and usage data with forecasting support:
+
+👉 **AWS Cost Explorer API** is the most efficient and scalable solution.
+
+</details>
+
+---
+
+## Question 13
+
+**Both historical records and frequently accessed data are stored on an on-premises storage system. The amount of current data is growing at an exponential rate. As the storage capacity is nearing its limit, the company’s Solutions Architect has decided to move the historical records to AWS to free up space for the active data.**
+
+**Which of the following architectures delivers the best solution in terms of cost and operational management?**
+
+* 🅐 Use AWS Storage Gateway to move the historical records from on-premises to AWS. Choose Amazon S3 Glacier Deep Archive as the destination for the data.
+* 🅑 Use AWS Storage Gateway to move the historical records from on-premises to AWS. Choose Amazon S3 Glacier as the destination for the data. Modify the S3 lifecycle configuration to move the data from the Standard tier to Amazon S3 Glacier Deep Archive after 30 days.
+* 🅒 Use AWS DataSync to move the historical records from on-premises to AWS. Choose Amazon S3 Glacier Deep Archive as the destination for the data.
+* 🅓 Use AWS DataSync to move the historical records from on-premises to AWS. Choose Amazon S3 Standard as the destination for the data. Modify the S3 lifecycle configuration to move the data from the Standard tier to Amazon S3 Glacier Deep Archive after 30 days.
+
+<details>
+<summary>Answer & Explanation</summary>
+
+### ✅ Correct Answer: 🅒
+
+**Use AWS DataSync to move the historical records from on-premises to AWS and store them in Amazon S3 Glacier Deep Archive.**
+
+### Explanation
+
+AWS DataSync makes it simple and fast to move large amounts of data online between on-premises storage and Amazon S3, Amazon Elastic File System (Amazon EFS), or Amazon FSx for Windows File Server. Manual tasks related to data transfers can slow down migrations and burden IT operations. DataSync eliminates or automatically handles many of these tasks, including scripting copy jobs, scheduling, and monitoring transfers, validating data, and optimizing network utilization. The DataSync software agent connects to your Network File System (NFS), Server Message Block (SMB) storage, and your self-managed object storage, so you don’t have to modify your applications.
+
+DataSync can transfer hundreds of terabytes and millions of files at speeds up to 10 times faster than open-source tools, over the Internet or AWS Direct Connect links. You can use DataSync to migrate active data sets or archives to AWS, transfer data to the cloud for timely analysis and processing, or replicate data to AWS for business continuity. Getting started with DataSync is easy: deploy the DataSync agent, connect it to your file system, select your AWS storage resources, and start moving data between them. You pay only for the data you move.
+
+Since the problem is mainly about moving historical records from on-premises to AWS, using AWS DataSync is a more suitable solution. You can use DataSync to move cold data from expensive on-premises storage systems directly to durable and secure long-term storage, such as Amazon S3 Glacier or Amazon S3 Glacier Deep Archive.
+
+Hence, the correct answer is the option that says: Use AWS DataSync to move the historical records from on-premises to AWS. Choose Amazon S3 Glacier Deep Archive to be the destination for the data.
+
+The following options are both incorrect:
+– Use AWS Storage Gateway to move the historical records from on-premises to AWS. Choose Amazon S3 Glacier Deep Archive to be the destination for the data.
+– Use AWS Storage Gateway to move the historical records from on-premises to AWS. Choose Amazon S3 Glacier to be the destination for the data. Modify the S3 lifecycle configuration to move the data from the Standard tier to Amazon S3 Glacier Deep Archive after 30 days. 
+
+Although you can copy data from on-premises to AWS with Storage Gateway, it is not suitable for transferring large sets of data to AWS. Storage Gateway is mainly used in providing low-latency access to data by caching frequently accessed data on-premises while storing archive data securely and durably in Amazon cloud storage services. Storage Gateway optimizes data transfer to AWS by sending only changed data and compressing data.
+
+The option that says: Use AWS DataSync to move the historical records from on-premises to AWS. Choose Amazon S3 Standard to be the destination for the data. Modify the S3 lifecycle configuration to move the data from the Standard tier to Amazon S3 Glacier Deep Archive after 30 days is incorrect because, with AWS DataSync, you can transfer data from on-premises directly to Amazon S3 Glacier Deep Archive. **You don’t have to configure the S3 lifecycle policy and wait for 30 days to move the data to Glacier Deep Archive.**
+
+</details>
+
+---
+
+## Question 14
+
+**In Amazon EC2, you can manage your instances from the moment you launch them up to their termination. You can flexibly control your computing costs by changing the EC2 instance state.**
+
+**Which of the following statements is true regarding EC2 billing? (Select TWO.)**
+
+* 🅐 You will be billed when your Spot instance is preparing to stop with a **stopping** state.
+* 🅑 You will be billed when your On-Demand instance is in **pending** state.
+* 🅒 You will be billed when your Reserved instance is in **terminated** state.
+* 🅓 You will be billed when your On-Demand instance is preparing to hibernate with a **stopping** state.
+* 🅔 You will not be billed for any instance usage while an instance is not in the **running** state.
+
+<details>
+<summary>Answer & Explanation</summary>
+
+### ✅ **Correct Answers: 🅒 and 🅓**
+
+## ✅ 🅒 You will be billed when your Reserved instance is in **terminated** state
+
+**Explanation (fixed, aligned):**
+
+* **Reserved Instances (RIs)** are **billing commitments**, not physical instances.
+* Even if the EC2 instance associated with a Reserved Instance is **terminated**, **RI charges continue until the end of the reservation term**, based on the selected payment option (No Upfront, Partial Upfront, or All Upfront).
+* Therefore, from a **billing perspective**, charges still apply even though the instance is terminated.
+
+✔ Hence, **this statement is considered true** in the context of billing.
+
+## ✅ 🅓 You will be billed when your On-Demand instance is preparing to hibernate with a **stopping** state
+
+**Explanation (fixed, aligned):**
+
+* When an On-Demand instance is **hibernating**, EC2 saves the instance memory (RAM) to the root EBS volume.
+* While the instance is **in the `stopping` state for hibernation**, **compute charges still apply**.
+* Billing stops only after the instance has fully entered the **`stopped`** state.
+
+✔ Hence, **this statement is true**.
+
+---
+
+By working with Amazon EC2 to manage your instances from the moment you launch them through their termination, you ensure that your customers have the best possible experience with the applications or sites that you host on your instances. The following illustration represents the transitions between instance states. Notice that you can’t stop and start an instance store-backed instance:
+
+Below are the valid EC2 lifecycle instance states:
+- pending – The instance is preparing to enter the running state. An instance enters the pending state when it launches for the first time, or when it is restarted after being in the stopped state.
+- running – The instance is running and ready for use.
+- stopping – The instance is preparing to be stopped. Take note that you will not billed if it is preparing to stop however, you will still be billed if it is just preparing to hibernate.
+- stopped – The instance is shut down and cannot be used. The instance can be restarted at any time.
+- shutting-down – The instance is preparing to be terminated.
+- terminated – The instance has been permanently deleted and cannot be restarted. Take note that Reserved Instances that applied to terminated instances are still billed until the end of their term according to their payment option.
+
+## ❌ Why the other options are incorrect (fixed)
+
+### ❌ 🅑 You will be billed when your On-Demand instance is in **pending** state
+
+* You are **not billed while an instance is in the `pending` state**.
+* Billing starts only after the instance transitions to the **`running` state**.
+
+❌ Therefore, this option is **incorrect**.
+
+### ❌ 🅐 You will be billed when your Spot instance is preparing to stop with a **stopping** state
+
+* When AWS reclaims a Spot Instance, **you are not billed during the stopping phase**.
+* Billing stops once AWS begins the interruption process.
+
+❌ Therefore, this option is **incorrect**.
+
+### ❌ 🅔 You will not be billed unless the instance is running
+
+* This statement is **not entirely true**.
+* You can still be billed while an instance is **preparing to hibernate**.
+
+❌ Therefore, this option is **incorrect**.
+
+## 📌 Final Consistent Takeaway
+
+* ✅ Reserved Instance charges continue **even if the instance is terminated**
+* ✅ On-Demand instances are billed while **preparing to hibernate**
+* ❌ Spot instances are not billed during stopping
+* ❌ Billing does not strictly depend only on the running state
+
+**Final Answer: 🅒 and 🅓** ✔
 
 </details>
 

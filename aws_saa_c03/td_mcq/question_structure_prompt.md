@@ -68,3 +68,6 @@ Use these rules when editing any files under `aws_saa_c03/td_mcq`.
 - Use red text when explicitly calling out **incorrect** options inside the answer/explanation.
 - Wrap the label or heading for the wrong option with a red `<span>`, for example:  
   `<span style="color:red"><strong>Option B – Incorrect</strong></span>`
+
+### 7. Each question should be in the bold
+
