@@ -22,6 +22,7 @@ Sections:-
 - [19. Route 53 Resolvers & Hybrid DNS](#19-route-53-resolvers--hybrid-dns)
 - [20. Cleaning Up Route 53 and AWS Resources ](#20-cleaning-up-route-53-and-aws-resources)
 - [21. Q & A](#21-q--a)
+- [Others](#others)
 
 ---
 
@@ -1672,3 +1673,26 @@ This tells the global DNS system to delegate DNS resolution for your domain to R
 
 ---
 
+## Others
+
+### Active-Active vs Active-Passive Failover
+
+You can use Route 53 health checking to configure active-active and active-passive failover configurations. You configure active-active failover using any routing policy (or combination of routing policies) other than failover, and you configure active-passive failover using the failover routing policy.
+
+<img src="https://media.tutorialsdojo.com/AWS-Route53-Weighted.PNG"
+     alt="Route 53 weighted routing diagram"
+     width="600" />
+
+**Active-Active Failover**
+
+Use this failover configuration when you want all of your resources to be available the majority of the time. When a resource becomes unavailable, Route 53 can detect that it’s unhealthy and stop including it when responding to queries.
+
+In active-active failover, all the records that have the same name, the same type (such as A or AAAA), and the same routing policy (such as weighted or latency) are active unless Route 53 considers them unhealthy. Route 53 can respond to a DNS query using any healthy record.
+
+Hence, Configuring an Active-Active Failover with Weighted routing policy is correct.
+
+**Active-Passive Failover**
+
+Use an active-passive failover configuration when you want a primary resource or group of resources to be available the majority of the time and you want a secondary resource or group of resources to be on standby in case all the primary resources become unavailable. When responding to queries, Route 53 includes only the healthy primary resources. If all the primary resources are unhealthy, Route 53 begins to include only the healthy secondary resources in response to DNS queries.
+
+---
