@@ -22,6 +22,10 @@
 
 ## 🔑 AWS KMS (Key Management Service)
 
+### What is KMS?
+- **Managed encryption service** for creating and controlling encryption keys
+- **Centralized key management** for AWS services and applications
+
 ### Key Types
 - **Symmetric (AES-256)**: Single key for encrypt/decrypt (AWS services use this)
 - **Asymmetric (RSA/ECC)**: Public key encrypt, private key decrypt
@@ -63,6 +67,10 @@
 
 ## 📦 SSM PARAMETER STORE
 
+### What is SSM Parameter Store?
+- **Centralized configuration management** service for storing application configuration and secrets
+- **Hierarchical storage** with versioning and encryption support
+
 ### Features
 - Secure storage for config & secrets
 - IAM access control
@@ -103,6 +111,10 @@ aws ssm get-parameters-by-path --path /my-app/dev --recursive --with-decryption
 
 ## 🔐 AWS SECRETS MANAGER
 
+### What is Secrets Manager?
+- **Managed service** for storing and rotating secrets (passwords, API keys, database credentials)
+- **Automatic rotation** capabilities for RDS, Redshift, and other services
+
 ### Key Features
 - **Automatic secret rotation** (main advantage over SSM)
 - Automated secret generation via Lambda
@@ -123,6 +135,10 @@ aws ssm get-parameters-by-path --path /my-app/dev --recursive --with-decryption
 ---
 
 ## 🎫 AWS CERTIFICATE MANAGER (ACM)
+
+### What is ACM?
+- **Managed service** for provisioning, managing, and deploying SSL/TLS certificates
+- **Automatic renewal** for public certificates at no additional cost
 
 ### Features
 - Provision & manage TLS/SSL certificates
@@ -155,6 +171,10 @@ aws ssm get-parameters-by-path --path /my-app/dev --recursive --with-decryption
 
 ## 🛡️ AWS WAF (Web Application Firewall)
 
+### What is WAF?
+- **Web application firewall** that protects web applications from common web exploits
+- **Layer 7 protection** against SQL injection, XSS, and other OWASP Top 10 vulnerabilities
+
 ### Deployment Targets
 - Application Load Balancer (ALB)
 - API Gateway
@@ -182,6 +202,10 @@ aws ssm get-parameters-by-path --path /my-app/dev --recursive --with-decryption
 ---
 
 ## 🛡️ AWS SHIELD
+
+### What is Shield?
+- **Managed DDoS protection service** for AWS applications
+- **Two tiers**: Standard (free) and Advanced (paid) with enhanced protection
 
 ### Shield Standard (FREE)
 - Auto-enabled for all AWS customers
@@ -268,6 +292,10 @@ aws ssm get-parameters-by-path --path /my-app/dev --recursive --with-decryption
 ---
 
 ## 🔎 AMAZON INSPECTOR
+
+### What is Inspector?
+- **Automated security assessment service** that scans for vulnerabilities and deviations from best practices
+- **Continuous monitoring** of EC2 instances, container images, and Lambda functions
 
 ### Scans
 - **EC2 instances**: Network reachability, OS vulnerabilities (via SSM agent)

@@ -2,6 +2,10 @@
 
 ## 🗄️ AWS RDS (Relational Database Service)
 
+### What is RDS?
+- **Managed relational database service** that automates database administration tasks
+- **Supports multiple database engines** with automated backups, patching, and monitoring
+
 ### Supported Engines
 - PostgreSQL
 - MySQL
@@ -64,6 +68,10 @@
 ---
 
 ## 🚀 AMAZON AURORA
+
+### What is Aurora?
+- **AWS-proprietary database engine** compatible with MySQL and PostgreSQL
+- **Cloud-native design** with automatic scaling, self-healing storage, and high performance
 
 ### Performance
 - 🚀 **5x faster** than MySQL on RDS
@@ -164,6 +172,10 @@
 
 ## 🔌 AMAZON RDS PROXY
 
+### What is RDS Proxy?
+- **Fully managed database proxy** that pools and shares database connections
+- **Reduces connection overhead** and improves application scalability and resilience
+
 ### Purpose
 - **Connection pooling** for RDS/Aurora
 - **Reduces database connections**
@@ -183,6 +195,10 @@
 ---
 
 ## 🔥 AMAZON ELASTICACHE
+
+### What is ElastiCache?
+- **Managed in-memory caching service** supporting Redis and Memcached
+- **Improves application performance** by caching frequently accessed data
 
 ### Purpose
 - **In-memory caching** for databases

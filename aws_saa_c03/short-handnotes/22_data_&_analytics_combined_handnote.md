@@ -140,6 +140,10 @@
 
 ## 📡 AMAZON KINESIS
 
+### What is Kinesis?
+- **Real-time streaming data platform** for collecting, processing, and analyzing streaming data at scale
+- **Multiple services**: Data Streams (real-time streaming), Data Firehose (data loading), Data Analytics (real-time analytics), Video Streams (video streaming)
+
 ### Kinesis Data Streams
 - **Real-time streaming** data
 - **Shards**: Throughput units

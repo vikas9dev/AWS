@@ -94,6 +94,10 @@
 
 ## 🚀 AWS FARGATE
 
+### What is Fargate?
+- **Serverless compute engine** for containers that eliminates the need to manage EC2 instances
+- **Pay only for resources** you use, with automatic scaling and no infrastructure management
+
 ### Features
 - ✅ **Serverless** containers
 - ✅ **No EC2** instances to manage

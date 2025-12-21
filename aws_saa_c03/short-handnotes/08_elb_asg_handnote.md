@@ -23,6 +23,10 @@
 
 ## ⚖️ LOAD BALANCERS
 
+### What are Load Balancers?
+- **Distributed traffic** across multiple targets (EC2 instances, containers, IPs)
+- **High availability** and fault tolerance by routing traffic only to healthy targets
+
 ### Why Use Load Balancers?
 - ✅ Single point of access
 - ✅ Automatic failure handling
@@ -44,6 +48,10 @@
 ---
 
 ## 🌐 APPLICATION LOAD BALANCER (ALB)
+
+### What is ALB?
+- **Layer 7 load balancer** for HTTP/HTTPS traffic with advanced routing capabilities
+- **Content-based routing** using path, hostname, headers, and query strings
 
 ### Features
 - ✅ **Layer 7** (HTTP/HTTPS)
@@ -71,6 +79,10 @@
 
 ## ⚡ NETWORK LOAD BALANCER (NLB)
 
+### What is NLB?
+- **Layer 4 load balancer** for TCP, TLS, and UDP traffic with ultra-low latency
+- **Static IP addresses** and ability to handle millions of requests per second
+
 ### Features
 - ✅ **Layer 4** (TCP/UDP)
 - ✅ **High performance**: Millions of requests/sec
@@ -96,6 +108,10 @@
 ---
 
 ## 🚪 GATEWAY LOAD BALANCER (GWLB)
+
+### What is GWLB?
+- **Layer 3 load balancer** for deploying and managing third-party network virtual appliances
+- **Transparent network gateway** that distributes traffic to security appliances (firewalls, IDPS)
 
 ### Purpose
 - Deploy, scale, manage **third-party network virtual appliances**
