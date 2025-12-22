@@ -98,6 +98,9 @@
 2. Allocate Elastic IP
 3. Update **private subnet route table**: `0.0.0.0/0 → nat-gateway-id`
 
+### Egress-Only Internet Gateway (EIGW)
+- Very similar to NAT Gateway but only for IPV6 (NAT Gateway for IPV4)
+
 ---
 
 ## 🔒 SECURITY GROUPS vs NACLs
