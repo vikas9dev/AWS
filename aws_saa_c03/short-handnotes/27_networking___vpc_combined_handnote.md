@@ -190,11 +190,12 @@
 - **VPN CloudHub**: Hub-and-spoke model with multiple VPNs to same VGW
 
 ### Direct Connect
-- **Private connection** (bypasses internet)
+- **Private connection** (bypasses internet) from your remote network into your VPC
 - **Dedicated**: 1 Gbps, 10 Gbps, 100 Gbps (AWS provided)
 - **Hosted**: 50 Mbps - 10 Gbps (partner provided)
 - **More secure & stable** than VPN
 - **Direct Connect Gateway**: Connect to multiple VPCs in different regions
+- ⚠️ Warning: Setting up either a dedicated or hosted connection often takes longer than one month.
 
 ### Direct Connect Virtual Interfaces (VIFs)
 - **Private VIF**: Access private AWS resources (EC2 in VPC)
@@ -235,6 +236,7 @@
 ### Purpose
 - Copy network traffic from ENIs for analysis
 - Send to destinations for security/network analysis
+- VPC Traffic Mirroring is a security feature that allows you to capture and inspect network traffic within your VPC in a non-intrusive way. The goal is to route traffic to security appliances that you manage for analysis.
 
 ---
 
