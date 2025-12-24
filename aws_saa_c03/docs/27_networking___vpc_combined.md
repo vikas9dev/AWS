@@ -1953,7 +1953,7 @@ To connect to public services within AWS (e.g., Amazon S3, Amazon Glacier):
 1.  Set up a public virtual interface (public VIF).
 2.  The connection goes through the same path but connects directly to AWS instead of a virtual private gateway.
 
-### Connecting to Multiple VPCs in Different Regions
+### Direct Connect Gateway - Connecting to Multiple VPCs in Different Regions
 
 To connect to one or more VPCs in different regions, use a Direct Connect gateway.
 
