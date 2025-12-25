@@ -360,7 +360,7 @@ For KMS-encrypted data access from Lambda:
 
 **A pharmaceutical company has resources hosted on both its on-premises network and in the AWS cloud. The company requires all Software Architects to access resources in both environments using on-premises credentials, which are stored in Active Directory.**
 
-In this scenario, which of the following can be used to fulfill this requirement?\*\*
+**In this scenario, which of the following can be used to fulfill this requirement?**
 
 - 🅐 Use IAM users
 - 🅑 Use Amazon VPC

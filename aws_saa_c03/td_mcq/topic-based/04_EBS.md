@@ -74,6 +74,11 @@ Which of the following are valid points in proving that EBS is the best service 
 
 <summary><strong>Answer & Explanation</strong> 📝</summary>
 
+The correct answers are:
+
+- ✅ EBS volumes support live configuration changes while in production, which means that you can modify the volume type, volume size, and IOPS capacity without service interruptions.
+- ✅ An EBS volume is off-instance storage that can persist independently from the life of an instance.
+
 🟢 **Amazon EBS (Elastic Block Store)** volume is a **durable, block-level storage device** that you can attach to a **single EC2 instance.**
 You can use **EBS volumes** as **primary storage** for data that requires **frequent updates**, such as the **system drive** for an instance or **database application storage**.
 They are also useful for **throughput-intensive applications** that perform **continuous disk scans.**

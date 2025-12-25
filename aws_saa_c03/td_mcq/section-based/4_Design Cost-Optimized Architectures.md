@@ -38,11 +38,11 @@ The option that says: Enable the hibernation mode on the EC2 instance is incorre
 
 ## Question 2
 
-\*\*A company is building an internal application that allows users to upload images. Each upload request must be sent to Amazon Kinesis Data Streams for processing before the pictures are stored in an Amazon S3 bucket.
+**A company is building an internal application that allows users to upload images. Each upload request must be sent to Amazon Kinesis Data Streams for processing before the pictures are stored in an Amazon S3 bucket.**
 
-The application should immediately return a success message to the user after the upload, while the downstream processing is handled asynchronously. The processing typically takes about 5 minutes to complete.
+**The application should immediately return a success message to the user after the upload, while the downstream processing is handled asynchronously. The processing typically takes about 5 minutes to complete.**
 
-Which solution will enable asynchronous processing from Kinesis to S3 in the most cost-effective way?\*\*
+**Which solution will enable asynchronous processing from Kinesis to S3 in the most cost-effective way?**
 
 - 🅐 Send data from Kinesis Data Streams to Amazon Kinesis Data Firehose and configure it to deliver directly to S3.
 - 🅑 Use Kinesis Data Streams with AWS Lambda consumers to asynchronously process records and write them to S3.
@@ -155,9 +155,9 @@ For applications with **variable or unpredictable traffic**, the most cost-effec
 
 ## Question 4
 
-\*\*A company is looking to store its confidential financial files in AWS, which are accessed every week. The Architect was instructed to set up the storage system, which uses envelope encryption and automates key rotation. It should also provide an audit trail that shows who used the encryption key and by whom for security purposes.
+**A company is looking to store its confidential financial files in AWS, which are accessed every week. The Architect was instructed to set up the storage system, which uses envelope encryption and automates key rotation. It should also provide an audit trail that shows who used the encryption key and by whom for security purposes.**
 
-Which combination of actions should the Architect implement to satisfy the requirement in the most cost-effective way? (Select TWO.)\*\*
+**Which combination of actions should the Architect implement to satisfy the requirement in the most cost-effective way? (Select TWO.)**
 
 - 🅐 Configure Server-Side Encryption with Customer-Provided Keys (SSE-C).
 - 🅑 Use Amazon S3 Glacier Deep Archive to store the data.
@@ -379,9 +379,9 @@ When:
 
 ## Question 6
 
-\*\*A multinational corporate and investment bank regularly processes steady workloads of accruals, loan interests, and other critical financial calculations every night from 10 PM to 3 AM on their on-premises data center for their corporate clients. Once the process is done, the results are uploaded to the Oracle General Ledger, which means that the processing should not be delayed or interrupted. The CTO has decided to move its IT infrastructure to AWS to save costs. The company needs to reserve compute capacity in a specific Availability Zone to properly run their workloads.
+**A multinational corporate and investment bank regularly processes steady workloads of accruals, loan interests, and other critical financial calculations every night from 10 PM to 3 AM on their on-premises data center for their corporate clients. Once the process is done, the results are uploaded to the Oracle General Ledger, which means that the processing should not be delayed or interrupted. The CTO has decided to move its IT infrastructure to AWS to save costs. The company needs to reserve compute capacity in a specific Availability Zone to properly run their workloads.**
 
-As the Senior Solutions Architect, how can you implement a cost-effective architecture in AWS for their financial system?\*\*
+**As the Senior Solutions Architect, how can you implement a cost-effective architecture in AWS for their financial system?**
 
 - 🅐 Use Dedicated Hosts, which provide a physical host that is fully dedicated to running your instances, and bring your existing per-socket, per-core, or per-VM software licenses to reduce costs.
 - 🅑 Use On-Demand Capacity Reservations, which provide compute capacity that is always available in the specified Availability Zone.
@@ -467,9 +467,9 @@ When workloads:
 
 ## Question 7
 
-\*\*A company plans to use a cloud storage service to temporarily store its log files. The number of files to be stored is still unknown, but it only needs to be kept for 12 hours.
+**A company plans to use a cloud storage service to temporarily store its log files. The number of files to be stored is still unknown, but it only needs to be kept for 12 hours.**
 
-Which of the following is the most cost-effective storage class to use in this scenario?\*\*
+**Which of the following is the most cost-effective storage class to use in this scenario?**
 
 - 🅐 Amazon S3 Standard
 - 🅑 Amazon S3 Glacier Deep Archive
@@ -535,9 +535,9 @@ Using IA or Glacier classes for short-lived data often **costs more**, not less,
 
 ## Question 8
 
-\*\*A company has stored 200 TB of backup files in Amazon S3. The files are in a vendor-proprietary format. The Solutions Architect needs to use the vendor’s proprietary file conversion software to retrieve the files from their Amazon S3 bucket, transform the files into an industry-standard format, and re-upload the files back to Amazon S3. The solution must minimize the data transfer costs.
+**A company has stored 200 TB of backup files in Amazon S3. The files are in a vendor-proprietary format. The Solutions Architect needs to use the vendor’s proprietary file conversion software to retrieve the files from their Amazon S3 bucket, transform the files into an industry-standard format, and re-upload the files back to Amazon S3. The solution must minimize the data transfer costs.**
 
-Which of the following options can satisfy the given requirement?\*\*
+**Which of the following options can satisfy the given requirement?**
 
 - 🅐 Install the file conversion software in Amazon S3. Use S3 Batch Operations to perform data transformation.
 - 🅑 Deploy an EC2 instance in the same Region as Amazon S3. Install the file conversion software on the instance. Perform data transformation and re-upload it to Amazon S3.
@@ -601,9 +601,9 @@ When:
 
 ## Question 9
 
-\*\*An e-commerce company plans to optimize its disaster recovery configuration using AWS Cloud to minimize operational disruptions during outages or major system maintenance for its on-premises Microsoft SQL Server–based application. The objective is to achieve a recovery point objective (RPO) of 60 seconds or less and a recovery time objective (RTO) of 1 hour.
+**An e-commerce company plans to optimize its disaster recovery configuration using AWS Cloud to minimize operational disruptions during outages or major system maintenance for its on-premises Microsoft SQL Server–based application. The objective is to achieve a recovery point objective (RPO) of 60 seconds or less and a recovery time objective (RTO) of 1 hour.**
 
-Which of the following is the MOST cost-effective solution for this scenario?\*\*
+**Which of the following is the MOST cost-effective solution for this scenario?**
 
 - 🅐 On AWS, implement a warm standby using Amazon RDS for SQL Server database and configure AWS Database Migration Service (AWS DMS) with change data capture (CDC) to sync the data from the on-premises application.
 - 🅑 Back up SQL Server to AWS Storage Gateway for hybrid storage and fast disaster recovery. Enable fast snapshot restore in Amazon Elastic Block Store (Amazon EBS).
@@ -739,9 +739,9 @@ For **time-based retention and automatic deletion of S3 objects**, always use:
 
 ## Question 12
 
-**A company is building an automation tool for generating custom reports on its AWS usage. The company must be able to programmatically access and forecast usage costs on specific services.
+**A company is building an automation tool for generating custom reports on its AWS usage. The company must be able to programmatically access and forecast usage costs on specific services.**
 
-Which of the following would meet the requirements with the LEAST amount of operational overhead?**
+**Which of the following would meet the requirements with the LEAST amount of operational overhead?**
 
 * 🅐 Utilize the downloadable AWS Cost Explorer report `.csv` files to access the cost-related data. Predict usage costs using AWS Budgets.
 * 🅑 Generate AWS Budgets reports for usage cost data and deliver them via Amazon Simple Queue Service (SQS).
@@ -859,7 +859,7 @@ The option that says: Use AWS DataSync to move the historical records from on-pr
 
 ### ✅ **Correct Answers: 🅒 and 🅓**
 
-## ✅ 🅒 You will be billed when your Reserved instance is in **terminated** state
+### ✅ 🅒 You will be billed when your Reserved instance is in **terminated** state
 
 **Explanation (fixed, aligned):**
 
@@ -869,7 +869,7 @@ The option that says: Use AWS DataSync to move the historical records from on-pr
 
 ✔ Hence, **this statement is considered true** in the context of billing.
 
-## ✅ 🅓 You will be billed when your On-Demand instance is preparing to hibernate with a **stopping** state
+### ✅ 🅓 You will be billed when your On-Demand instance is preparing to hibernate with a **stopping** state
 
 **Explanation (fixed, aligned):**
 
@@ -891,7 +891,7 @@ Below are the valid EC2 lifecycle instance states:
 - shutting-down – The instance is preparing to be terminated.
 - terminated – The instance has been permanently deleted and cannot be restarted. Take note that Reserved Instances that applied to terminated instances are still billed until the end of their term according to their payment option.
 
-## ❌ Why the other options are incorrect (fixed)
+### ❌ Why the other options are incorrect (fixed)
 
 ### ❌ 🅑 You will be billed when your On-Demand instance is in **pending** state
 
@@ -914,7 +914,7 @@ Below are the valid EC2 lifecycle instance states:
 
 ❌ Therefore, this option is **incorrect**.
 
-## 📌 Final Consistent Takeaway
+### 📌 Final Consistent Takeaway
 
 * ✅ Reserved Instance charges continue **even if the instance is terminated**
 * ✅ On-Demand instances are billed while **preparing to hibernate**
