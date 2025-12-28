@@ -330,8 +330,8 @@ As a solutions architect, which routing mechanism does the NLB use for these tar
 
 ## Question 7
 
-**A media agency stores its re-creatable assets on Amazon Simple Storage Service (Amazon S3) buckets. The assets are accessed by a large number of users for the first few days, and access frequency drops significantly after a week. The assets are still accessed occasionally afterward but must remain immediately accessible when required. Storage costs on Amazon S3 are becoming expensive, and the agency wants to reduce costs as much as possible.
-As an AWS Certified Solutions Architect – Associate, which solution would you suggest to lower storage costs while fulfilling the business requirements?**
+**A media agency stores its re-creatable assets on Amazon Simple Storage Service (Amazon S3) buckets. The assets are accessed by a large number of users for the first few days, and access frequency drops significantly after a week. The assets are still accessed occasionally afterward but must remain immediately accessible when required. Storage costs on Amazon S3 are becoming expensive, and the agency wants to reduce costs as much as possible.**
+**As an AWS Certified Solutions Architect – Associate, which solution would you suggest to lower storage costs while fulfilling the business requirements?**
 
 **Options:**
 

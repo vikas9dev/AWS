@@ -153,7 +153,7 @@ fields @timestamp, @message, @logStream
 - ✅ **Multi-region trails** (recommended)
 - ✅ **Log file validation** (integrity)
 - ✅ **Log file encryption** (KMS)
-- ✅ **S3 integration** (long-term storage)
+- ✅ **S3 integration** (long-term storage) - CloudTrail keeps event history for 90 days; long-term retention requires exporting logs to Amazon S3.
 - ✅ **CloudWatch Logs integration** (real-time analysis)
 
 ### CloudTrail Insights
