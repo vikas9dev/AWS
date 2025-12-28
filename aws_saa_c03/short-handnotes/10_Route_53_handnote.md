@@ -150,6 +150,7 @@
 ### S3 Static Website
 - **Alias record** points to S3 website endpoint
 - ✅ **Use case**: Static website hosting
+- For **S3 static website hosting**, the bucket name must **exactly match the domain name** (for example, `example.com`). This is required because Route 53 uses an **Alias record** that points to the S3 website endpoint, which is tied to the bucket name.
 
 ### CloudFront
 - **Alias record** points to CloudFront distribution

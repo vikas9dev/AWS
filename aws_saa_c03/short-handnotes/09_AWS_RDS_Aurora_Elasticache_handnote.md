@@ -20,7 +20,7 @@
 - ✅ Automated OS patching
 - ✅ Continuous backups with Point-in-Time Restore
 - ✅ Monitoring dashboards
-- ✅ Read replicas (up to 15)
+- ✅ Read replicas (up to 15) - A single primary DB instance can have a maximum of 15 read replicas in total — across all Availability Zones and all Regions combined. RDS read replicas are capped at 15 per primary DB instance globally (all AZs + Regions combined).
 - ✅ Multi-AZ for disaster recovery
 - ✅ Maintenance windows
 - ✅ Vertical & horizontal scaling
@@ -87,7 +87,7 @@
 - ✅ **Data distributed** across hundreds of volumes
 
 ### High Availability
-- ✅ **Up to 15 read replicas**
+- ✅ **Up to 15 read replicas** - Aurora supports 1 writer + up to 15 read replicas **per cluster**, and those replicas can be distributed across multiple AZs — but the limit applies per cluster, not across Regions.
 - ✅ **Sub-10ms replication lag**
 - ✅ **<30 second failover** (faster than Multi-AZ MySQL)
 - ✅ **Any read replica can become master**
@@ -111,6 +111,13 @@
 - **<1 second replication lag**
 - **RTO <1 minute** for failover
 - **Up to 16 read replicas** per secondary region
+
+Aurora Global Database (Multi-Region)
+* 1 **Primary Region**
+  * 1 writer + up to 15 readers
+* Each **Secondary Region**
+  * **Read-only cluster**
+  * Up to **16 readers per Region**
 
 ---
 
@@ -156,7 +163,7 @@
 
 ### Network Security
 - ✅ **VPC**: Deploy in private subnets
-- ✅ **Security Groups**: Control access
+- ✅ **Security Groups**: Control access - Both Amazon RDS and Amazon Aurora run in a VPC and are protected by Security Groups.
 - ✅ **No public access** (unless explicitly enabled)
 
 ### Authentication

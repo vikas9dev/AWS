@@ -53,6 +53,15 @@
 }
 ```
 
+> **`Principal` defines *who* gets access; `Action` defines *what* they can do; `Resource` defines *on what*.**
+
+> **`Principal` specifies the AWS account, user, role, service, or everyone (`*`) to whom the permission applies.**
+
+#### Common exam trap
+
+* **IAM identity-based policies** ❌ do **not** use `Principal`
+* **Resource-based policies (like S3 bucket policies)** ✅ **require `Principal`**
+
 ### Access Patterns
 - **Public Access**: Use **Bucket Policy**
 - **User Access**: Use **IAM Permissions**
@@ -239,18 +248,18 @@ Use bucket policy to deny HTTP:
 
 ### Storage Classes
 
-| Class | Availability | Use Case | Notes |
-|-------|-------------|----------|-------|
-| **S3 Standard** | 99.99% | Frequently accessed | Default, low latency, high throughput |
-| **S3 Standard-IA** | 99.9% | Infrequent access | Lower cost, retrieval fees |
-| **S3 One Zone-IA** | 99.5% | Secondary backups | Single AZ, 20% cheaper than Standard-IA |
-| **S3 Glacier Instant Retrieval** | - | Archive, ms retrieval | Min 90 days, accessed quarterly |
-| **S3 Glacier Flexible Retrieval** | - | Archive, flexible retrieval | Min 90 days, 3-5 hours (standard), 5-12 hours (bulk) |
-| **S3 Glacier Deep Archive** | - | Long-term archive | Min 180 days, 12 hours (standard), 48 hours (bulk) |
-| **S3 Intelligent-Tiering** | 99.99% | Auto-optimization | Small monitoring fee, no retrieval charges |
+| Class | Availability | Min Days | Use Case | Notes |
+|-------|-------------|-----------|----------|-------|
+| **S3 Standard** | 99.99% | 0 | Frequently accessed | Default, low latency, high throughput |
+| **S3 Standard-IA** | 99.9% | 30 | Infrequent access | Lower cost, retrieval fees |
+| **S3 One Zone-IA** | 99.5% | 30 | Secondary backups | Single AZ, 20% cheaper than Standard-IA |
+| **S3 Glacier Instant Retrieval** | - | 90 | Archive, ms retrieval | Min 90 days, accessed quarterly |
+| **S3 Glacier Flexible Retrieval** | - | 90 | Archive, flexible retrieval | Min 90 days, 3-5 hours (standard), 5-12 hours (bulk) |
+| **S3 Glacier Deep Archive** | - | 180 | Long-term archive | Min 180 days, 12 hours (standard), 48 hours (bulk) |
+| **S3 Intelligent-Tiering** | 99.99% | 0 | Auto-optimization | Small monitoring fee, no retrieval charges |
 
 ### Glacier Retrieval Options
-- **Expedited**: 1-5 minutes ($$$)
+- **Expedited**: 1-5 minutes ($$$) - only available in Flexible Retrieval
 - **Standard**: 3-5 hours (Flexible) / 12 hours (Deep Archive)
 - **Bulk**: 5-12 hours (Flexible) / 48 hours (Deep Archive) - FREE
 
@@ -295,6 +304,80 @@ Use bucket policy to deny HTTP:
 - ❌ **Doesn't work**: One-Zone-IA, Glacier
 - ✅ **CSV report**: Updated daily
 - ⏱️ **Time to data**: 24-48 hours
+
+<img src="https://assets-pt.media.datacumulus.com/aws-saa-pt/assets/pt1-q8-i1.jpg"
+         alt="S3 Standard to IA"
+         width="900" />
+
+```mermaid
+graph TD
+    A[S3 Standard]
+
+    %% IA classes (transition restriction)
+    A -->|30 days| B[S3 Standard-IA]
+    A -->|30 days| C[S3 Intelligent-Tiering]
+    A -->|30 days| D[S3 One Zone-IA]
+
+    %% Glacier classes (transition allowed immediately)
+    A -->|0 days| E[S3 Glacier Instant Retrieval]
+    A -->|0 days| F[S3 Glacier Flexible Retrieval]
+    A -->|0 days| G[S3 Glacier Deep Archive]
+
+    %% Glacier internal transitions (allowed immediately)
+    E -->|0 days| F
+    F -->|0 days| G
+```
+
+### One-line exam takeaway
+
+> **Only IA and Glacier tiers enforce minimum storage days — Standard to Glacier is immediate (0 days).**
+
+### Key clarification (this removes the confusion)
+
+There are **two different rules** that often get mixed up:
+- 1️⃣ Lifecycle **transition timing**: *When AWS allows you to transition an object*
+- 2️⃣ **Minimum storage duration charge**: *How long AWS bills you for, even if you move early*
+
+📌 **Important truth**
+
+* **Minimum storage duration does NOT block transitions**
+* It only affects **billing**
+
+### Correct AWS rules (authoritative)
+From **S3 Standard**
+* ➜ **IA / One Zone-IA / Intelligent-Tiering**
+  * ❌ **Cannot transition before 30 days**
+* ➜ **Any Glacier class**
+  * ✅ **Can transition at 0 days**
+
+This is why **Standard → Glacier = 0 days is VALID**, even though IA requires 30 days.
+
+### Retention rule vs lifecycle rule
+
+**Deleting S3 objects after 30 days is a *Lifecycle rule*, not a retention rule.**
+
+In **Amazon S3**, there are **two different concepts** that sound similar but mean different things:
+
+✅ Lifecycle rule
+
+* **Purpose:** Automate actions on objects over time
+* **Actions include:**
+  * Transition objects to another storage class
+  * **Expire (delete) objects after X days**
+* **Optional & configurable**
+* 📌 Example: Delete objects **after 30 days** → **Lifecycle expiration rule**
+
+❌ Retention rule (Object Lock)
+
+* **Purpose:** Prevent deletion or overwrite
+* **Used for:** Compliance (WORM – Write Once Read Many)
+* **Deletion is NOT allowed** until retention expires
+* **Overrides lifecycle rules**
+* 📌 Example: Retain objects for **7 years**, no one can delete them → **Retention rule**
+
+One-line exam takeaway
+
+> **Deleting objects after 30 days is done using an S3 lifecycle expiration rule, not a retention rule.**
 
 ---
 
