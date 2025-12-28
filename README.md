@@ -4,7 +4,7 @@ AWS Certified Solutions Architect Associate Certification SAA-C03
 
 ## 📝 About These Notes
 
-These notes were generated using **[NoteSynth](https://github.com/vikas9dev/NoteSynth)**, an AI-powered tool that transforms Udemy course captions into well-structured markdown notes using Google's Gemini API.
+Most of the part of these notes were generated using **[NoteSynth](https://github.com/vikas9dev/NoteSynth)**, an AI-powered tool that transforms Udemy course captions into well-structured markdown notes using Google's Gemini API.
 
 - **GitHub Repository**: [vikas9dev/NoteSynth](https://github.com/vikas9dev/NoteSynth)
 - **Docker Image**: [vikas9dev/notesynth](https://hub.docker.com/r/vikas9dev/notesynth)
