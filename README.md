@@ -92,19 +92,19 @@ Practical code examples and scripts for:
 - **SQS**: Queue examples
 - **SSM**: Parameter store scripts
 
-### 🎯 AWS Well-Architected Framework (`skill-builder/`)
+### 🎯 AWS Well-Architected Framework (`w_a_framework/`)
 
 Comprehensive coverage of the AWS Well-Architected Framework:
 
-1. Overview
-2. How to Run a Well-Architected Framework Review
-3. AWS Well-Architected Tool
-4. Operational Excellence Pillar
-5. Security Pillar
-6. Reliability Pillar
-7. Performance Efficiency Pillar
-8. Cost Optimization Pillar
-9. Sustainability Pillar
+1. `1_overview/` - Overview
+2. `2_how_to_run_a_well_architected_framework_review/` - How to Run a Well-Architected Framework Review
+3. `3_aws_well_architected_tool/` - AWS Well-Architected Tool
+4. `4_operational_excellence_pillar/` - Operational Excellence Pillar
+5. `5_security_pillar/` - Security Pillar
+6. `6_reliability_pillar/` - Reliability Pillar
+7. `7_performance_efficiency_pillar/` - Performance Efficiency Pillar
+8. `8_cost_optimization_pillar/` - Cost Optimization Pillar
+9. `9_sustainability_pillar/` - Sustainability Pillar
 
 ### 🛠️ Scripts (`scripts/`)
 
