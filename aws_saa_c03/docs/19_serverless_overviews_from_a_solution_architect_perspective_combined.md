@@ -239,9 +239,9 @@ public class Hello implements RequestHandler<Object, String> {
 }
 ```
 
-> You can also develop Lambda functions locally using VS Code Extension: 
-> - [AWS Toolkit](https://marketplace.visualstudio.com/items?itemName=amazonwebservices.aws-toolkit-vscode), which provides a local environment for testing and debugging Lambda functions. 
-> - AWS boto3
+> You can also develop Lambda functions locally using VS Code Extension:  
+> - [AWS Toolkit](https://marketplace.visualstudio.com/items?itemName=amazonwebservices.aws-toolkit-vscode), which provides a local environment for testing and debugging Lambda functions.  
+> - AWS boto3  
 > - Amazon Q - For Agentic coding experience.
 
 Let's explore some key features:

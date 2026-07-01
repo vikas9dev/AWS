@@ -50,7 +50,7 @@ Key points:
 * Workloads must deliver **effective business value**.
 * Supporting functions around workloads should **reinforce value delivery**.
 
-> ⚠️ Operational excellence is about **running workloads effectively**.
+> ⚠️ Operational excellence is about **running workloads effectively**.  
 > A workload that is secure, cost-optimized, reliable, and performant is excellent, but if your teams cannot operate it efficiently, it becomes **an overhead to the business**.
 
 ---

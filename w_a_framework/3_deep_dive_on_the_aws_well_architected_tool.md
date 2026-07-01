@@ -31,7 +31,7 @@ The mechanism includes three steps:
    * AWS Partner Network
    * AWS solutions architecture teams
 
-> ⚠️ This three-step mechanism should be applied **consistently** to every workload in your organization.
+> ⚠️ This three-step mechanism should be applied **consistently** to every workload in your organization.  
 > A workload represents a set of components that together deliver **business value**. More details on workloads are covered in a later module.
 
 ---
