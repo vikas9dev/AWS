@@ -53,7 +53,7 @@ Key aspects include:
 * **Quantify:** Measure impact across the workload lifecycle.
 * **Apply:** Implement design principles and best practices to reduce impact.
 
-> Sustainability is a **trade-off**, similar to other Well-Architected pillars.
+> Sustainability is a **trade-off**, similar to other Well-Architected pillars.  
 > AWS provides a **sustainable infrastructure**, while customers are responsible for **architectural sustainability practices** in their workloads.
 
 ### Importance of Sustainability

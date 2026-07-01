@@ -895,8 +895,8 @@ We have two primary options:
 
 ### SQL Applications (Legacy) 📜
 
-> SQL Applications (Legacy) (also known as Kinesis Data Analytics for SQL Applications) is being phased out/discontinued by AWS. 
-> - October 15, 2025 → Creation of new SQL Applications will be blocked.
+> SQL Applications (Legacy) (also known as Kinesis Data Analytics for SQL Applications) is being phased out/discontinued by AWS.  
+> - October 15, 2025 → Creation of new SQL Applications will be blocked.  
 > - January 27, 2026 → All existing SQL Applications will be deleted; no further operation/support.
 
 *   The original Kinesis Data Analytics for SQL Applications is now considered legacy.

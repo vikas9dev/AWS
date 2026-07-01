@@ -100,7 +100,7 @@ Read Replicas are designed to scale read operations.
 
 The replication between the main RDS database instance and the Read Replicas is **asynchronous** (multitasking).
 
-> * **Synchronous = wait in line ⏳** Tasks are executed **one after another**. Each task **must finish** before the next one starts. If one task takes time, the whole program waits.
+> * **Synchronous = wait in line ⏳** Tasks are executed **one after another**. Each task **must finish** before the next one starts. If one task takes time, the whole program waits.  
 > * **Asynchronous = multitasking 🚀** Tasks can **start and run without waiting** for others to finish. The program can handle multiple things at once (concurrency). Useful for I/O-bound operations like API calls, file reads, DB queries.
 
 *   This means the data on the Read Replicas is **eventually consistent**.
